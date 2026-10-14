@@ -474,3 +474,7 @@ profil sendiri; kemudian memberi instruksi untuk mencatat dan push.
   200. Referensi foto publik tampil; sampel gambar WebP menghasilkan 200.
 - Tidak mengimpor Anggota/Inventaris. Tidak memperbarui main dengan paket data.
 - Panduan SSH dan catatan dipush ke branch bernama `Agents` (bukan `Agent`).
+- Dry-run sesudah apply: angkatan add 0/skip 21, album add 0/skip 22, media
+  add 0; import ulang tidak membuat duplikat. Tes semua 159 referensi gambar
+  publik (termasuk gambar yang sudah ada sebelumnya) menghasilkan HTTP 200
+  dan content-type image, tanpa kegagalan. Halaman galeri tetap HTTP 200.
