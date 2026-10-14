@@ -1,0 +1,2182 @@
+{
+  "version": 1,
+  "source": "https://www.wapalatelkomuniversity.org",
+  "fetchedAt": "2026-10-14T08:01:44.913Z",
+  "coverage": {
+    "generations": 21,
+    "albums": 22,
+    "expectedAlbums": 22,
+    "pages": 3,
+    "photos": 129
+  },
+  "pages": [
+    {
+      "url": "https://www.wapalatelkomuniversity.org/album",
+      "sha256": "35d984895a0fbfe317f075938f47345cbf9dbc4c967f54a251735d19e9469b9a"
+    },
+    {
+      "url": "https://www.wapalatelkomuniversity.org/album?page=2",
+      "sha256": "bf5f628581f4fb85f513be620d6d9791cdef962bec5dda9d77a6bb25f2207a9c"
+    },
+    {
+      "url": "https://www.wapalatelkomuniversity.org/album?page=1",
+      "sha256": "35d984895a0fbfe317f075938f47345cbf9dbc4c967f54a251735d19e9469b9a"
+    }
+  ],
+  "generations": [
+    {
+      "sourceKey": "generation:21",
+      "number": "21",
+      "name": "AMBARAWA",
+      "label": "WAPALA XXI",
+      "year": null,
+      "description": "",
+      "sourceUrl": "https://www.wapalatelkomuniversity.org/profil",
+      "imageUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/dD5Rb59mK04a65psBvY8gqBurs8aq1g1gmZwFw0h.png"
+    },
+    {
+      "sourceKey": "generation:20",
+      "number": "20",
+      "name": "ARUNG",
+      "label": "WAPALA XX",
+      "year": null,
+      "description": "",
+      "sourceUrl": "https://www.wapalatelkomuniversity.org/profil",
+      "imageUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/vbEWMCccGr4p7I0qR1JznoAZSSJZPBx8Um6psYSL.png"
+    },
+    {
+      "sourceKey": "generation:19",
+      "number": "19",
+      "name": "TRISULA",
+      "label": "WAPALA XIX",
+      "year": null,
+      "description": "",
+      "sourceUrl": "https://www.wapalatelkomuniversity.org/profil",
+      "imageUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/uvUfWi1AOjcZtVy9LrLDpMsK0aNy0dPwwn9bouPE.png"
+    },
+    {
+      "sourceKey": "generation:18",
+      "number": "18",
+      "name": "ANTASENA",
+      "label": "WAPALA XVIII",
+      "year": null,
+      "description": "",
+      "sourceUrl": "https://www.wapalatelkomuniversity.org/profil",
+      "imageUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/hpkO8Q8ryEhCYHs10k36keCDq1bvBZ12SRb9ASwm.png"
+    },
+    {
+      "sourceKey": "generation:17",
+      "number": "17",
+      "name": "KALIANDRA",
+      "label": "WAPALA XVII",
+      "year": null,
+      "description": "",
+      "sourceUrl": "https://www.wapalatelkomuniversity.org/profil",
+      "imageUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/DgBnf9ozUxkARz3XtHyynOkPVZKiJAPq8wAQZF5Z.png"
+    },
+    {
+      "sourceKey": "generation:16",
+      "number": "16",
+      "name": "KALINGGA",
+      "label": "WAPALA XVI",
+      "year": null,
+      "description": "",
+      "sourceUrl": "https://www.wapalatelkomuniversity.org/profil",
+      "imageUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/9xZcMJtkdsFAoNTqBCg2KuZxJwnKuQoGigaIxMqB.png"
+    },
+    {
+      "sourceKey": "generation:15",
+      "number": "15",
+      "name": "AKSARA",
+      "label": "WAPALA XV",
+      "year": null,
+      "description": "",
+      "sourceUrl": "https://www.wapalatelkomuniversity.org/profil",
+      "imageUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/tzCrbrky5T4OvdlWTO3tw5jfSB0CLEe9ZqT1aRwh.png"
+    },
+    {
+      "sourceKey": "generation:14",
+      "number": "14",
+      "name": "TARANTULA",
+      "label": "WAPALA XIV",
+      "year": null,
+      "description": "",
+      "sourceUrl": "https://www.wapalatelkomuniversity.org/profil",
+      "imageUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/ONDGftBvxCVgzrXzQWTe3Y1n61Ab50MJZH81I9N1.png"
+    },
+    {
+      "sourceKey": "generation:13",
+      "number": "13",
+      "name": "ANGKASA",
+      "label": "WAPALA XIII",
+      "year": null,
+      "description": "",
+      "sourceUrl": "https://www.wapalatelkomuniversity.org/profil",
+      "imageUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/UTIoqvZ1EnC31ksLfP50Cy3OflfLtl1JaZ9EOdVZ.png"
+    },
+    {
+      "sourceKey": "generation:12",
+      "number": "12",
+      "name": "ANMAHU",
+      "label": "WAPALA XII",
+      "year": null,
+      "description": "",
+      "sourceUrl": "https://www.wapalatelkomuniversity.org/profil",
+      "imageUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/NQAuIiWD0G3SIJDCfHSYNGCO2QE0oDJC3qXO6M6Y.png"
+    },
+    {
+      "sourceKey": "generation:11",
+      "number": "11",
+      "name": "MAMOT",
+      "label": "WAPALA XI",
+      "year": null,
+      "description": "",
+      "sourceUrl": "https://www.wapalatelkomuniversity.org/profil",
+      "imageUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/oIABzvJecvUDbUtSn1St7Vup1QvI7xqhSyiYz1ON.png"
+    },
+    {
+      "sourceKey": "generation:10",
+      "number": "10",
+      "name": "BONTIL",
+      "label": "WAPALA X",
+      "year": null,
+      "description": "",
+      "sourceUrl": "https://www.wapalatelkomuniversity.org/profil",
+      "imageUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/xW3GmVCrcjXhZnhoVK6BTzHM26XJx1Zy7gg1TQE3.png"
+    },
+    {
+      "sourceKey": "generation:09",
+      "number": "09",
+      "name": "PARLENTE",
+      "label": "WAPALA IX",
+      "year": null,
+      "description": "",
+      "sourceUrl": "https://www.wapalatelkomuniversity.org/profil",
+      "imageUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/RfLEjpg0UCjo6LvvJvMFBPra0WAEB0LBxx5Bw7Tk.png"
+    },
+    {
+      "sourceKey": "generation:08",
+      "number": "08",
+      "name": "KOMET",
+      "label": "WAPALA VIII",
+      "year": null,
+      "description": "",
+      "sourceUrl": "https://www.wapalatelkomuniversity.org/profil",
+      "imageUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/VkFmsOpIjYT1aFvBl7swILDWwHxqUGWXHoDIVbfD.png"
+    },
+    {
+      "sourceKey": "generation:07",
+      "number": "07",
+      "name": "WAPALA ANGKATAN VII",
+      "label": "WAPALA VII",
+      "year": null,
+      "description": "",
+      "sourceUrl": "https://www.wapalatelkomuniversity.org/profil",
+      "imageUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/S1vYPivkvZ1CMvsp2sHAbmzCvzKuo3nSLKqvoUD9.png"
+    },
+    {
+      "sourceKey": "generation:06",
+      "number": "06",
+      "name": "KEMET",
+      "label": "WAPALA VI",
+      "year": null,
+      "description": "",
+      "sourceUrl": "https://www.wapalatelkomuniversity.org/profil",
+      "imageUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/bs1RFNft4cnIxr6bBbx0eJaoLlziPOZv8pWDE3Gm.png"
+    },
+    {
+      "sourceKey": "generation:05",
+      "number": "05",
+      "name": "WAPALA ANGKATAN V",
+      "label": "WAPALA V",
+      "year": null,
+      "description": "",
+      "sourceUrl": "https://www.wapalatelkomuniversity.org/profil",
+      "imageUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/n6GzkL2T2Q8gXNURhTO9OPlEYSwiX0e2vqL5qCDV.png"
+    },
+    {
+      "sourceKey": "generation:04",
+      "number": "04",
+      "name": "WAPALA ANGKATAN IV",
+      "label": "WAPALA IV",
+      "year": null,
+      "description": "",
+      "sourceUrl": "https://www.wapalatelkomuniversity.org/profil",
+      "imageUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/GCBlELzNPc2BJMJN39XbCFfgDsxTq0cNKp0xRHVf.png"
+    },
+    {
+      "sourceKey": "generation:03",
+      "number": "03",
+      "name": "WAPALA ANGKATAN III",
+      "label": "WAPALA III",
+      "year": null,
+      "description": "",
+      "sourceUrl": "https://www.wapalatelkomuniversity.org/profil",
+      "imageUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/nj86guUWA0KcoIVNdGZ8sHK3KZwKqWNcyrVaPrIz.png"
+    },
+    {
+      "sourceKey": "generation:02",
+      "number": "02",
+      "name": "WAPALA ANGKATAN II",
+      "label": "WAPALA II",
+      "year": null,
+      "description": "",
+      "sourceUrl": "https://www.wapalatelkomuniversity.org/profil",
+      "imageUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/bXApxujBo2BAkb24aOJ24eAEagxQnycuqvxFB6HP.png"
+    },
+    {
+      "sourceKey": "generation:01",
+      "number": "01",
+      "name": "PENDIRI WAPALA",
+      "label": "WAPALA I",
+      "year": null,
+      "description": "",
+      "sourceUrl": "https://www.wapalatelkomuniversity.org/profil",
+      "imageUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/HlI9TaLLUcRS6IyE8jsTk1mPWeQkmErCCSC0Wk6h.png"
+    }
+  ],
+  "albums": [
+    {
+      "sourceKey": "album:ekspedisi-gunung-argopuro",
+      "sourceId": "ekspedisi-gunung-argopuro",
+      "sourceUrl": "https://www.wapalatelkomuniversity.org/album?page=1",
+      "title": "Ekspedisi Gunung Argopuro",
+      "description": "Ekspedisi Argopuro merupakan kegiatan eksplorasi yang meliputi pengamatan dan dokumentasi flora serta fauna yang ditemui selama perjalanan, sekaligus penelusuran jejak sejarah dan cerita yang melekat pada kawasan Argopuro.",
+      "category": "Lainya",
+      "categorySourceId": "14",
+      "location": "",
+      "activityDate": "",
+      "uploadedAt": "",
+      "year": 2026,
+      "expectedPhotos": 6,
+      "coverUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790752188_6abcb5bce4745.png",
+      "photos": [
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790752188_6abcb5bce4745.png",
+          "caption": "Ekspedisi Argopuro merupakan kegiatan eksplorasi yang meliputi pengamatan dan dokumentasi flora serta fauna yang ditemui selama perjalanan, sekaligus penelusuran jejak sejarah dan cerita yang melekat pada kawasan Argopuro."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790752187_6abcb5bb1420d.png",
+          "caption": "Ekspedisi Argopuro merupakan kegiatan eksplorasi yang meliputi pengamatan dan dokumentasi flora serta fauna yang ditemui selama perjalanan, sekaligus penelusuran jejak sejarah dan cerita yang melekat pada kawasan Argopuro."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790752185_6abcb5b94964f.png",
+          "caption": "Ekspedisi Argopuro merupakan kegiatan eksplorasi yang meliputi pengamatan dan dokumentasi flora serta fauna yang ditemui selama perjalanan, sekaligus penelusuran jejak sejarah dan cerita yang melekat pada kawasan Argopuro."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790752183_6abcb5b78cc7a.png",
+          "caption": "Ekspedisi Argopuro merupakan kegiatan eksplorasi yang meliputi pengamatan dan dokumentasi flora serta fauna yang ditemui selama perjalanan, sekaligus penelusuran jejak sejarah dan cerita yang melekat pada kawasan Argopuro."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790752181_6abcb5b5835d1.png",
+          "caption": "Ekspedisi Argopuro merupakan kegiatan eksplorasi yang meliputi pengamatan dan dokumentasi flora serta fauna yang ditemui selama perjalanan, sekaligus penelusuran jejak sejarah dan cerita yang melekat pada kawasan Argopuro."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790752179_6abcb5b39e306.png",
+          "caption": "Ekspedisi Argopuro merupakan kegiatan eksplorasi yang meliputi pengamatan dan dokumentasi flora serta fauna yang ditemui selama perjalanan, sekaligus penelusuran jejak sejarah dan cerita yang melekat pada kawasan Argopuro."
+        }
+      ]
+    },
+    {
+      "sourceKey": "album:penanaman-dalam-rangka-peringatan-hut-wipala-ke-33",
+      "sourceId": "penanaman-dalam-rangka-peringatan-hut-wipala-ke-33",
+      "sourceUrl": "https://www.wapalatelkomuniversity.org/album?page=1",
+      "title": "Penanaman Dalam Rangka Peringatan Hut Wipala ke-33",
+      "description": "Kegiatan penanaman pohon yang diadakan oleh Wipala dalam rangka peringatan HUT ke-33.",
+      "category": "Konservasi Lingkungan",
+      "categorySourceId": "8",
+      "location": "",
+      "activityDate": "",
+      "uploadedAt": "",
+      "year": 2026,
+      "expectedPhotos": 8,
+      "coverUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784454002_6a5c9b724d59c.png",
+      "photos": [
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784454002_6a5c9b724d59c.png",
+          "caption": "Kegiatan penanaman pohon yang diadakan oleh Wipala dalam rangka peringatan HUT ke-33."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784454002_6a5c9b72460ff.png",
+          "caption": "Kegiatan penanaman pohon yang diadakan oleh Wipala dalam rangka peringatan HUT ke-33."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784454002_6a5c9b723e7c4.png",
+          "caption": "Kegiatan penanaman pohon yang diadakan oleh Wipala dalam rangka peringatan HUT ke-33."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784454002_6a5c9b7237d26.png",
+          "caption": "Kegiatan penanaman pohon yang diadakan oleh Wipala dalam rangka peringatan HUT ke-33."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784454002_6a5c9b7230db9.png",
+          "caption": "Kegiatan penanaman pohon yang diadakan oleh Wipala dalam rangka peringatan HUT ke-33."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784454002_6a5c9b7229755.png",
+          "caption": "Kegiatan penanaman pohon yang diadakan oleh Wipala dalam rangka peringatan HUT ke-33."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784454002_6a5c9b7221761.png",
+          "caption": "Kegiatan penanaman pohon yang diadakan oleh Wipala dalam rangka peringatan HUT ke-33."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784454002_6a5c9b7216593.png",
+          "caption": "Kegiatan penanaman pohon yang diadakan oleh Wipala dalam rangka peringatan HUT ke-33."
+        }
+      ]
+    },
+    {
+      "sourceKey": "album:fun-run-and-climb-eigerian-purwokerto",
+      "sourceId": "fun-run-and-climb-eigerian-purwokerto",
+      "sourceUrl": "https://www.wapalatelkomuniversity.org/album?page=1",
+      "title": "Fun Run and Climb × Eigerian Purwokerto",
+      "description": "Dokumentasi kegiatan Fun Run and Climb × Eigerian yang menggabungkan aktivitas lari dan wall climbing sebagai sarana membangun kebugaran, semangat kebersamaan, dan kolaborasi antar komunitas.",
+      "category": "Lainya",
+      "categorySourceId": "14",
+      "location": "",
+      "activityDate": "",
+      "uploadedAt": "",
+      "year": 2026,
+      "expectedPhotos": 6,
+      "coverUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784453432_6a5c99389c8cc.png",
+      "photos": [
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784453432_6a5c99389c8cc.png",
+          "caption": "Dokumentasi kegiatan Fun Run and Climb × Eigerian yang menggabungkan aktivitas lari dan wall climbing sebagai sarana membangun kebugaran, semangat kebersamaan, dan kolaborasi antar komunitas."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784453432_6a5c993895f38.png",
+          "caption": "Dokumentasi kegiatan Fun Run and Climb × Eigerian yang menggabungkan aktivitas lari dan wall climbing sebagai sarana membangun kebugaran, semangat kebersamaan, dan kolaborasi antar komunitas."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784453432_6a5c99388eb1c.png",
+          "caption": "Dokumentasi kegiatan Fun Run and Climb × Eigerian yang menggabungkan aktivitas lari dan wall climbing sebagai sarana membangun kebugaran, semangat kebersamaan, dan kolaborasi antar komunitas."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784453432_6a5c99388275b.png",
+          "caption": "Dokumentasi kegiatan Fun Run and Climb × Eigerian yang menggabungkan aktivitas lari dan wall climbing sebagai sarana membangun kebugaran, semangat kebersamaan, dan kolaborasi antar komunitas."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784453432_6a5c993880099.png",
+          "caption": "Dokumentasi kegiatan Fun Run and Climb × Eigerian yang menggabungkan aktivitas lari dan wall climbing sebagai sarana membangun kebugaran, semangat kebersamaan, dan kolaborasi antar komunitas."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784453432_6a5c9938790b3.png",
+          "caption": "Dokumentasi kegiatan Fun Run and Climb × Eigerian yang menggabungkan aktivitas lari dan wall climbing sebagai sarana membangun kebugaran, semangat kebersamaan, dan kolaborasi antar komunitas."
+        }
+      ]
+    },
+    {
+      "sourceKey": "album:latihan-rafting",
+      "sourceId": "latihan-rafting",
+      "sourceUrl": "https://www.wapalatelkomuniversity.org/album?page=1",
+      "title": "Latihan Rafting",
+      "description": "Latihan bersama rafting WAPALA dan Mapala Silvagama di sungai Elo",
+      "category": "Arung Jeram",
+      "categorySourceId": "7",
+      "location": "",
+      "activityDate": "",
+      "uploadedAt": "",
+      "year": 2026,
+      "expectedPhotos": 5,
+      "coverUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784452457_6a5c9569be1d4.png",
+      "photos": [
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784452457_6a5c9569be1d4.png",
+          "caption": "Latihan bersama rafting WAPALA dan Mapala Silvagama di sungai Elo"
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784452457_6a5c9569b7947.png",
+          "caption": "Latihan bersama rafting WAPALA dan Mapala Silvagama di sungai Elo"
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784452457_6a5c9569b114a.png",
+          "caption": "Latihan bersama rafting WAPALA dan Mapala Silvagama di sungai Elo"
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784452457_6a5c9569ab3ca.png",
+          "caption": "Latihan bersama rafting WAPALA dan Mapala Silvagama di sungai Elo"
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784452457_6a5c9569a0134.png",
+          "caption": "Latihan bersama rafting WAPALA dan Mapala Silvagama di sungai Elo"
+        }
+      ]
+    },
+    {
+      "sourceKey": "album:sinar-sinau-bareng-relawan",
+      "sourceId": "sinar-sinau-bareng-relawan",
+      "sourceUrl": "https://www.wapalatelkomuniversity.org/album?page=1",
+      "title": "SINAR (Sinau Bareng Relawan)",
+      "description": "Dokumentasi kegiatan SINAR (Sinau Bareng Relawan) yang mengabadikan momen belajar bersama, berdiskusi, dan mempererat kebersamaan dalam semangat kolaborasi dan kepedulian.",
+      "category": "Lainya",
+      "categorySourceId": "14",
+      "location": "",
+      "activityDate": "",
+      "uploadedAt": "",
+      "year": 2026,
+      "expectedPhotos": 8,
+      "coverUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784451825_6a5c92f1a204b.png",
+      "photos": [
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784451825_6a5c92f1a204b.png",
+          "caption": "Dokumentasi kegiatan SINAR (Sinau Bareng Relawan) yang mengabadikan momen belajar bersama, berdiskusi, dan mempererat kebersamaan dalam semangat kolaborasi dan kepedulian."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784451825_6a5c92f19a701.png",
+          "caption": "Dokumentasi kegiatan SINAR (Sinau Bareng Relawan) yang mengabadikan momen belajar bersama, berdiskusi, dan mempererat kebersamaan dalam semangat kolaborasi dan kepedulian."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784451825_6a5c92f194b70.png",
+          "caption": "Dokumentasi kegiatan SINAR (Sinau Bareng Relawan) yang mengabadikan momen belajar bersama, berdiskusi, dan mempererat kebersamaan dalam semangat kolaborasi dan kepedulian."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784451825_6a5c92f18e2c1.png",
+          "caption": "Dokumentasi kegiatan SINAR (Sinau Bareng Relawan) yang mengabadikan momen belajar bersama, berdiskusi, dan mempererat kebersamaan dalam semangat kolaborasi dan kepedulian."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784451825_6a5c92f187582.png",
+          "caption": "Dokumentasi kegiatan SINAR (Sinau Bareng Relawan) yang mengabadikan momen belajar bersama, berdiskusi, dan mempererat kebersamaan dalam semangat kolaborasi dan kepedulian."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784451825_6a5c92f17ffc4.png",
+          "caption": "Dokumentasi kegiatan SINAR (Sinau Bareng Relawan) yang mengabadikan momen belajar bersama, berdiskusi, dan mempererat kebersamaan dalam semangat kolaborasi dan kepedulian."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784451825_6a5c92f17832a.png",
+          "caption": "Dokumentasi kegiatan SINAR (Sinau Bareng Relawan) yang mengabadikan momen belajar bersama, berdiskusi, dan mempererat kebersamaan dalam semangat kolaborasi dan kepedulian."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784451825_6a5c92f17076f.png",
+          "caption": "Dokumentasi kegiatan SINAR (Sinau Bareng Relawan) yang mengabadikan momen belajar bersama, berdiskusi, dan mempererat kebersamaan dalam semangat kolaborasi dan kepedulian."
+        }
+      ]
+    },
+    {
+      "sourceKey": "album:rabu-produktif",
+      "sourceId": "rabu-produktif",
+      "sourceUrl": "https://www.wapalatelkomuniversity.org/album?page=1",
+      "title": "Rabu Produktif",
+      "description": "Kegiatan latihan rutin wall climbing dan SRT(Single Rope Technique) yang dilakukan setiap hari Rabu.",
+      "category": "Lainya",
+      "categorySourceId": "14",
+      "location": "",
+      "activityDate": "",
+      "uploadedAt": "",
+      "year": 2026,
+      "expectedPhotos": 5,
+      "coverUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784450949_6a5c8f85a7a83.png",
+      "photos": [
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784450949_6a5c8f85a7a83.png",
+          "caption": "Kegiatan latihan rutin wall climbing dan SRT(Single Rope Technique) yang dilakukan setiap hari Rabu."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784450949_6a5c8f85a2328.png",
+          "caption": "Kegiatan latihan rutin wall climbing dan SRT(Single Rope Technique) yang dilakukan setiap hari Rabu."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784450949_6a5c8f859d7d6.png",
+          "caption": "Kegiatan latihan rutin wall climbing dan SRT(Single Rope Technique) yang dilakukan setiap hari Rabu."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784450949_6a5c8f8597d40.png",
+          "caption": "Kegiatan latihan rutin wall climbing dan SRT(Single Rope Technique) yang dilakukan setiap hari Rabu."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784450949_6a5c8f858ca6b.png",
+          "caption": "Kegiatan latihan rutin wall climbing dan SRT(Single Rope Technique) yang dilakukan setiap hari Rabu."
+        }
+      ]
+    },
+    {
+      "sourceKey": "album:donor-darah",
+      "sourceId": "donor-darah",
+      "sourceUrl": "https://www.wapalatelkomuniversity.org/album?page=1",
+      "title": "Donor Darah",
+      "description": "Aksi Donor Darah sebagai wujud kepedulian sosial dan kontribusi nyata dalam membantu memenuhi kebutuhan stok darah bagi masyarakat.",
+      "category": "Aksi Sosial",
+      "categorySourceId": "9",
+      "location": "",
+      "activityDate": "",
+      "uploadedAt": "",
+      "year": 2026,
+      "expectedPhotos": 5,
+      "coverUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784448025_6a5c8419d39e3.png",
+      "photos": [
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784448025_6a5c8419d39e3.png",
+          "caption": "Aksi Donor Darah sebagai wujud kepedulian sosial dan kontribusi nyata dalam membantu memenuhi kebutuhan stok darah bagi masyarakat."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784448025_6a5c8419cd2d1.png",
+          "caption": "Aksi Donor Darah sebagai wujud kepedulian sosial dan kontribusi nyata dalam membantu memenuhi kebutuhan stok darah bagi masyarakat."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784448025_6a5c8419c930e.png",
+          "caption": "Aksi Donor Darah sebagai wujud kepedulian sosial dan kontribusi nyata dalam membantu memenuhi kebutuhan stok darah bagi masyarakat."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784448025_6a5c8419c4fea.png",
+          "caption": "Aksi Donor Darah sebagai wujud kepedulian sosial dan kontribusi nyata dalam membantu memenuhi kebutuhan stok darah bagi masyarakat."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784448025_6a5c8419bdb12.png",
+          "caption": "Aksi Donor Darah sebagai wujud kepedulian sosial dan kontribusi nyata dalam membantu memenuhi kebutuhan stok darah bagi masyarakat."
+        }
+      ]
+    },
+    {
+      "sourceKey": "album:pelantikan-alb-wapala",
+      "sourceId": "pelantikan-alb-wapala",
+      "sourceUrl": "https://www.wapalatelkomuniversity.org/album?page=1",
+      "title": "Pelantikan ALB WAPALA",
+      "description": "Dokumentasi Pelantikan ANggota Luar Biasa WAPALA\r\nSatu perjalanan selesai, perjalanan lain menanti. 🌿",
+      "category": "Lainya",
+      "categorySourceId": "14",
+      "location": "",
+      "activityDate": "",
+      "uploadedAt": "",
+      "year": 2025,
+      "expectedPhotos": 4,
+      "coverUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790687775_6abbba1f21742.png",
+      "photos": [
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790687775_6abbba1f21742.png",
+          "caption": "Dokumentasi Pelantikan ANggota Luar Biasa WAPALA\r\nSatu perjalanan selesai, perjalanan lain menanti. 🌿"
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790687773_6abbba1dbf98b.png",
+          "caption": "Dokumentasi Pelantikan ANggota Luar Biasa WAPALA\r\nSatu perjalanan selesai, perjalanan lain menanti. 🌿"
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790687771_6abbba1be0bea.png",
+          "caption": "Dokumentasi Pelantikan ANggota Luar Biasa WAPALA\r\nSatu perjalanan selesai, perjalanan lain menanti. 🌿"
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790687769_6abbba1905dd1.png",
+          "caption": "Dokumentasi Pelantikan ANggota Luar Biasa WAPALA\r\nSatu perjalanan selesai, perjalanan lain menanti. 🌿"
+        }
+      ]
+    },
+    {
+      "sourceKey": "album:pelantikan-anggota-luar-biasa",
+      "sourceId": "pelantikan-anggota-luar-biasa",
+      "sourceUrl": "https://www.wapalatelkomuniversity.org/album?page=1",
+      "title": "Pelantikan Anggota Luar Biasa",
+      "description": "Selamat wisuda, Sukses untuk langkah dan cerita berikutnya🎓🌿",
+      "category": "Lainya",
+      "categorySourceId": "14",
+      "location": "",
+      "activityDate": "",
+      "uploadedAt": "",
+      "year": 2025,
+      "expectedPhotos": 2,
+      "coverUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790687472_6abbb8f0b1157.png",
+      "photos": [
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790687472_6abbb8f0b1157.png",
+          "caption": "Selamat wisuda, Sukses untuk langkah dan cerita berikutnya🎓🌿"
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790687469_6abbb8edc3e2f.png",
+          "caption": "Selamat wisuda, Sukses untuk langkah dan cerita berikutnya🎓🌿"
+        }
+      ]
+    },
+    {
+      "sourceKey": "album:hut-wapala-xxi",
+      "sourceId": "hut-wapala-xxi",
+      "sourceUrl": "https://www.wapalatelkomuniversity.org/album?page=1",
+      "title": "HUT WAPALA XXI",
+      "description": "Dokumentasi HUT WAPALA ke-21",
+      "category": "HUT WAPALA",
+      "categorySourceId": "4",
+      "location": "",
+      "activityDate": "",
+      "uploadedAt": "",
+      "year": 2025,
+      "expectedPhotos": 6,
+      "coverUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790685813_6abbb27508e4e.png",
+      "photos": [
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790685813_6abbb27508e4e.png",
+          "caption": "Dokumentasi HUT WAPALA ke-21"
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790685811_6abbb273894e7.png",
+          "caption": "Dokumentasi HUT WAPALA ke-21"
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790685809_6abbb2719f821.png",
+          "caption": "Dokumentasi HUT WAPALA ke-21"
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790685808_6abbb27053868.png",
+          "caption": "Dokumentasi HUT WAPALA ke-21"
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790685806_6abbb26ee1ec8.png",
+          "caption": "Dokumentasi HUT WAPALA ke-21"
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790685805_6abbb26d29fe9.png",
+          "caption": "Dokumentasi HUT WAPALA ke-21"
+        }
+      ]
+    },
+    {
+      "sourceKey": "album:rafting-wapala-x-mapala-silvagama",
+      "sourceId": "rafting-wapala-x-mapala-silvagama",
+      "sourceUrl": "https://www.wapalatelkomuniversity.org/album?page=1",
+      "title": "Rafting Wapala x Mapala Silvagama",
+      "description": "Latihan Rafting WAPALA bersama Mapala Silvagama di Sungai Elo dengan dua kali pengarungan sebagai upaya meningkatkan keterampilan, koordinasi tim, dan pengalaman dalam kegiatan arung jeram.",
+      "category": "Arung Jeram",
+      "categorySourceId": "7",
+      "location": "",
+      "activityDate": "",
+      "uploadedAt": "",
+      "year": 2025,
+      "expectedPhotos": 7,
+      "coverUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784452986_6a5c977aab8a9.png",
+      "photos": [
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784452986_6a5c977aab8a9.png",
+          "caption": "Latihan Rafting WAPALA bersama Mapala Silvagama di Sungai Elo dengan dua kali pengarungan sebagai upaya meningkatkan keterampilan, koordinasi tim, dan pengalaman dalam kegiatan arung jeram."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784452986_6a5c977aa4c7f.png",
+          "caption": "Latihan Rafting WAPALA bersama Mapala Silvagama di Sungai Elo dengan dua kali pengarungan sebagai upaya meningkatkan keterampilan, koordinasi tim, dan pengalaman dalam kegiatan arung jeram."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784452986_6a5c977a9d047.png",
+          "caption": "Latihan Rafting WAPALA bersama Mapala Silvagama di Sungai Elo dengan dua kali pengarungan sebagai upaya meningkatkan keterampilan, koordinasi tim, dan pengalaman dalam kegiatan arung jeram."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784452986_6a5c977a963f5.png",
+          "caption": "Latihan Rafting WAPALA bersama Mapala Silvagama di Sungai Elo dengan dua kali pengarungan sebagai upaya meningkatkan keterampilan, koordinasi tim, dan pengalaman dalam kegiatan arung jeram."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784452986_6a5c977a91731.png",
+          "caption": "Latihan Rafting WAPALA bersama Mapala Silvagama di Sungai Elo dengan dua kali pengarungan sebagai upaya meningkatkan keterampilan, koordinasi tim, dan pengalaman dalam kegiatan arung jeram."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784452986_6a5c977a8e0f8.png",
+          "caption": "Latihan Rafting WAPALA bersama Mapala Silvagama di Sungai Elo dengan dua kali pengarungan sebagai upaya meningkatkan keterampilan, koordinasi tim, dan pengalaman dalam kegiatan arung jeram."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784452986_6a5c977a88408.png",
+          "caption": "Latihan Rafting WAPALA bersama Mapala Silvagama di Sungai Elo dengan dua kali pengarungan sebagai upaya meningkatkan keterampilan, koordinasi tim, dan pengalaman dalam kegiatan arung jeram."
+        }
+      ]
+    },
+    {
+      "sourceKey": "album:fun-climbing",
+      "sourceId": "fun-climbing",
+      "sourceUrl": "https://www.wapalatelkomuniversity.org/album?page=1",
+      "title": "Fun Climbing",
+      "description": "Kegiatan Fun Climbing Berhadiah dalam rangka HUT WAPALA XXI. Melalui kegiatan ini, peserta diajak merasakan pengalaman panjat tebing sekaligus menikmati berbagai hadiah menarik.",
+      "category": "HUT WAPALA",
+      "categorySourceId": "4",
+      "location": "",
+      "activityDate": "",
+      "uploadedAt": "",
+      "year": 2025,
+      "expectedPhotos": 8,
+      "coverUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784450078_6a5c8c1e1ee55.png",
+      "photos": [
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784450078_6a5c8c1e1ee55.png",
+          "caption": "Kegiatan Fun Climbing Berhadiah dalam rangka HUT WAPALA XXI. Melalui kegiatan ini, peserta diajak merasakan pengalaman panjat tebing sekaligus menikmati berbagai hadiah menarik."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784450078_6a5c8c1e19900.png",
+          "caption": "Kegiatan Fun Climbing Berhadiah dalam rangka HUT WAPALA XXI. Melalui kegiatan ini, peserta diajak merasakan pengalaman panjat tebing sekaligus menikmati berbagai hadiah menarik."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784450078_6a5c8c1e167ef.png",
+          "caption": "Kegiatan Fun Climbing Berhadiah dalam rangka HUT WAPALA XXI. Melalui kegiatan ini, peserta diajak merasakan pengalaman panjat tebing sekaligus menikmati berbagai hadiah menarik."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784450078_6a5c8c1e146c1.png",
+          "caption": "Kegiatan Fun Climbing Berhadiah dalam rangka HUT WAPALA XXI. Melalui kegiatan ini, peserta diajak merasakan pengalaman panjat tebing sekaligus menikmati berbagai hadiah menarik."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784450078_6a5c8c1e12842.png",
+          "caption": "Kegiatan Fun Climbing Berhadiah dalam rangka HUT WAPALA XXI. Melalui kegiatan ini, peserta diajak merasakan pengalaman panjat tebing sekaligus menikmati berbagai hadiah menarik."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784450078_6a5c8c1e105c6.png",
+          "caption": "Kegiatan Fun Climbing Berhadiah dalam rangka HUT WAPALA XXI. Melalui kegiatan ini, peserta diajak merasakan pengalaman panjat tebing sekaligus menikmati berbagai hadiah menarik."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784450078_6a5c8c1e0a9f0.png",
+          "caption": "Kegiatan Fun Climbing Berhadiah dalam rangka HUT WAPALA XXI. Melalui kegiatan ini, peserta diajak merasakan pengalaman panjat tebing sekaligus menikmati berbagai hadiah menarik."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784450078_6a5c8c1e0041e.png",
+          "caption": "Kegiatan Fun Climbing Berhadiah dalam rangka HUT WAPALA XXI. Melalui kegiatan ini, peserta diajak merasakan pengalaman panjat tebing sekaligus menikmati berbagai hadiah menarik."
+        }
+      ]
+    },
+    {
+      "sourceKey": "album:pelatihan-apar",
+      "sourceId": "pelatihan-apar",
+      "sourceUrl": "https://www.wapalatelkomuniversity.org/album?page=2",
+      "title": "Pelatihan APAR",
+      "description": "kegiatan Pelatihan APAR bekerja sama dengan Dinas Pemadam Kebakaran (Damkar). Kegiatan ini terbuka bagi seluruh mahasiswa Telkom University Purwokerto sebagai upaya meningkatkan pengetahuan dan keterampilan dasar dalam penanggulangan kebakaran.",
+      "category": "Lainya",
+      "categorySourceId": "14",
+      "location": "",
+      "activityDate": "",
+      "uploadedAt": "",
+      "year": 2025,
+      "expectedPhotos": 7,
+      "coverUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784447599_6a5c826f4678b.png",
+      "photos": [
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784447599_6a5c826f4678b.png",
+          "caption": "kegiatan Pelatihan APAR bekerja sama dengan Dinas Pemadam Kebakaran (Damkar). Kegiatan ini terbuka bagi seluruh mahasiswa Telkom University Purwokerto sebagai upaya meningkatkan pengetahuan dan keterampilan dasar dalam penanggulangan kebakaran."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784447599_6a5c826f3efdf.png",
+          "caption": "kegiatan Pelatihan APAR bekerja sama dengan Dinas Pemadam Kebakaran (Damkar). Kegiatan ini terbuka bagi seluruh mahasiswa Telkom University Purwokerto sebagai upaya meningkatkan pengetahuan dan keterampilan dasar dalam penanggulangan kebakaran."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784447599_6a5c826f37578.png",
+          "caption": "kegiatan Pelatihan APAR bekerja sama dengan Dinas Pemadam Kebakaran (Damkar). Kegiatan ini terbuka bagi seluruh mahasiswa Telkom University Purwokerto sebagai upaya meningkatkan pengetahuan dan keterampilan dasar dalam penanggulangan kebakaran."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784447599_6a5c826f306ad.png",
+          "caption": "kegiatan Pelatihan APAR bekerja sama dengan Dinas Pemadam Kebakaran (Damkar). Kegiatan ini terbuka bagi seluruh mahasiswa Telkom University Purwokerto sebagai upaya meningkatkan pengetahuan dan keterampilan dasar dalam penanggulangan kebakaran."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784447599_6a5c826f294f9.png",
+          "caption": "kegiatan Pelatihan APAR bekerja sama dengan Dinas Pemadam Kebakaran (Damkar). Kegiatan ini terbuka bagi seluruh mahasiswa Telkom University Purwokerto sebagai upaya meningkatkan pengetahuan dan keterampilan dasar dalam penanggulangan kebakaran."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784447599_6a5c826f22645.png",
+          "caption": "kegiatan Pelatihan APAR bekerja sama dengan Dinas Pemadam Kebakaran (Damkar). Kegiatan ini terbuka bagi seluruh mahasiswa Telkom University Purwokerto sebagai upaya meningkatkan pengetahuan dan keterampilan dasar dalam penanggulangan kebakaran."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784447599_6a5c826f1684d.png",
+          "caption": "kegiatan Pelatihan APAR bekerja sama dengan Dinas Pemadam Kebakaran (Damkar). Kegiatan ini terbuka bagi seluruh mahasiswa Telkom University Purwokerto sebagai upaya meningkatkan pengetahuan dan keterampilan dasar dalam penanggulangan kebakaran."
+        }
+      ]
+    },
+    {
+      "sourceKey": "album:giat-penanaman-kaligua",
+      "sourceId": "giat-penanaman-kaligua",
+      "sourceUrl": "https://www.wapalatelkomuniversity.org/album?page=2",
+      "title": "Giat Penanaman Kaligua",
+      "description": "Dokumentasi kegiatan penanaman pohon di Kaligua yang diadakan oleh Wipala Rescue",
+      "category": "Konservasi Lingkungan",
+      "categorySourceId": "8",
+      "location": "",
+      "activityDate": "",
+      "uploadedAt": "",
+      "year": 2025,
+      "expectedPhotos": 3,
+      "coverUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784445575_6a5c7a8738656.png",
+      "photos": [
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784445575_6a5c7a8738656.png",
+          "caption": "Dokumentasi kegiatan penanaman pohon di Kaligua yang diadakan oleh Wipala Rescue"
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784445575_6a5c7a872e629.png",
+          "caption": "Dokumentasi kegiatan penanaman pohon di Kaligua yang diadakan oleh Wipala Rescue"
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784445575_6a5c7a871e245.png",
+          "caption": "Dokumentasi kegiatan penanaman pohon di Kaligua yang diadakan oleh Wipala Rescue"
+        }
+      ]
+    },
+    {
+      "sourceKey": "album:wapala-mlebu-gua",
+      "sourceId": "wapala-mlebu-gua",
+      "sourceUrl": "https://www.wapalatelkomuniversity.org/album?page=2",
+      "title": "WAPALA MLEBU GUA",
+      "description": "WAPALA Mlebu Gua merupakan kegiatan pengenalan penelusuran gua yang menjadi kesempatan bagi mahasiswa baru untuk mengenal lebih dekat salah satu bidang kegiatan di WAPALA",
+      "category": "Eksplorasi Gua",
+      "categorySourceId": "6",
+      "location": "",
+      "activityDate": "",
+      "uploadedAt": "",
+      "year": 2024,
+      "expectedPhotos": 7,
+      "coverUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790751946_6abcb4ca10a30.png",
+      "photos": [
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790751946_6abcb4ca10a30.png",
+          "caption": "WAPALA Mlebu Gua merupakan kegiatan pengenalan penelusuran gua yang menjadi kesempatan bagi mahasiswa baru untuk mengenal lebih dekat salah satu bidang kegiatan di WAPALA"
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790751944_6abcb4c89125c.png",
+          "caption": "WAPALA Mlebu Gua merupakan kegiatan pengenalan penelusuran gua yang menjadi kesempatan bagi mahasiswa baru untuk mengenal lebih dekat salah satu bidang kegiatan di WAPALA"
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790751942_6abcb4c6bbee4.png",
+          "caption": "WAPALA Mlebu Gua merupakan kegiatan pengenalan penelusuran gua yang menjadi kesempatan bagi mahasiswa baru untuk mengenal lebih dekat salah satu bidang kegiatan di WAPALA"
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790751941_6abcb4c543372.png",
+          "caption": "WAPALA Mlebu Gua merupakan kegiatan pengenalan penelusuran gua yang menjadi kesempatan bagi mahasiswa baru untuk mengenal lebih dekat salah satu bidang kegiatan di WAPALA"
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790751939_6abcb4c3733a4.png",
+          "caption": "WAPALA Mlebu Gua merupakan kegiatan pengenalan penelusuran gua yang menjadi kesempatan bagi mahasiswa baru untuk mengenal lebih dekat salah satu bidang kegiatan di WAPALA"
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790751938_6abcb4c2114c6.png",
+          "caption": "WAPALA Mlebu Gua merupakan kegiatan pengenalan penelusuran gua yang menjadi kesempatan bagi mahasiswa baru untuk mengenal lebih dekat salah satu bidang kegiatan di WAPALA"
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790751936_6abcb4c0861fd.png",
+          "caption": "WAPALA Mlebu Gua merupakan kegiatan pengenalan penelusuran gua yang menjadi kesempatan bagi mahasiswa baru untuk mengenal lebih dekat salah satu bidang kegiatan di WAPALA"
+        }
+      ]
+    },
+    {
+      "sourceKey": "album:hut-wapala-ke-20",
+      "sourceId": "hut-wapala-ke-20",
+      "sourceUrl": "https://www.wapalatelkomuniversity.org/album?page=2",
+      "title": "HUT WAPALA Ke-20",
+      "description": "Dokumentasi peringatan HUT WAPALA ke-20 yang menjadi momen berkumpul, berbagi cerita, dan merayakan perjalanan organisasi bersama seluruh keluarga besar WAPALA.",
+      "category": "HUT WAPALA",
+      "categorySourceId": "4",
+      "location": "",
+      "activityDate": "",
+      "uploadedAt": "",
+      "year": 2024,
+      "expectedPhotos": 6,
+      "coverUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784470921_6a5cdd89f40fc.png",
+      "photos": [
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784470921_6a5cdd89f40fc.png",
+          "caption": "Dokumentasi peringatan HUT WAPALA ke-20 yang menjadi momen berkumpul, berbagi cerita, dan merayakan perjalanan organisasi bersama seluruh keluarga besar WAPALA."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784470921_6a5cdd89ef307.png",
+          "caption": "Dokumentasi peringatan HUT WAPALA ke-20 yang menjadi momen berkumpul, berbagi cerita, dan merayakan perjalanan organisasi bersama seluruh keluarga besar WAPALA."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784470921_6a5cdd89e9e70.png",
+          "caption": "Dokumentasi peringatan HUT WAPALA ke-20 yang menjadi momen berkumpul, berbagi cerita, dan merayakan perjalanan organisasi bersama seluruh keluarga besar WAPALA."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784470921_6a5cdd89e49cc.png",
+          "caption": "Dokumentasi peringatan HUT WAPALA ke-20 yang menjadi momen berkumpul, berbagi cerita, dan merayakan perjalanan organisasi bersama seluruh keluarga besar WAPALA."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784470921_6a5cdd89df85f.png",
+          "caption": "Dokumentasi peringatan HUT WAPALA ke-20 yang menjadi momen berkumpul, berbagi cerita, dan merayakan perjalanan organisasi bersama seluruh keluarga besar WAPALA."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784470921_6a5cdd89d6785.png",
+          "caption": "Dokumentasi peringatan HUT WAPALA ke-20 yang menjadi momen berkumpul, berbagi cerita, dan merayakan perjalanan organisasi bersama seluruh keluarga besar WAPALA."
+        }
+      ]
+    },
+    {
+      "sourceKey": "album:giat-penanaman",
+      "sourceId": "giat-penanaman",
+      "sourceUrl": "https://www.wapalatelkomuniversity.org/album?page=2",
+      "title": "Giat Penanaman",
+      "description": "Dokumentasi giat penanaman bersama calon anggota wapala XX",
+      "category": "Konservasi Lingkungan",
+      "categorySourceId": "8",
+      "location": "",
+      "activityDate": "",
+      "uploadedAt": "",
+      "year": 2024,
+      "expectedPhotos": 7,
+      "coverUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784390268_6a5ba27c36048.png",
+      "photos": [
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784390268_6a5ba27c36048.png",
+          "caption": "Dokumentasi giat penanaman bersama calon anggota wapala XX"
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784390268_6a5ba27c2f7bc.png",
+          "caption": "Dokumentasi giat penanaman bersama calon anggota wapala XX"
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784390268_6a5ba27c295da.png",
+          "caption": "Dokumentasi giat penanaman bersama calon anggota wapala XX"
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784390268_6a5ba27c221f2.png",
+          "caption": "Dokumentasi giat penanaman bersama calon anggota wapala XX"
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784390268_6a5ba27c1ca22.png",
+          "caption": "Dokumentasi giat penanaman bersama calon anggota wapala XX"
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784390268_6a5ba27c164e9.png",
+          "caption": "Dokumentasi giat penanaman bersama calon anggota wapala XX"
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784390268_6a5ba27c0b2c8.png",
+          "caption": "Dokumentasi giat penanaman bersama calon anggota wapala XX"
+        }
+      ]
+    },
+    {
+      "sourceKey": "album:wapala-di-ukm-expo-2023",
+      "sourceId": "wapala-di-ukm-expo-2023",
+      "sourceUrl": "https://www.wapalatelkomuniversity.org/album?page=2",
+      "title": "WAPALA di UKM Expo 2023",
+      "description": "Dokumentasi partisipasi WAPALA Telkom University Purwokerto dalam kegiatan UKM Expo sebagai ajang memperkenalkan organisasi, kegiatan, serta semangat kepencintaalaman kepada mahasiswa.",
+      "category": "Lainya",
+      "categorySourceId": "14",
+      "location": "",
+      "activityDate": "",
+      "uploadedAt": "",
+      "year": 2023,
+      "expectedPhotos": 4,
+      "coverUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784449276_6a5c88fcef8c2.png",
+      "photos": [
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784449276_6a5c88fcef8c2.png",
+          "caption": "Dokumentasi partisipasi WAPALA Telkom University Purwokerto dalam kegiatan UKM Expo sebagai ajang memperkenalkan organisasi, kegiatan, serta semangat kepencintaalaman kepada mahasiswa."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784449276_6a5c88fce885f.png",
+          "caption": "Dokumentasi partisipasi WAPALA Telkom University Purwokerto dalam kegiatan UKM Expo sebagai ajang memperkenalkan organisasi, kegiatan, serta semangat kepencintaalaman kepada mahasiswa."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784449276_6a5c88fce1679.png",
+          "caption": "Dokumentasi partisipasi WAPALA Telkom University Purwokerto dalam kegiatan UKM Expo sebagai ajang memperkenalkan organisasi, kegiatan, serta semangat kepencintaalaman kepada mahasiswa."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784449276_6a5c88fcd4e6f.png",
+          "caption": "Dokumentasi partisipasi WAPALA Telkom University Purwokerto dalam kegiatan UKM Expo sebagai ajang memperkenalkan organisasi, kegiatan, serta semangat kepencintaalaman kepada mahasiswa."
+        }
+      ]
+    },
+    {
+      "sourceKey": "album:lomba-jelajah-desa-wikupala-ke-ix",
+      "sourceId": "lomba-jelajah-desa-wikupala-ke-ix",
+      "sourceUrl": "https://www.wapalatelkomuniversity.org/album?page=2",
+      "title": "Lomba Jelajah Desa Wikupala ke-IX",
+      "description": "Dokumentasi kegiatan Lomba Jelajah Desa Wikupala ke-IX",
+      "category": "Prestasi & Kompetisi",
+      "categorySourceId": "12",
+      "location": "",
+      "activityDate": "",
+      "uploadedAt": "",
+      "year": 2023,
+      "expectedPhotos": 8,
+      "coverUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784301425_6a5a4771ec6fe.jpg",
+      "photos": [
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784301425_6a5a4771ec6fe.jpg",
+          "caption": "Dokumentasi kegiatan Lomba Jelajah Desa Wikupala ke-IX"
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784301425_6a5a4771e8681.jpg",
+          "caption": "Dokumentasi kegiatan Lomba Jelajah Desa Wikupala ke-IX"
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784301425_6a5a4771e2a78.jpg",
+          "caption": "Dokumentasi kegiatan Lomba Jelajah Desa Wikupala ke-IX"
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784301425_6a5a4771ddbb5.jpg",
+          "caption": "Dokumentasi kegiatan Lomba Jelajah Desa Wikupala ke-IX"
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784301425_6a5a4771da013.jpg",
+          "caption": "Dokumentasi kegiatan Lomba Jelajah Desa Wikupala ke-IX"
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784301425_6a5a4771d6e7d.jpg",
+          "caption": "Dokumentasi kegiatan Lomba Jelajah Desa Wikupala ke-IX"
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784301425_6a5a4771d3f22.jpg",
+          "caption": "Dokumentasi kegiatan Lomba Jelajah Desa Wikupala ke-IX"
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784301425_6a5a4771ceb4d.jpg",
+          "caption": "Dokumentasi kegiatan Lomba Jelajah Desa Wikupala ke-IX"
+        }
+      ]
+    },
+    {
+      "sourceKey": "album:hut-wapala-ke-18",
+      "sourceId": "hut-wapala-ke-18",
+      "sourceUrl": "https://www.wapalatelkomuniversity.org/album?page=2",
+      "title": "HUT WAPALA Ke-18",
+      "description": "Berikut beberapa potret kebersamaan anggota di acara HUT WAPALA XVIII📷",
+      "category": "HUT WAPALA",
+      "categorySourceId": "4",
+      "location": "",
+      "activityDate": "",
+      "uploadedAt": "",
+      "year": 2023,
+      "expectedPhotos": 7,
+      "coverUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784298257_6a5a3b11ea53e.jpg",
+      "photos": [
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784298257_6a5a3b11ea53e.jpg",
+          "caption": "Berikut beberapa potret kebersamaan anggota di acara HUT WAPALA XVIII📷"
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784298257_6a5a3b11e8150.jpg",
+          "caption": "Berikut beberapa potret kebersamaan anggota di acara HUT WAPALA XVIII📷"
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784298257_6a5a3b11e5f80.jpg",
+          "caption": "Berikut beberapa potret kebersamaan anggota di acara HUT WAPALA XVIII📷"
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784298257_6a5a3b11e2970.jpg",
+          "caption": "Berikut beberapa potret kebersamaan anggota di acara HUT WAPALA XVIII📷"
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784298257_6a5a3b11e0c61.jpg",
+          "caption": "Berikut beberapa potret kebersamaan anggota di acara HUT WAPALA XVIII📷"
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784298257_6a5a3b11ded70.jpg",
+          "caption": "Berikut beberapa potret kebersamaan anggota di acara HUT WAPALA XVIII📷"
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784298257_6a5a3b11dcbdc.jpg",
+          "caption": "Berikut beberapa potret kebersamaan anggota di acara HUT WAPALA XVIII📷"
+        }
+      ]
+    },
+    {
+      "sourceKey": "album:wcc-2018",
+      "sourceId": "wcc-2018",
+      "sourceUrl": "https://www.wapalatelkomuniversity.org/album?page=2",
+      "title": "WCC 2018",
+      "description": "Wapala Climbing Competition (WCC) 2017 yang diselenggarakan oleh WAPALA Telkom University Purwokerto sebagai ajang kompetisi panjat tebing untuk mengembangkan kemampuan teknis, menjunjung tinggi sportivitas, dan mempererat tali persaudaraan antar peserta.",
+      "category": "WCC",
+      "categorySourceId": "5",
+      "location": "",
+      "activityDate": "",
+      "uploadedAt": "",
+      "year": 2018,
+      "expectedPhotos": 6,
+      "coverUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784300665_6a5a4479aec4f.JPG",
+      "photos": [
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784300665_6a5a4479aec4f.JPG",
+          "caption": "Wapala Climbing Competition (WCC) 2017 yang diselenggarakan oleh WAPALA Telkom University Purwokerto sebagai ajang kompetisi panjat tebing untuk mengembangkan kemampuan teknis, menjunjung tinggi sportivitas, dan mempererat tali persaudaraan antar peserta."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784300665_6a5a4479ac96c.JPG",
+          "caption": "Wapala Climbing Competition (WCC) 2017 yang diselenggarakan oleh WAPALA Telkom University Purwokerto sebagai ajang kompetisi panjat tebing untuk mengembangkan kemampuan teknis, menjunjung tinggi sportivitas, dan mempererat tali persaudaraan antar peserta."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784300665_6a5a4479aa91a.JPG",
+          "caption": "Wapala Climbing Competition (WCC) 2017 yang diselenggarakan oleh WAPALA Telkom University Purwokerto sebagai ajang kompetisi panjat tebing untuk mengembangkan kemampuan teknis, menjunjung tinggi sportivitas, dan mempererat tali persaudaraan antar peserta."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784300665_6a5a4479a89a7.JPG",
+          "caption": "Wapala Climbing Competition (WCC) 2017 yang diselenggarakan oleh WAPALA Telkom University Purwokerto sebagai ajang kompetisi panjat tebing untuk mengembangkan kemampuan teknis, menjunjung tinggi sportivitas, dan mempererat tali persaudaraan antar peserta."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784300665_6a5a4479a6cd0.JPG",
+          "caption": "Wapala Climbing Competition (WCC) 2017 yang diselenggarakan oleh WAPALA Telkom University Purwokerto sebagai ajang kompetisi panjat tebing untuk mengembangkan kemampuan teknis, menjunjung tinggi sportivitas, dan mempererat tali persaudaraan antar peserta."
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784300665_6a5a4479a373a.JPG",
+          "caption": "Wapala Climbing Competition (WCC) 2017 yang diselenggarakan oleh WAPALA Telkom University Purwokerto sebagai ajang kompetisi panjat tebing untuk mengembangkan kemampuan teknis, menjunjung tinggi sportivitas, dan mempererat tali persaudaraan antar peserta."
+        }
+      ]
+    },
+    {
+      "sourceKey": "album:wcc-2016",
+      "sourceId": "wcc-2016",
+      "sourceUrl": "https://www.wapalatelkomuniversity.org/album?page=2",
+      "title": "WCC 2016",
+      "description": "Dokumentasi WAPALA Climbing Competition 2016",
+      "category": "WCC",
+      "categorySourceId": "5",
+      "location": "",
+      "activityDate": "",
+      "uploadedAt": "",
+      "year": 2016,
+      "expectedPhotos": 4,
+      "coverUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790687174_6abbb7c6c5b30.png",
+      "photos": [
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790687174_6abbb7c6c5b30.png",
+          "caption": "Dokumentasi WAPALA Climbing Competition 2016"
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790687173_6abbb7c54ab9e.png",
+          "caption": "Dokumentasi WAPALA Climbing Competition 2016"
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790687171_6abbb7c398086.png",
+          "caption": "Dokumentasi WAPALA Climbing Competition 2016"
+        },
+        {
+          "url": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790687170_6abbb7c249cee.png",
+          "caption": "Dokumentasi WAPALA Climbing Competition 2016"
+        }
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/dD5Rb59mK04a65psBvY8gqBurs8aq1g1gmZwFw0h.png",
+      "file": "assets/ebd5d88d918ebd7d3f401d2386f4371daf7fba050c0a83b557fa3a14959360d5.png",
+      "sha256": "ebd5d88d918ebd7d3f401d2386f4371daf7fba050c0a83b557fa3a14959360d5",
+      "mime": "image/png",
+      "bytes": 470862
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/vbEWMCccGr4p7I0qR1JznoAZSSJZPBx8Um6psYSL.png",
+      "file": "assets/944b32055dd3e0ac046f84c35e2d57597d1d17cdfd6859ccdcb1b664bd0b89ab.png",
+      "sha256": "944b32055dd3e0ac046f84c35e2d57597d1d17cdfd6859ccdcb1b664bd0b89ab",
+      "mime": "image/png",
+      "bytes": 919928
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/uvUfWi1AOjcZtVy9LrLDpMsK0aNy0dPwwn9bouPE.png",
+      "file": "assets/d782c81f07c1998e00c801fb2bd3faeca4ba475ccf77eb0f98a2d49fa13e5d31.png",
+      "sha256": "d782c81f07c1998e00c801fb2bd3faeca4ba475ccf77eb0f98a2d49fa13e5d31",
+      "mime": "image/png",
+      "bytes": 217297
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/hpkO8Q8ryEhCYHs10k36keCDq1bvBZ12SRb9ASwm.png",
+      "file": "assets/430a0f672cf872250ae6a11595690ce331cc9194be9a7445cc3518a80cff04a6.png",
+      "sha256": "430a0f672cf872250ae6a11595690ce331cc9194be9a7445cc3518a80cff04a6",
+      "mime": "image/png",
+      "bytes": 177826
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/DgBnf9ozUxkARz3XtHyynOkPVZKiJAPq8wAQZF5Z.png",
+      "file": "assets/7ae2092f5589732bc0576357ccf4b5015924c43bc462aab716b7b74f9e73de24.png",
+      "sha256": "7ae2092f5589732bc0576357ccf4b5015924c43bc462aab716b7b74f9e73de24",
+      "mime": "image/png",
+      "bytes": 188996
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/9xZcMJtkdsFAoNTqBCg2KuZxJwnKuQoGigaIxMqB.png",
+      "file": "assets/efd846e54f01491a3db127ae10da9bde0903985f6aadfca04d66c3f6f775df84.png",
+      "sha256": "efd846e54f01491a3db127ae10da9bde0903985f6aadfca04d66c3f6f775df84",
+      "mime": "image/png",
+      "bytes": 183301
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/tzCrbrky5T4OvdlWTO3tw5jfSB0CLEe9ZqT1aRwh.png",
+      "file": "assets/910bba64b572fb573df32980e3c670c00b5d361247f7010f5a6a9efa1cb90ae8.png",
+      "sha256": "910bba64b572fb573df32980e3c670c00b5d361247f7010f5a6a9efa1cb90ae8",
+      "mime": "image/png",
+      "bytes": 185800
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/ONDGftBvxCVgzrXzQWTe3Y1n61Ab50MJZH81I9N1.png",
+      "file": "assets/f2861ca0e1e04951c6ced3be0f9b8a0ac4991da48ae751d33d0bebd7a7be8db3.png",
+      "sha256": "f2861ca0e1e04951c6ced3be0f9b8a0ac4991da48ae751d33d0bebd7a7be8db3",
+      "mime": "image/png",
+      "bytes": 199790
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/UTIoqvZ1EnC31ksLfP50Cy3OflfLtl1JaZ9EOdVZ.png",
+      "file": "assets/88fc3273b3ecc18b16fe0838065257d934991ea9c832c6408183cca7eec70362.png",
+      "sha256": "88fc3273b3ecc18b16fe0838065257d934991ea9c832c6408183cca7eec70362",
+      "mime": "image/png",
+      "bytes": 255895
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/NQAuIiWD0G3SIJDCfHSYNGCO2QE0oDJC3qXO6M6Y.png",
+      "file": "assets/f81568d4789ef7bd2d4e96c63003e48aa370a1bf747b504f79c79891bd69b062.png",
+      "sha256": "f81568d4789ef7bd2d4e96c63003e48aa370a1bf747b504f79c79891bd69b062",
+      "mime": "image/png",
+      "bytes": 190377
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/oIABzvJecvUDbUtSn1St7Vup1QvI7xqhSyiYz1ON.png",
+      "file": "assets/c8200c5810d7d8dfdfd47ee1274d163feb3fa3d2ef1b8b6f1d222c8d77d23aa8.png",
+      "sha256": "c8200c5810d7d8dfdfd47ee1274d163feb3fa3d2ef1b8b6f1d222c8d77d23aa8",
+      "mime": "image/png",
+      "bytes": 185249
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/xW3GmVCrcjXhZnhoVK6BTzHM26XJx1Zy7gg1TQE3.png",
+      "file": "assets/8b1bec98ad28918877bae2f440020a5af2e028d5185a8d0ec8a92ece146afc32.png",
+      "sha256": "8b1bec98ad28918877bae2f440020a5af2e028d5185a8d0ec8a92ece146afc32",
+      "mime": "image/png",
+      "bytes": 271099
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/RfLEjpg0UCjo6LvvJvMFBPra0WAEB0LBxx5Bw7Tk.png",
+      "file": "assets/843c97a451bc1766d0857e540cfb5d16d5f56333acd1e2319611df5323ea52bf.png",
+      "sha256": "843c97a451bc1766d0857e540cfb5d16d5f56333acd1e2319611df5323ea52bf",
+      "mime": "image/png",
+      "bytes": 167450
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/VkFmsOpIjYT1aFvBl7swILDWwHxqUGWXHoDIVbfD.png",
+      "file": "assets/26e3820414fabbddb0710d088f6feab3b2be0b617428456985dd659c345f95c8.png",
+      "sha256": "26e3820414fabbddb0710d088f6feab3b2be0b617428456985dd659c345f95c8",
+      "mime": "image/png",
+      "bytes": 185691
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/S1vYPivkvZ1CMvsp2sHAbmzCvzKuo3nSLKqvoUD9.png",
+      "file": "assets/e339b099f8a21601c3e40177f2521c7853dd15fdf99b2ca60a80bed1cfa902be.png",
+      "sha256": "e339b099f8a21601c3e40177f2521c7853dd15fdf99b2ca60a80bed1cfa902be",
+      "mime": "image/png",
+      "bytes": 184195
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/bs1RFNft4cnIxr6bBbx0eJaoLlziPOZv8pWDE3Gm.png",
+      "file": "assets/92143e6534e9bccc467eb07477cb6201b706a9c242dc29c7a1b187006a348048.png",
+      "sha256": "92143e6534e9bccc467eb07477cb6201b706a9c242dc29c7a1b187006a348048",
+      "mime": "image/png",
+      "bytes": 296325
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/n6GzkL2T2Q8gXNURhTO9OPlEYSwiX0e2vqL5qCDV.png",
+      "file": "assets/71cda7799f2ba9c8e5c227c07fbed6ffb5862ff94406abd6a2ff1cd3c69b0438.png",
+      "sha256": "71cda7799f2ba9c8e5c227c07fbed6ffb5862ff94406abd6a2ff1cd3c69b0438",
+      "mime": "image/png",
+      "bytes": 340124
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/GCBlELzNPc2BJMJN39XbCFfgDsxTq0cNKp0xRHVf.png",
+      "file": "assets/9ac85284e19a38a062cfa2bdb4255a8a82a1df30a6899cb77fa63599d5fedabc.png",
+      "sha256": "9ac85284e19a38a062cfa2bdb4255a8a82a1df30a6899cb77fa63599d5fedabc",
+      "mime": "image/png",
+      "bytes": 342372
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/nj86guUWA0KcoIVNdGZ8sHK3KZwKqWNcyrVaPrIz.png",
+      "file": "assets/8a698626f3174573299898925365d3bc5735682f9eaafe6e8c90ef0075bd5496.png",
+      "sha256": "8a698626f3174573299898925365d3bc5735682f9eaafe6e8c90ef0075bd5496",
+      "mime": "image/png",
+      "bytes": 444553
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/bXApxujBo2BAkb24aOJ24eAEagxQnycuqvxFB6HP.png",
+      "file": "assets/9154d64b612892e78206088c9a0712ea2f7cc111f8f7195767ec738f447957cb.png",
+      "sha256": "9154d64b612892e78206088c9a0712ea2f7cc111f8f7195767ec738f447957cb",
+      "mime": "image/png",
+      "bytes": 224237
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/HlI9TaLLUcRS6IyE8jsTk1mPWeQkmErCCSC0Wk6h.png",
+      "file": "assets/a475cd91fc9d4560c2ff4d54d80bc9e98448b4f63207e72bb97e02965a52caba.png",
+      "sha256": "a475cd91fc9d4560c2ff4d54d80bc9e98448b4f63207e72bb97e02965a52caba",
+      "mime": "image/png",
+      "bytes": 310309
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790752188_6abcb5bce4745.png",
+      "file": "assets/91af97a0c2c094596d6eece0e94a051f778b2853c80eb253346c0cc52906b3a9.png",
+      "sha256": "91af97a0c2c094596d6eece0e94a051f778b2853c80eb253346c0cc52906b3a9",
+      "mime": "image/png",
+      "bytes": 813154
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790752187_6abcb5bb1420d.png",
+      "file": "assets/1fd134c7410fed3523d67afce2419658f0f91acee056c7a07bec2bf150fdc731.png",
+      "sha256": "1fd134c7410fed3523d67afce2419658f0f91acee056c7a07bec2bf150fdc731",
+      "mime": "image/png",
+      "bytes": 590787
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790752185_6abcb5b94964f.png",
+      "file": "assets/dc397f9d65d1f4d0ca00ce1a6b09dd449c2b5cd93cc4c7cbb8fa4905834aad64.png",
+      "sha256": "dc397f9d65d1f4d0ca00ce1a6b09dd449c2b5cd93cc4c7cbb8fa4905834aad64",
+      "mime": "image/png",
+      "bytes": 523755
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790752183_6abcb5b78cc7a.png",
+      "file": "assets/ac5299f1881c2fc42934e29129145f4c1d2958faf178e40a03579cb6af4dabbf.png",
+      "sha256": "ac5299f1881c2fc42934e29129145f4c1d2958faf178e40a03579cb6af4dabbf",
+      "mime": "image/png",
+      "bytes": 406127
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790752181_6abcb5b5835d1.png",
+      "file": "assets/abcda1059a6ec3363b581a016d271505037a6a3ab08024f828948cd9a0036217.png",
+      "sha256": "abcda1059a6ec3363b581a016d271505037a6a3ab08024f828948cd9a0036217",
+      "mime": "image/png",
+      "bytes": 723119
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790752179_6abcb5b39e306.png",
+      "file": "assets/9bd632a5a1c8651c4e87b50c80dc4ea6d6237cf0cf7f1b9958cdff2f198033bb.png",
+      "sha256": "9bd632a5a1c8651c4e87b50c80dc4ea6d6237cf0cf7f1b9958cdff2f198033bb",
+      "mime": "image/png",
+      "bytes": 514883
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784454002_6a5c9b724d59c.png",
+      "file": "assets/16fcbb27927fbb4d7566def06ca51b67d3fde389cbbd95ed3a627cce8b076b58.png",
+      "sha256": "16fcbb27927fbb4d7566def06ca51b67d3fde389cbbd95ed3a627cce8b076b58",
+      "mime": "image/png",
+      "bytes": 890759
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784454002_6a5c9b72460ff.png",
+      "file": "assets/82e077d895befeb13664629d8215cc018a5d3d6604ad538bb767c131224829a9.png",
+      "sha256": "82e077d895befeb13664629d8215cc018a5d3d6604ad538bb767c131224829a9",
+      "mime": "image/png",
+      "bytes": 1744987
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784454002_6a5c9b723e7c4.png",
+      "file": "assets/ae2fd3469a914e3e1519774c136392c5abacaed8d503bd0d4a3b4dc0fee6258e.png",
+      "sha256": "ae2fd3469a914e3e1519774c136392c5abacaed8d503bd0d4a3b4dc0fee6258e",
+      "mime": "image/png",
+      "bytes": 851362
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784454002_6a5c9b7237d26.png",
+      "file": "assets/964b9f4b7513000ffeebc1550b669483af8f123d8916d1e62a9d81caa459591b.png",
+      "sha256": "964b9f4b7513000ffeebc1550b669483af8f123d8916d1e62a9d81caa459591b",
+      "mime": "image/png",
+      "bytes": 943410
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784454002_6a5c9b7230db9.png",
+      "file": "assets/9b5bf4fa4b1a5697f1d40effbfce7b2f73baf16d9ac6853382fa698a4a7af7cb.png",
+      "sha256": "9b5bf4fa4b1a5697f1d40effbfce7b2f73baf16d9ac6853382fa698a4a7af7cb",
+      "mime": "image/png",
+      "bytes": 966868
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784454002_6a5c9b7229755.png",
+      "file": "assets/05abc8eab6200e1ebdd7b364c924270d7af3d690e644f58c86fc340cf93c37b2.png",
+      "sha256": "05abc8eab6200e1ebdd7b364c924270d7af3d690e644f58c86fc340cf93c37b2",
+      "mime": "image/png",
+      "bytes": 963821
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784454002_6a5c9b7221761.png",
+      "file": "assets/f6c57cf791c357285d0e450706711dfb8963016e496f6eda48caff3ec70895b9.png",
+      "sha256": "f6c57cf791c357285d0e450706711dfb8963016e496f6eda48caff3ec70895b9",
+      "mime": "image/png",
+      "bytes": 1541808
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784454002_6a5c9b7216593.png",
+      "file": "assets/600990958278250d7c916877938b0a0d0178d224697586be9dc4a09a2e775a1b.png",
+      "sha256": "600990958278250d7c916877938b0a0d0178d224697586be9dc4a09a2e775a1b",
+      "mime": "image/png",
+      "bytes": 800484
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784453432_6a5c99389c8cc.png",
+      "file": "assets/412c3e0a46451091e7267074984e469f42ad4c5ae63052a372566204ca0c2a52.png",
+      "sha256": "412c3e0a46451091e7267074984e469f42ad4c5ae63052a372566204ca0c2a52",
+      "mime": "image/png",
+      "bytes": 764151
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784453432_6a5c993895f38.png",
+      "file": "assets/c8ecd01f6ae5bff70ee64f9d747075d94f8af85f432076827ffc9fca9e57a9ff.png",
+      "sha256": "c8ecd01f6ae5bff70ee64f9d747075d94f8af85f432076827ffc9fca9e57a9ff",
+      "mime": "image/png",
+      "bytes": 725719
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784453432_6a5c99388eb1c.png",
+      "file": "assets/41d516db2f89d0309c5587e93f33b879ebcee35895cf96780b9ad6addb30ec6c.png",
+      "sha256": "41d516db2f89d0309c5587e93f33b879ebcee35895cf96780b9ad6addb30ec6c",
+      "mime": "image/png",
+      "bytes": 578608
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784453432_6a5c99388275b.png",
+      "file": "assets/ed911399b26968402112fd79d86d471f2466b1a328d9fdc73efcb38afa659110.png",
+      "sha256": "ed911399b26968402112fd79d86d471f2466b1a328d9fdc73efcb38afa659110",
+      "mime": "image/png",
+      "bytes": 1371027
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784453432_6a5c993880099.png",
+      "file": "assets/f613b530e13f7e8843be3268c635ec0459a370b2e1fbe04313fe7007ddb1faaf.png",
+      "sha256": "f613b530e13f7e8843be3268c635ec0459a370b2e1fbe04313fe7007ddb1faaf",
+      "mime": "image/png",
+      "bytes": 836329
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784453432_6a5c9938790b3.png",
+      "file": "assets/792104a2586e1d7a07d2989e3e2257b7cb1b439ce70860d996414ab68741dcd0.png",
+      "sha256": "792104a2586e1d7a07d2989e3e2257b7cb1b439ce70860d996414ab68741dcd0",
+      "mime": "image/png",
+      "bytes": 293610
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784452457_6a5c9569be1d4.png",
+      "file": "assets/24588f5fda2b50205c90f00a3c2f3f1aa5df278a4bebe88cdfcc469232a8be61.png",
+      "sha256": "24588f5fda2b50205c90f00a3c2f3f1aa5df278a4bebe88cdfcc469232a8be61",
+      "mime": "image/png",
+      "bytes": 1221256
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784452457_6a5c9569b7947.png",
+      "file": "assets/266dc83617adeca3980555f20fe7f3e32da6e8d3415717ae6b80d5c79794aea7.png",
+      "sha256": "266dc83617adeca3980555f20fe7f3e32da6e8d3415717ae6b80d5c79794aea7",
+      "mime": "image/png",
+      "bytes": 643862
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784452457_6a5c9569b114a.png",
+      "file": "assets/f31fa5708ff104d16c2378a63f0b33bae7347fe7d4c3899d4e242b9cfca61292.png",
+      "sha256": "f31fa5708ff104d16c2378a63f0b33bae7347fe7d4c3899d4e242b9cfca61292",
+      "mime": "image/png",
+      "bytes": 815279
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784452457_6a5c9569ab3ca.png",
+      "file": "assets/3ae200f860d3a22b9958bdb8393d72bf639e436ba19de1114bb6b0384f8aeea0.png",
+      "sha256": "3ae200f860d3a22b9958bdb8393d72bf639e436ba19de1114bb6b0384f8aeea0",
+      "mime": "image/png",
+      "bytes": 830639
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784452457_6a5c9569a0134.png",
+      "file": "assets/d63a57b6be00a7fccdc75cb4ee67e3c879e834ca9afae88d4e03eaf88dd73433.png",
+      "sha256": "d63a57b6be00a7fccdc75cb4ee67e3c879e834ca9afae88d4e03eaf88dd73433",
+      "mime": "image/png",
+      "bytes": 1683405
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784451825_6a5c92f1a204b.png",
+      "file": "assets/437dfb443bf6ce10109929e7e2a7ae944da203cfbf6810790f11b18d81381d04.png",
+      "sha256": "437dfb443bf6ce10109929e7e2a7ae944da203cfbf6810790f11b18d81381d04",
+      "mime": "image/png",
+      "bytes": 1042045
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784451825_6a5c92f19a701.png",
+      "file": "assets/82b168e02a2b35f44d88c18fe8832f73bfb49f8074338c516d0f4610f0000840.png",
+      "sha256": "82b168e02a2b35f44d88c18fe8832f73bfb49f8074338c516d0f4610f0000840",
+      "mime": "image/png",
+      "bytes": 969380
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784451825_6a5c92f194b70.png",
+      "file": "assets/36739f88e454fa19f68b162027bce4338d5b6fbabee200c727bba2c05da51168.png",
+      "sha256": "36739f88e454fa19f68b162027bce4338d5b6fbabee200c727bba2c05da51168",
+      "mime": "image/png",
+      "bytes": 580330
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784451825_6a5c92f18e2c1.png",
+      "file": "assets/76a123764776f16d3219ed558a568ab5a1b51275ca6f8edc334e9b90547d7048.png",
+      "sha256": "76a123764776f16d3219ed558a568ab5a1b51275ca6f8edc334e9b90547d7048",
+      "mime": "image/png",
+      "bytes": 919545
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784451825_6a5c92f187582.png",
+      "file": "assets/b1a77a28debbd059fa1ca168bd239266dfaedb34fc24753564b16cbc81553471.png",
+      "sha256": "b1a77a28debbd059fa1ca168bd239266dfaedb34fc24753564b16cbc81553471",
+      "mime": "image/png",
+      "bytes": 953155
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784451825_6a5c92f17ffc4.png",
+      "file": "assets/5766639e7445476070ef88219735fd107087a533e48b421b67ce92c024e257ea.png",
+      "sha256": "5766639e7445476070ef88219735fd107087a533e48b421b67ce92c024e257ea",
+      "mime": "image/png",
+      "bytes": 1206572
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784451825_6a5c92f17832a.png",
+      "file": "assets/0fe6893ece2c2af2f4720a728908a6c3a0772f1b60e03dfea1e877eea4c31bd8.png",
+      "sha256": "0fe6893ece2c2af2f4720a728908a6c3a0772f1b60e03dfea1e877eea4c31bd8",
+      "mime": "image/png",
+      "bytes": 1042087
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784451825_6a5c92f17076f.png",
+      "file": "assets/82bdaa0c5b5fd7e6d345bdb11215eb1f26db1d888ab8b1685e91a29cc9f0821e.png",
+      "sha256": "82bdaa0c5b5fd7e6d345bdb11215eb1f26db1d888ab8b1685e91a29cc9f0821e",
+      "mime": "image/png",
+      "bytes": 322975
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784450949_6a5c8f85a7a83.png",
+      "file": "assets/38a221d0f47d7b0a0b245e628c17545047a7a266be1fdad6ed2f180611c57e80.png",
+      "sha256": "38a221d0f47d7b0a0b245e628c17545047a7a266be1fdad6ed2f180611c57e80",
+      "mime": "image/png",
+      "bytes": 891869
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784450949_6a5c8f85a2328.png",
+      "file": "assets/7d96d8166b0825217f9ec04b0d95735e0ede49210de8d2c05f5aaf8ef6b50aad.png",
+      "sha256": "7d96d8166b0825217f9ec04b0d95735e0ede49210de8d2c05f5aaf8ef6b50aad",
+      "mime": "image/png",
+      "bytes": 518740
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784450949_6a5c8f859d7d6.png",
+      "file": "assets/f417d9387964ddc9c3cbc499d339119d1bd6bf6dc28cffe51e945f332ccbf89e.png",
+      "sha256": "f417d9387964ddc9c3cbc499d339119d1bd6bf6dc28cffe51e945f332ccbf89e",
+      "mime": "image/png",
+      "bytes": 209810
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784450949_6a5c8f8597d40.png",
+      "file": "assets/8902df46486929aa4165e13abcb889e9f0cdcf126ea624504898d319bd4120df.png",
+      "sha256": "8902df46486929aa4165e13abcb889e9f0cdcf126ea624504898d319bd4120df",
+      "mime": "image/png",
+      "bytes": 713046
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784450949_6a5c8f858ca6b.png",
+      "file": "assets/00a7e12279bc19b90a937751e402b75d28710293eed1353b397a0726f021d585.png",
+      "sha256": "00a7e12279bc19b90a937751e402b75d28710293eed1353b397a0726f021d585",
+      "mime": "image/png",
+      "bytes": 1283307
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784448025_6a5c8419d39e3.png",
+      "file": "assets/7bfad88e6b3933d5e9e4cd529ab3c0f94103588a11f06077912903b310a5f1a1.png",
+      "sha256": "7bfad88e6b3933d5e9e4cd529ab3c0f94103588a11f06077912903b310a5f1a1",
+      "mime": "image/png",
+      "bytes": 382411
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784448025_6a5c8419cd2d1.png",
+      "file": "assets/0570b1fa59a3ff9eabea1e735d438aac270dd029f0f3ad01b4f4dddc77ddef5e.png",
+      "sha256": "0570b1fa59a3ff9eabea1e735d438aac270dd029f0f3ad01b4f4dddc77ddef5e",
+      "mime": "image/png",
+      "bytes": 763232
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784448025_6a5c8419c930e.png",
+      "file": "assets/82368e5e1f9ba5617dfe91591bbf91b040e9559df5ba5179de31a2504bb94aea.png",
+      "sha256": "82368e5e1f9ba5617dfe91591bbf91b040e9559df5ba5179de31a2504bb94aea",
+      "mime": "image/png",
+      "bytes": 1515567
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784448025_6a5c8419c4fea.png",
+      "file": "assets/3ee2c00066f28433d090e2b21006c04800079f606e0bab34c8f54fabccaa9aa6.png",
+      "sha256": "3ee2c00066f28433d090e2b21006c04800079f606e0bab34c8f54fabccaa9aa6",
+      "mime": "image/png",
+      "bytes": 331213
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784448025_6a5c8419bdb12.png",
+      "file": "assets/0196df121eeadb4c8edceedab16dfff2883c54b18d04be8148d40b620df9c33b.png",
+      "sha256": "0196df121eeadb4c8edceedab16dfff2883c54b18d04be8148d40b620df9c33b",
+      "mime": "image/png",
+      "bytes": 1001692
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790687775_6abbba1f21742.png",
+      "file": "assets/4dc2e9ab59ba8a55e377789e63465a11849f855e4599db0c778d4656b68ad823.png",
+      "sha256": "4dc2e9ab59ba8a55e377789e63465a11849f855e4599db0c778d4656b68ad823",
+      "mime": "image/png",
+      "bytes": 629006
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790687773_6abbba1dbf98b.png",
+      "file": "assets/b070877cebda4cceccc5feb91c7ce14bcb2de3ce7d2b4d3ec7e77ac89e278eac.png",
+      "sha256": "b070877cebda4cceccc5feb91c7ce14bcb2de3ce7d2b4d3ec7e77ac89e278eac",
+      "mime": "image/png",
+      "bytes": 477774
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790687771_6abbba1be0bea.png",
+      "file": "assets/5b9796e2d8e04b69a8baee5ece42baef1a45f3f3137bb2382f8670829fad964d.png",
+      "sha256": "5b9796e2d8e04b69a8baee5ece42baef1a45f3f3137bb2382f8670829fad964d",
+      "mime": "image/png",
+      "bytes": 528997
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790687769_6abbba1905dd1.png",
+      "file": "assets/449182e1367ba89cc2544bcff6f6e2411333bd1ce932463ab77a735b38f05417.png",
+      "sha256": "449182e1367ba89cc2544bcff6f6e2411333bd1ce932463ab77a735b38f05417",
+      "mime": "image/png",
+      "bytes": 630518
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790687472_6abbb8f0b1157.png",
+      "file": "assets/5a1230d8b9de356c059e14af0507e9b7189f27d2231acb917e9e3ba6613b97a4.png",
+      "sha256": "5a1230d8b9de356c059e14af0507e9b7189f27d2231acb917e9e3ba6613b97a4",
+      "mime": "image/png",
+      "bytes": 1097547
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790687469_6abbb8edc3e2f.png",
+      "file": "assets/0bc0eea226bec24e37cddbb601137d95ccc21d363f0a733a2c2e1c5ab0d545d4.png",
+      "sha256": "0bc0eea226bec24e37cddbb601137d95ccc21d363f0a733a2c2e1c5ab0d545d4",
+      "mime": "image/png",
+      "bytes": 1359208
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790685813_6abbb27508e4e.png",
+      "file": "assets/426533f77f18e26d0bd4b33d8cc54b46d1eb8a4fb504f33373f8cdaa8ee3c05c.png",
+      "sha256": "426533f77f18e26d0bd4b33d8cc54b46d1eb8a4fb504f33373f8cdaa8ee3c05c",
+      "mime": "image/png",
+      "bytes": 859242
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790685811_6abbb273894e7.png",
+      "file": "assets/b9cfb99cffc178b9cbe77d669870a9318a7d10c4e9ce1e5cb0c4d0ada2e13acd.png",
+      "sha256": "b9cfb99cffc178b9cbe77d669870a9318a7d10c4e9ce1e5cb0c4d0ada2e13acd",
+      "mime": "image/png",
+      "bytes": 655213
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790685809_6abbb2719f821.png",
+      "file": "assets/b6c744c71852f6da733b55077e45ffd0bcea32af12dfe4facd8ef6e080b93943.png",
+      "sha256": "b6c744c71852f6da733b55077e45ffd0bcea32af12dfe4facd8ef6e080b93943",
+      "mime": "image/png",
+      "bytes": 613032
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790685808_6abbb27053868.png",
+      "file": "assets/b8bfffa56abc76834fbbf95106395646b02f5e0acc1b1d1e141b4d228c6f18d1.png",
+      "sha256": "b8bfffa56abc76834fbbf95106395646b02f5e0acc1b1d1e141b4d228c6f18d1",
+      "mime": "image/png",
+      "bytes": 685093
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790685806_6abbb26ee1ec8.png",
+      "file": "assets/90a31544398480c665f7078b048d1f3d4a85fd8a15ae32d82ed2b50519c99cec.png",
+      "sha256": "90a31544398480c665f7078b048d1f3d4a85fd8a15ae32d82ed2b50519c99cec",
+      "mime": "image/png",
+      "bytes": 865547
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790685805_6abbb26d29fe9.png",
+      "file": "assets/84fe9523f15c44e216c5b2d9abe2c71e1b1ca40ecd04937fc1a40e7f16dad89b.png",
+      "sha256": "84fe9523f15c44e216c5b2d9abe2c71e1b1ca40ecd04937fc1a40e7f16dad89b",
+      "mime": "image/png",
+      "bytes": 574336
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784452986_6a5c977aab8a9.png",
+      "file": "assets/d1b2df4aa184cc7b18f2e66801e4662e27723f4a65dabb038db633919c1af2fb.png",
+      "sha256": "d1b2df4aa184cc7b18f2e66801e4662e27723f4a65dabb038db633919c1af2fb",
+      "mime": "image/png",
+      "bytes": 1225921
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784452986_6a5c977aa4c7f.png",
+      "file": "assets/e0510add280da456f25e54271b7c17cd20a73ed7a853daddff123e0b36111492.png",
+      "sha256": "e0510add280da456f25e54271b7c17cd20a73ed7a853daddff123e0b36111492",
+      "mime": "image/png",
+      "bytes": 1563035
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784452986_6a5c977a9d047.png",
+      "file": "assets/1aefeefd345d8cab164777984f0d69a97c561d2b5a434bcc6c13292c8a8601a6.png",
+      "sha256": "1aefeefd345d8cab164777984f0d69a97c561d2b5a434bcc6c13292c8a8601a6",
+      "mime": "image/png",
+      "bytes": 1276074
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784452986_6a5c977a963f5.png",
+      "file": "assets/16ff1c69ec37d4ea906c4d20bbbf860ee2b12b3fca60dbc9881eb63b81626680.png",
+      "sha256": "16ff1c69ec37d4ea906c4d20bbbf860ee2b12b3fca60dbc9881eb63b81626680",
+      "mime": "image/png",
+      "bytes": 1460094
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784452986_6a5c977a91731.png",
+      "file": "assets/3ab682b44e3fc1777e9361dbbf175ce179574402fa545ba8f664379f34910da2.png",
+      "sha256": "3ab682b44e3fc1777e9361dbbf175ce179574402fa545ba8f664379f34910da2",
+      "mime": "image/png",
+      "bytes": 1288620
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784452986_6a5c977a8e0f8.png",
+      "file": "assets/05c8cd5b37ed55936cb347feba5e3597f4293e722c505c57998610870ab28f55.png",
+      "sha256": "05c8cd5b37ed55936cb347feba5e3597f4293e722c505c57998610870ab28f55",
+      "mime": "image/png",
+      "bytes": 1281756
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784452986_6a5c977a88408.png",
+      "file": "assets/1447f4584ddf782cba534c6b382c8b1332c2dc738e674c589c100a94c2214c57.png",
+      "sha256": "1447f4584ddf782cba534c6b382c8b1332c2dc738e674c589c100a94c2214c57",
+      "mime": "image/png",
+      "bytes": 1363563
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784450078_6a5c8c1e1ee55.png",
+      "file": "assets/7e4df54dcbe9ee34d155378794b495c70c3c70e07b00e0b9fc475c3aff2ec112.png",
+      "sha256": "7e4df54dcbe9ee34d155378794b495c70c3c70e07b00e0b9fc475c3aff2ec112",
+      "mime": "image/png",
+      "bytes": 749285
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784450078_6a5c8c1e19900.png",
+      "file": "assets/7a73877de8cee1c005daa59008de8f8c571874cf67014cecb4a7fc29b0b383f5.png",
+      "sha256": "7a73877de8cee1c005daa59008de8f8c571874cf67014cecb4a7fc29b0b383f5",
+      "mime": "image/png",
+      "bytes": 765752
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784450078_6a5c8c1e167ef.png",
+      "file": "assets/1b68ef8a488b447038b795ce17bc12b12bf415515adce96b483bc368cff2a018.png",
+      "sha256": "1b68ef8a488b447038b795ce17bc12b12bf415515adce96b483bc368cff2a018",
+      "mime": "image/png",
+      "bytes": 617864
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784450078_6a5c8c1e146c1.png",
+      "file": "assets/49393631e4a1e7930325132dd2f8a53c733343693e7255cd56050d7fc67ae696.png",
+      "sha256": "49393631e4a1e7930325132dd2f8a53c733343693e7255cd56050d7fc67ae696",
+      "mime": "image/png",
+      "bytes": 1493626
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784450078_6a5c8c1e12842.png",
+      "file": "assets/1310f71982b84a5532a015d80b2082bbb1efb71c8506273424714803e5cb149e.png",
+      "sha256": "1310f71982b84a5532a015d80b2082bbb1efb71c8506273424714803e5cb149e",
+      "mime": "image/png",
+      "bytes": 706735
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784450078_6a5c8c1e105c6.png",
+      "file": "assets/14c47009246015a52b185aeb4bd65afef0ccf41d149cfd8334be9838402c96ab.png",
+      "sha256": "14c47009246015a52b185aeb4bd65afef0ccf41d149cfd8334be9838402c96ab",
+      "mime": "image/png",
+      "bytes": 703563
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784450078_6a5c8c1e0a9f0.png",
+      "file": "assets/9029b3d0a4cf832637fdce3ddeac4027223038534ff3b59da82fbb6e207d018a.png",
+      "sha256": "9029b3d0a4cf832637fdce3ddeac4027223038534ff3b59da82fbb6e207d018a",
+      "mime": "image/png",
+      "bytes": 832878
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784450078_6a5c8c1e0041e.png",
+      "file": "assets/49a232552cfd551de53acbe5f2a4ec66ba53ee711ba83bdc65c867c54ffc82c1.png",
+      "sha256": "49a232552cfd551de53acbe5f2a4ec66ba53ee711ba83bdc65c867c54ffc82c1",
+      "mime": "image/png",
+      "bytes": 651300
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784447599_6a5c826f4678b.png",
+      "file": "assets/6aaf04de34201e28918df0e08937e982bc50c6914daa302b8402e815fca22c21.png",
+      "sha256": "6aaf04de34201e28918df0e08937e982bc50c6914daa302b8402e815fca22c21",
+      "mime": "image/png",
+      "bytes": 1302218
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784447599_6a5c826f3efdf.png",
+      "file": "assets/235c50d4a1c2142e04dd5c012e9ffa64ef2fbb81126e2ead7d87b745d7f4af30.png",
+      "sha256": "235c50d4a1c2142e04dd5c012e9ffa64ef2fbb81126e2ead7d87b745d7f4af30",
+      "mime": "image/png",
+      "bytes": 1273257
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784447599_6a5c826f37578.png",
+      "file": "assets/201ad54793cd7442e649b05e40101512ff9cca2a0ed046ed0374712a84cf2a3f.png",
+      "sha256": "201ad54793cd7442e649b05e40101512ff9cca2a0ed046ed0374712a84cf2a3f",
+      "mime": "image/png",
+      "bytes": 759059
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784447599_6a5c826f306ad.png",
+      "file": "assets/1c196dbb1a006069806102ac501f096ec067b5b5f958cb625c0bbf926d61a378.png",
+      "sha256": "1c196dbb1a006069806102ac501f096ec067b5b5f958cb625c0bbf926d61a378",
+      "mime": "image/png",
+      "bytes": 723251
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784447599_6a5c826f294f9.png",
+      "file": "assets/951f69421179eb8610437b8e9432fde087bac737050558e90d56dbf0385ebebf.png",
+      "sha256": "951f69421179eb8610437b8e9432fde087bac737050558e90d56dbf0385ebebf",
+      "mime": "image/png",
+      "bytes": 609555
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784447599_6a5c826f22645.png",
+      "file": "assets/7101bd58f4cf3b75e8b1f31fe29aa270c7d8867b336d78d36639f90254cc4591.png",
+      "sha256": "7101bd58f4cf3b75e8b1f31fe29aa270c7d8867b336d78d36639f90254cc4591",
+      "mime": "image/png",
+      "bytes": 1089801
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784447599_6a5c826f1684d.png",
+      "file": "assets/3e0af6c65f5ca3d3e14aa5fc1939fced4a7384c0a56772a53351fe69ab3ae8da.png",
+      "sha256": "3e0af6c65f5ca3d3e14aa5fc1939fced4a7384c0a56772a53351fe69ab3ae8da",
+      "mime": "image/png",
+      "bytes": 721603
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784445575_6a5c7a8738656.png",
+      "file": "assets/c1758af04a1a6c56a1ba96bad87604921e814fa06f8bdefb088413dca9209913.png",
+      "sha256": "c1758af04a1a6c56a1ba96bad87604921e814fa06f8bdefb088413dca9209913",
+      "mime": "image/png",
+      "bytes": 1751498
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784445575_6a5c7a872e629.png",
+      "file": "assets/d892351a38031f4e7e34a9c8a19f952bf598eeebcb454ab7172389104375c716.png",
+      "sha256": "d892351a38031f4e7e34a9c8a19f952bf598eeebcb454ab7172389104375c716",
+      "mime": "image/png",
+      "bytes": 2259787
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784445575_6a5c7a871e245.png",
+      "file": "assets/e383dd84b5bffc9695bd7bcea256dea222b572ec7a3d242330326534f3d27cfa.png",
+      "sha256": "e383dd84b5bffc9695bd7bcea256dea222b572ec7a3d242330326534f3d27cfa",
+      "mime": "image/png",
+      "bytes": 1012510
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790751946_6abcb4ca10a30.png",
+      "file": "assets/a673614cbee4063406e4d6dd530ceac027972348187bb94ef142e780d023335f.png",
+      "sha256": "a673614cbee4063406e4d6dd530ceac027972348187bb94ef142e780d023335f",
+      "mime": "image/png",
+      "bytes": 757558
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790751944_6abcb4c89125c.png",
+      "file": "assets/f042b516a4af601bad138ec34ea463a07b934455de3740350d2d3419900a4364.png",
+      "sha256": "f042b516a4af601bad138ec34ea463a07b934455de3740350d2d3419900a4364",
+      "mime": "image/png",
+      "bytes": 562093
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790751942_6abcb4c6bbee4.png",
+      "file": "assets/d3c332229e8aa77f7cebe229cd1bafdb805b7bee0c284552865d0a67ebece93f.png",
+      "sha256": "d3c332229e8aa77f7cebe229cd1bafdb805b7bee0c284552865d0a67ebece93f",
+      "mime": "image/png",
+      "bytes": 716225
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790751941_6abcb4c543372.png",
+      "file": "assets/9ab6d18e551149d008b4516328135d0f1738067d45fc36da52278e19132009c6.png",
+      "sha256": "9ab6d18e551149d008b4516328135d0f1738067d45fc36da52278e19132009c6",
+      "mime": "image/png",
+      "bytes": 609588
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790751939_6abcb4c3733a4.png",
+      "file": "assets/89754697a8cde59ef3fde26ededcccbfe8f324d23d9c2d7e0639661d30c6db40.png",
+      "sha256": "89754697a8cde59ef3fde26ededcccbfe8f324d23d9c2d7e0639661d30c6db40",
+      "mime": "image/png",
+      "bytes": 557060
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790751938_6abcb4c2114c6.png",
+      "file": "assets/8d52684a71ee21189249a09e522731c456651f6f576cd62669276098d77b5268.png",
+      "sha256": "8d52684a71ee21189249a09e522731c456651f6f576cd62669276098d77b5268",
+      "mime": "image/png",
+      "bytes": 348515
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790751936_6abcb4c0861fd.png",
+      "file": "assets/12b1cdefc7f3f300bdaa39a85d7585cf8884fe8fbbe4cb0a4cd62e5bdc5c8d40.png",
+      "sha256": "12b1cdefc7f3f300bdaa39a85d7585cf8884fe8fbbe4cb0a4cd62e5bdc5c8d40",
+      "mime": "image/png",
+      "bytes": 515563
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784470921_6a5cdd89f40fc.png",
+      "file": "assets/29fddc1ae99a731afafec1b072ca2dccb12ef077fe7a39c4f58efe6c649118ad.png",
+      "sha256": "29fddc1ae99a731afafec1b072ca2dccb12ef077fe7a39c4f58efe6c649118ad",
+      "mime": "image/png",
+      "bytes": 146874
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784470921_6a5cdd89ef307.png",
+      "file": "assets/47b6ced9c4f4b1f0dba0cc8b6451fa1daed9f8ab5840cf1ef905565421495daa.png",
+      "sha256": "47b6ced9c4f4b1f0dba0cc8b6451fa1daed9f8ab5840cf1ef905565421495daa",
+      "mime": "image/png",
+      "bytes": 237810
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784470921_6a5cdd89e9e70.png",
+      "file": "assets/fcf3c6e72600c72fc50842caaee09b91112f715a088cfe258590e954e067ff1a.png",
+      "sha256": "fcf3c6e72600c72fc50842caaee09b91112f715a088cfe258590e954e067ff1a",
+      "mime": "image/png",
+      "bytes": 318846
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784470921_6a5cdd89e49cc.png",
+      "file": "assets/05ea153a9f3b79d72bbd8e71f593211322b9cda5fe8285082ea818dfedfb8f4e.png",
+      "sha256": "05ea153a9f3b79d72bbd8e71f593211322b9cda5fe8285082ea818dfedfb8f4e",
+      "mime": "image/png",
+      "bytes": 422601
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784470921_6a5cdd89df85f.png",
+      "file": "assets/0f3be13930761f6161837eed0f5c0ce40ed96251ba9a9a83773207916aa618a0.png",
+      "sha256": "0f3be13930761f6161837eed0f5c0ce40ed96251ba9a9a83773207916aa618a0",
+      "mime": "image/png",
+      "bytes": 262521
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784470921_6a5cdd89d6785.png",
+      "file": "assets/3eeca6d1ff9e95439f0a5d043954f345a02859ccb6cad6127f3bb22c1faac5ad.png",
+      "sha256": "3eeca6d1ff9e95439f0a5d043954f345a02859ccb6cad6127f3bb22c1faac5ad",
+      "mime": "image/png",
+      "bytes": 563127
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784390268_6a5ba27c36048.png",
+      "file": "assets/3915339cd53822ee60c6a19551fe4cb8c1245ec61e0c06e92f105c23286fbc3b.png",
+      "sha256": "3915339cd53822ee60c6a19551fe4cb8c1245ec61e0c06e92f105c23286fbc3b",
+      "mime": "image/png",
+      "bytes": 845182
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784390268_6a5ba27c2f7bc.png",
+      "file": "assets/8b8955fc6e9fc34518a52c65d1eb2971ee37d0f8cc212a515b1056228db4fc48.png",
+      "sha256": "8b8955fc6e9fc34518a52c65d1eb2971ee37d0f8cc212a515b1056228db4fc48",
+      "mime": "image/png",
+      "bytes": 792120
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784390268_6a5ba27c295da.png",
+      "file": "assets/4fe470bf13785e11060bc4bd6b9ecc510b28c2c6f2c2d42886bfae88b2784ba5.png",
+      "sha256": "4fe470bf13785e11060bc4bd6b9ecc510b28c2c6f2c2d42886bfae88b2784ba5",
+      "mime": "image/png",
+      "bytes": 1220537
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784390268_6a5ba27c221f2.png",
+      "file": "assets/62ae9843bfadb4df1815f6602d6179a3b129a5c711729b9c327b8cc415c814fb.png",
+      "sha256": "62ae9843bfadb4df1815f6602d6179a3b129a5c711729b9c327b8cc415c814fb",
+      "mime": "image/png",
+      "bytes": 1427001
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784390268_6a5ba27c1ca22.png",
+      "file": "assets/ec720666a39b7ce7d68b373756f10654c1da6425a9baf9dc953aedaa66ef31b9.png",
+      "sha256": "ec720666a39b7ce7d68b373756f10654c1da6425a9baf9dc953aedaa66ef31b9",
+      "mime": "image/png",
+      "bytes": 1288242
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784390268_6a5ba27c164e9.png",
+      "file": "assets/0e8f1ad9866e449dc7374f5c437a805f101dbbd63a2a340638165cf75e7e1e2f.png",
+      "sha256": "0e8f1ad9866e449dc7374f5c437a805f101dbbd63a2a340638165cf75e7e1e2f",
+      "mime": "image/png",
+      "bytes": 1319383
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784390268_6a5ba27c0b2c8.png",
+      "file": "assets/433bbe85c09d6ac0f3b108ebd79b3d758db808e80b59a8f546939230d359b942.png",
+      "sha256": "433bbe85c09d6ac0f3b108ebd79b3d758db808e80b59a8f546939230d359b942",
+      "mime": "image/png",
+      "bytes": 1440092
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784449276_6a5c88fcef8c2.png",
+      "file": "assets/ccd7f113ae8f2ba29ba5d391a413e486181c4cbca9718c6d9b5932666a53540e.png",
+      "sha256": "ccd7f113ae8f2ba29ba5d391a413e486181c4cbca9718c6d9b5932666a53540e",
+      "mime": "image/png",
+      "bytes": 567074
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784449276_6a5c88fce885f.png",
+      "file": "assets/d6aca186010836847145e6fb4755b4608f5ab86a5a5b26f46cef1cb4409df1e3.png",
+      "sha256": "d6aca186010836847145e6fb4755b4608f5ab86a5a5b26f46cef1cb4409df1e3",
+      "mime": "image/png",
+      "bytes": 551031
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784449276_6a5c88fce1679.png",
+      "file": "assets/762a983f239cb9be636ffe67e41c0c009fca9ea95b430ae1caa9390eff294912.png",
+      "sha256": "762a983f239cb9be636ffe67e41c0c009fca9ea95b430ae1caa9390eff294912",
+      "mime": "image/png",
+      "bytes": 688885
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784449276_6a5c88fcd4e6f.png",
+      "file": "assets/17d74bb446e11f56f8f35963dda1c4ac2070645e9eb399c5b3a48d321c667bd6.png",
+      "sha256": "17d74bb446e11f56f8f35963dda1c4ac2070645e9eb399c5b3a48d321c667bd6",
+      "mime": "image/png",
+      "bytes": 1198683
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784301425_6a5a4771ec6fe.jpg",
+      "file": "assets/eb2d6d75293980db3f66aa9f7b78404d79afa25acf92db153b8255856250fc55.jpg",
+      "sha256": "eb2d6d75293980db3f66aa9f7b78404d79afa25acf92db153b8255856250fc55",
+      "mime": "image/jpeg",
+      "bytes": 2100545
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784301425_6a5a4771e8681.jpg",
+      "file": "assets/2c11747e214fa6db0d1ebd942abbafdd84178f906ae3c9f182559e7e3511661b.jpg",
+      "sha256": "2c11747e214fa6db0d1ebd942abbafdd84178f906ae3c9f182559e7e3511661b",
+      "mime": "image/jpeg",
+      "bytes": 1637902
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784301425_6a5a4771e2a78.jpg",
+      "file": "assets/f59ed7a76104a022a71b634f94655ec980e1f6f11877df249fec96e4d5dfc6f4.jpg",
+      "sha256": "f59ed7a76104a022a71b634f94655ec980e1f6f11877df249fec96e4d5dfc6f4",
+      "mime": "image/jpeg",
+      "bytes": 2875220
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784301425_6a5a4771ddbb5.jpg",
+      "file": "assets/129e1951b2168b667e14b6a151739ec28ec72e702a8fa8a12a4b73741092863a.jpg",
+      "sha256": "129e1951b2168b667e14b6a151739ec28ec72e702a8fa8a12a4b73741092863a",
+      "mime": "image/jpeg",
+      "bytes": 2511418
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784301425_6a5a4771da013.jpg",
+      "file": "assets/749025ea6831549724e168de454ea51524883a4edcccb70248fd6a145b0a212f.jpg",
+      "sha256": "749025ea6831549724e168de454ea51524883a4edcccb70248fd6a145b0a212f",
+      "mime": "image/jpeg",
+      "bytes": 3093243
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784301425_6a5a4771d6e7d.jpg",
+      "file": "assets/8965bab020e4c5289eca8547a47d09bb0e5f92bbdf64433a62814e0aad40a2da.jpg",
+      "sha256": "8965bab020e4c5289eca8547a47d09bb0e5f92bbdf64433a62814e0aad40a2da",
+      "mime": "image/jpeg",
+      "bytes": 3704062
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784301425_6a5a4771d3f22.jpg",
+      "file": "assets/31a7fdd42935f8abf5fb6c045c209731d4ee9bdb86b80339b194d5a3a8828676.jpg",
+      "sha256": "31a7fdd42935f8abf5fb6c045c209731d4ee9bdb86b80339b194d5a3a8828676",
+      "mime": "image/jpeg",
+      "bytes": 3120752
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784301425_6a5a4771ceb4d.jpg",
+      "file": "assets/0abe359cfb570f5144cad382a417c320769dd93de3acb910fb53acf97dd97da5.jpg",
+      "sha256": "0abe359cfb570f5144cad382a417c320769dd93de3acb910fb53acf97dd97da5",
+      "mime": "image/jpeg",
+      "bytes": 3205529
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784298257_6a5a3b11ea53e.jpg",
+      "file": "assets/0bd95abf5952357c07a1f749f466b41b7c40303f3dd359ba1e091e315e238fcc.jpg",
+      "sha256": "0bd95abf5952357c07a1f749f466b41b7c40303f3dd359ba1e091e315e238fcc",
+      "mime": "image/jpeg",
+      "bytes": 4333967
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784298257_6a5a3b11e8150.jpg",
+      "file": "assets/88ff5f3a28d6e5417318034a648e48a6c556450ecc583b8ee691e9d04ce4760b.jpg",
+      "sha256": "88ff5f3a28d6e5417318034a648e48a6c556450ecc583b8ee691e9d04ce4760b",
+      "mime": "image/jpeg",
+      "bytes": 378792
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784298257_6a5a3b11e5f80.jpg",
+      "file": "assets/68fcf5f52810c979f49775547de669d98cdd760b87b6194e4dca82cedf638320.jpg",
+      "sha256": "68fcf5f52810c979f49775547de669d98cdd760b87b6194e4dca82cedf638320",
+      "mime": "image/jpeg",
+      "bytes": 57954
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784298257_6a5a3b11e2970.jpg",
+      "file": "assets/0d804d1a941e9999580b4dc70e279aeb6ee718939c2f52044186e5bc3d3fcc7e.jpg",
+      "sha256": "0d804d1a941e9999580b4dc70e279aeb6ee718939c2f52044186e5bc3d3fcc7e",
+      "mime": "image/jpeg",
+      "bytes": 205314
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784298257_6a5a3b11e0c61.jpg",
+      "file": "assets/0d008fdfc88609b230491b30d6780eb5a505cca4622d01b43f8a4f820149eea0.jpg",
+      "sha256": "0d008fdfc88609b230491b30d6780eb5a505cca4622d01b43f8a4f820149eea0",
+      "mime": "image/jpeg",
+      "bytes": 55827
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784298257_6a5a3b11ded70.jpg",
+      "file": "assets/9cbfc31b89623e5d10fc4f1b53cf071b4cb50b280d300c59d61a43089ec765e9.jpg",
+      "sha256": "9cbfc31b89623e5d10fc4f1b53cf071b4cb50b280d300c59d61a43089ec765e9",
+      "mime": "image/jpeg",
+      "bytes": 61572
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784298257_6a5a3b11dcbdc.jpg",
+      "file": "assets/365474f610f04b110922187433fe504b26fbd06f432ff829bbee4493668b3cea.jpg",
+      "sha256": "365474f610f04b110922187433fe504b26fbd06f432ff829bbee4493668b3cea",
+      "mime": "image/jpeg",
+      "bytes": 144161
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784300665_6a5a4479aec4f.JPG",
+      "file": "assets/830d59dc51626debbe8612c4485bf1ce58af337203bd5f31909d1c016a165c30.jpg",
+      "sha256": "830d59dc51626debbe8612c4485bf1ce58af337203bd5f31909d1c016a165c30",
+      "mime": "image/jpeg",
+      "bytes": 4766682
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784300665_6a5a4479ac96c.JPG",
+      "file": "assets/c31d9b4cbcad826f56453cc87f7ca1c0ad9df2a59cc02ec7eb9c8d9f7efac6f2.jpg",
+      "sha256": "c31d9b4cbcad826f56453cc87f7ca1c0ad9df2a59cc02ec7eb9c8d9f7efac6f2",
+      "mime": "image/jpeg",
+      "bytes": 3908520
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784300665_6a5a4479aa91a.JPG",
+      "file": "assets/56a76a82c4a434703a3380c5baa2f4d038065ccc3635c9526e1d6334dc3c1149.jpg",
+      "sha256": "56a76a82c4a434703a3380c5baa2f4d038065ccc3635c9526e1d6334dc3c1149",
+      "mime": "image/jpeg",
+      "bytes": 4194138
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784300665_6a5a4479a89a7.JPG",
+      "file": "assets/30c048cef801863b87b54ed329ba0856d397038a134f9766b53a00b70190de7b.jpg",
+      "sha256": "30c048cef801863b87b54ed329ba0856d397038a134f9766b53a00b70190de7b",
+      "mime": "image/jpeg",
+      "bytes": 7473178
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784300665_6a5a4479a6cd0.JPG",
+      "file": "assets/518b49efac47a140553082bdb21b4a5f9c342d37bff109aeca2b05440d7763cb.jpg",
+      "sha256": "518b49efac47a140553082bdb21b4a5f9c342d37bff109aeca2b05440d7763cb",
+      "mime": "image/jpeg",
+      "bytes": 7970444
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1784300665_6a5a4479a373a.JPG",
+      "file": "assets/dc9ee40da8a7f90359a4112a23d4bf7510c7a2ab6d99f103c982c3198a74a2e6.jpg",
+      "sha256": "dc9ee40da8a7f90359a4112a23d4bf7510c7a2ab6d99f103c982c3198a74a2e6",
+      "mime": "image/jpeg",
+      "bytes": 3609712
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790687174_6abbb7c6c5b30.png",
+      "file": "assets/c19b04c4a925a8146890f5399784969c104e47676aeef8d9aa456012fa9f20dc.png",
+      "sha256": "c19b04c4a925a8146890f5399784969c104e47676aeef8d9aa456012fa9f20dc",
+      "mime": "image/png",
+      "bytes": 469382
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790687173_6abbb7c54ab9e.png",
+      "file": "assets/ace8398b0789d0aa407d8ccdb23f5c7cd894c0dec3e83020fed34504f8d8159e.png",
+      "sha256": "ace8398b0789d0aa407d8ccdb23f5c7cd894c0dec3e83020fed34504f8d8159e",
+      "mime": "image/png",
+      "bytes": 383084
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790687171_6abbb7c398086.png",
+      "file": "assets/6b6042f7ac939c4bd7c47f70d8875a1c0f5e5e910c5f615eafe0f6be04388f22.png",
+      "sha256": "6b6042f7ac939c4bd7c47f70d8875a1c0f5e5e910c5f615eafe0f6be04388f22",
+      "mime": "image/png",
+      "bytes": 353240
+    },
+    {
+      "sourceUrl": "https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/1790687170_6abbb7c249cee.png",
+      "file": "assets/07580efb3f4ac3d4b93dcacf9fb59a39ebbed8dd2c86aa4f54a055558ebb5c83.png",
+      "sha256": "07580efb3f4ac3d4b93dcacf9fb59a39ebbed8dd2c86aa4f54a055558ebb5c83",
+      "mime": "image/png",
+      "bytes": 228068
+    }
+  ]
+}

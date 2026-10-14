@@ -1,0 +1,11 @@
+import { spawn } from 'node:child_process';
+import { access } from 'node:fs/promises';
+import { resolve, dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
+const args=process.argv.slice(2);
+if(args[0]!=='--app'||!args[1]||args.slice(2).some(a=>!['--apply','--allow-production'].includes(a)))throw Error('Usage: node import.mjs --app APP_FOLDER [--apply] [--allow-production]');
+const app=resolve(args[1]),bundle=dirname(fileURLToPath(import.meta.url)),cli=join(app,'node_modules/tsx/dist/cli.mjs');
+await access(cli);await access(join(app,'scripts/import-public-site.ts'));
+const child=spawn(process.execPath,[cli,'--conditions=react-server','scripts/import-public-site.ts',bundle,...args.slice(2)],{cwd:app,stdio:'inherit',shell:false,windowsHide:true});
+child.on('error',()=>{console.error('Cannot start importer; check application dependencies.');process.exitCode=1;});
+child.on('exit',code=>{process.exitCode=code??1;});
