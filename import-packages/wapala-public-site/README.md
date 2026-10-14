@@ -20,15 +20,17 @@ ulang tanpa duplikat. Konfigurasi environment harus diekspor oleh operator
 atau tersedia dalam `.env` aplikasi; wrapper tidak membaca secret service
 dari `/etc` secara otomatis. Jangan menyertakan secret pada commit.
 
-Clone branch **Agents** terpisah dari checkout aplikasi production. Dari folder aplikasi:
+Paket publik ini tersedia pada branch **staging** di folder `import-packages/wapala-public-site/`. Data anggota dan inventaris sengaja tidak disertakan. Dari folder aplikasi:
 
 ```sh
-npx tsx --conditions=react-server scripts/import-public-site.ts /path/to/Agents/import-packages/wapala-public-site
+npx tsx --conditions=react-server scripts/import-public-site.ts import-packages/wapala-public-site
 # Periksa ringkasan dry-run dahulu, kemudian:
-NODE_ENV=production npx tsx --conditions=react-server scripts/import-public-site.ts /path/to/Agents/import-packages/wapala-public-site --apply --allow-production
+NODE_ENV=production npx tsx --conditions=react-server scripts/import-public-site.ts import-packages/wapala-public-site --apply --allow-production
 ```
 
 Alternatif wrapper dari folder paket:
+
+Salinan arsip juga tersedia pada branch **Agents**; bila checkout aplikasi tidak menyertakan paket, gunakan path absolut ke salinan paket dari branch tersebut. Kode aplikasi tetap berasal dari branch deployment, bukan checkout Agents. Paket ZIP source memakai allowlist tersendiri dan tidak otomatis menyertakan folder data ini.
 
 ```sh
 node import.mjs --app /path/to/aplikasi

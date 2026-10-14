@@ -309,3 +309,21 @@ profil sendiri; kemudian memberi instruksi untuk mencatat dan push.
 - Push terverifikasi: staging `a55f86d`, paket Agents `cf49750`. Snapshot HTML
   asli ditandai binary di Git agar byte sumber/CRLF tidak diubah dan bukan
   dianggap diff kode aplikasi. Main tetap `244b723`.
+
+## 2026-10-14 — Paket publik tersedia di staging; anggota/inventaris exclude
+
+- Sesuai instruksi terbaru pengguna, folder `import-packages/wapala-public-site/`
+  juga dimasukkan ke staging (`a61f1eb`). Isinya hanya data publik album dan
+  angkatan: 21 angkatan, 22 album, 129 foto album, 150 gambar unik serta script
+  dan panduan import. Data anggota/CSV dan inventaris tidak dimasukkan.
+- Semua 150 asset diverifikasi kembali ukuran dan SHA-256. Checksum manifest
+  cocok; syntax collector/wrapper lulus. Wrapper dry-run dari folder staging
+  lulus dan melewati data yang sudah diimport lokal, tanpa mutation database.
+- README diperbarui agar perintah import langsung memakai folder di checkout
+  staging. Salinan Agents tetap sebagai arsip; paket ZIP source masih memakai
+  allowlist terpisah dan tidak otomatis ditambah data ini.
+- Commit hanya memuat 166 file paket publik. Perubahan lain yang sebelumnya
+  belum di-commit tidak ikut. Tidak mengubah kode aplikasi, main, atau VPS;
+  belum membuat perintah `gitupdate`.
+- CodeGraph CLI tidak menemukan simbol importer baru pada indeks lama;
+  pemeriksaan dilakukan langsung pada manifest, asset, script dan tree Git.
