@@ -103,3 +103,30 @@ File: `src/server/media/storage.ts`.
 - Saya tidak mengubah isi dokumen catatan agent lain, CSS divisi, komponen halaman divisi, atau aset `public/images/tel-u.png` pada sesi ini. File-file tersebut terlihat berubah di working tree dan tidak boleh diklaim sebagai hasil perubahan saya.
 - `next-env.d.ts` dapat diperbarui otomatis oleh proses Next.js saat build/integration test.
 - Penelusuran generator dan pemanggil awal memakai CodeGraph CLI, kemudian diverifikasi melalui pembacaan source dan diff aktual.
+
+## Pemisahan branch — 14 Oktober 2026
+
+Permintaan pengguna: simpan instruksi/catatan AI pada `Agents`, buat `staging`,
+dan rename branch aplikasi menjadi `main` untuk checkout VPS.
+
+- Branch lokal `master` di-rename menjadi `main`.
+- Branch `Agents` mempertahankan snapshot kode beserta file AI dan versi terbaru
+  `perubahan_agents2.md` yang sebelumnya belum dikomit.
+- Dari `main`, file AI berikut dipindahkan keluar dari tracked tree: `AGENTS.md`,
+  `agent_readme.md`, `codegraph.json`, kedua catatan perubahan agent,
+  `scripts/codegraph.ps1`, peta CodeGraph, ledger/review/rencana desain historis,
+  folder Superpowers, serta skrip/aset/checkpoint/QA kerja Figma.
+- File tersebut dapat dipulihkan dari `Agents`; riwayat Git tidak dihapus.
+- Panduan deployment/setup/Event, kode aplikasi, migrasi, pengujian, dan skrip
+  operasional tetap berada di branch aplikasi.
+- `.gitignore` branch aplikasi mengabaikan file AI yang dibuat ulang alat lokal.
+- README dan `docs/branch-workflow.md` mendokumentasikan fungsi tiap branch dan
+  larangan merge keseluruhan `Agents` ke branch aplikasi.
+- Allowlist packaging diganti dari laporan kerja agent menjadi panduan branch.
+- Tes packaging: 4/4 lulus. Tidak ada perubahan logika runtime aplikasi.
+- Perubahan lokal CSS divisi, komponen divisi, logo statis Tel-U, dan
+  `next-env.d.ts` tetap dipertahankan tanpa ikut commit pemisahan.
+- API rename branch GitHub menolak dengan HTTP 403 (izin admin repo tidak
+  tersedia). Branch baru dapat dipush melalui izin collaborator. Pemilik repo
+  perlu mengatur `main` sebagai default branch; `master` remote dipertahankan
+  sampai pengaturan tersebut diganti.
