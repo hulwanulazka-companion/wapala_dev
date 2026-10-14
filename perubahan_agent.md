@@ -327,3 +327,150 @@ profil sendiri; kemudian memberi instruksi untuk mencatat dan push.
   belum membuat perintah `gitupdate`.
 - CodeGraph CLI tidak menemukan simbol importer baru pada indeks lama;
   pemeriksaan dilakukan langsung pada manifest, asset, script dan tree Git.
+
+## 2026-10-14 — Koneksi NAT VPS dan status deployment awal
+
+- Checkout VPS `/home/codex/wapala-repo` berada di main `4e27a22`;
+  source aplikasi sudah di-clone, tetapi build VPS belum berhasil dijalankan.
+- SSH alias lokal menggunakan key dan proxy TCP Node, tetap memvalidasi host
+  key. Sudo tanpa password dibatasi pada empat aksi wrapper wapala-service;
+  sudo umum tetap memerlukan password. Tidak menyimpan credential di repo.
+- RAM VPS terukur sekitar 1 GB, tanpa swap. Uji scan ClamAV sebelumnya
+  timeout; kapasitas antivirus bersama aplikasi belum tervalidasi.
+- `npm ci` pertama gagal ECONNRESET; dua percobaan berikutnya dihentikan
+  sistem (Killed), termasuk dengan heap Node 256 MB. Log kernel guest belum
+  membuktikan penyebab kill; tidak mengklaim OOM sebagai diagnosis pasti.
+- Nginx sebelumnya gagal bind port 80 karena Apache sudah mendengarkan di
+  sana. Apache tidak dihentikan. Symlink konfigurasi Nginx default dipindah
+  ke backup root; konfigurasi awal khusus port 33335 lolos `nginx -t`.
+- Pengguna menambahkan TCP forwarding publik 33335 ke VPS 33335. Nginx
+  aktif dan tes eksternal `/deployment-health` menghasilkan HTTP 200.
+  Halaman utama sengaja HTTP 503 dengan pesan deployment belum selesai;
+  belum menayangkan aplikasi, login, maupun formulir.
+- PostgreSQL tetap localhost 5432; tidak mengekspos port database/Node.
+  WAPALA app auto-start belum diterapkan sesuai instruksi pengguna.
+- Production readiness belum tercapai: dependensi/build, konfigurasi database
+  aplikasi/email, HTTPS, dan resource preflight masih harus dituntaskan.
+- CodeGraph CLI diperiksa lebih dulu, tetapi indeks menunjuk working tree
+  lain dan stale; konfigurasi deploy divalidasi langsung dari source.
+
+## 2026-10-14 — Percobaan build lanjutan dan domain wapala.my.id
+
+- Pengguna meminta mencoba build lagi dan menetapkan domain `wapala.my.id`.
+  Provider melarang swap; tidak membuat atau mengaktifkan swap.
+- Uji isolasi `npm ci --ignore-scripts --no-audit --no-fund` memakai heap
+  Node 256 MB dan satu socket npm. Proses kembali dihentikan dengan Killed
+  ketika ekstraksi dependensi, sebelum Prisma generation atau Next build.
+  Tidak mengklaim build telah dijalankan atau berhasil.
+- Cgroup guest v1 melaporkan limit dan historical peak 1.048.576.000 byte.
+  Saat instalasi, pemakaian teramati 1.047.171.072 byte. Ini menunjukkan
+  tekanan memori container, tetapi kernel guest tidak menyediakan bukti
+  OOM kill individual. `memory.failcnt` tetap 600 selama uji ini.
+- DNS A melalui resolver publik 1.1.1.1 mengembalikan NXDOMAIN untuk domain;
+  resolusi pada VPS juga belum menghasilkan alamat. Belum mengubah DNS,
+  domain forwarding, sertifikat, source aplikasi, atau mode keamanannya.
+- Nginx HTTP awal tetap tersedia; aplikasi production belum diaktifkan.
+
+## 2026-10-14 — Domain dan HTTPS NAT diaktifkan, Apache dipertahankan
+
+- DNS `wapala.my.id` sudah ter-resolve ke 185.205.222.202. Pengguna mengubah
+  forwarding HTTP publik 80 ke internal 33335 dan HTTPS publik 443 ke
+  internal 33336. Apache provider tetap aktif pada internal port 80.
+- Proses setup lama dibatalkan sebelum konfigurasi domain/stop Apache.
+  Helper lama dinonaktifkan agar tidak bisa menghentikan Apache kemudian.
+- Nginx memakai 33335 untuk ACME HTTP-01 dan redirect HTTP ke HTTPS;
+  listener TLS 33336 memakai sertifikat Let's Encrypt untuk wapala.my.id.
+- Certbot webroot berhasil menerbitkan sertifikat, expiry 2027-01-12.
+  Scheduled renewal bawaan Certbot disertai deploy hook nginx config-test
+  dan reload; dry-run renewal belum dilakukan. App auto-start tetap belum
+  diaktifkan sesuai instruksi pengguna.
+- Tes eksternal dengan hostname/SNI yang benar dan validasi TLS aktif:
+  HTTP root 301 ke https://wapala.my.id/, HTTPS deployment-health 200,
+  HTTPS root 503 pesan deployment aplikasi belum selesai. Tidak memakai
+  sertifikat self-signed atau mematikan certificate verification.
+- `nginx -t` lulus; Apache dan Nginx keduanya terverifikasi aktif.
+  Source aplikasi/build/database aplikasi/email dan capacity preflight masih
+  belum selesai; HTTPS aktif bukan klaim website production sudah berjalan.
+
+## 2026-10-14 — GitHub Actions Linux runtime dan tanpa email
+
+- Pengguna menyetujui build GitHub Actions dan pengiriman hasilnya ke VPS.
+  Main `6bc975b` menambahkan workflow manual Ubuntu 22.04 x64/Node 24.21.0:
+  npm ci, Prisma generation, tes unit/backend/integration PostgreSQL disposable,
+  typecheck, lint, Next build, runtime tar.gz/checksum/commit metadata.
+  Actions dipin SHA, tidak membawa SSH key/secret server, dan tidak auto-deploy.
+- Run 38572300643 berhasil; artifact 377.390.817 byte diunduh dan digest SHA-256
+  GitHub diverifikasi. Dependency operator Linux ikut agar VPS tidak npm ci.
+  Data staging/CSV/database/environment tidak masuk paket. Source ZIP allowlist
+  ikut membawa workflow dan panduan Linux; tests memakai real filesystem.
+- Provider memblokir SMTP dan pengguna memilih operasi awal tanpa email.
+  Main `b67e08b` menambahkan EMAIL_MODE=disabled: tidak mengantrekan notifikasi,
+  tidak mengklaim delivery, dan menutup recovery/reset email web tanpa mint
+  token. Context/UI menjelaskan SSH untuk Super User dan reset admin oleh SU.
+  Production tetap wajib HTTPS; sink/preview tidak dibolehkan.
+- QA lokal: 97 unit dan 42 backend lulus; integrasi 88 test, 84 lulus/4 native
+  scanner dilewati. Typecheck lulus; lint 0 error/7 warning lama. Assertion sesi
+  baru diperbaiki sesuai kontrak resolveSession (revoked mengembalikan null).
+- Build final run 38574949788 sedang dikemas setelah seluruh test/build Linux
+  lulus. Checkout source VPS diperbarui ke b67e08b tanpa npm ci/build di VPS.
+- Preflight ClamAV dengan signature lengkap dan guard sementara 800 MB kembali
+  timeout exit 124 setelah 120 detik. Daemon dihentikan, guard dipulihkan;
+  swap tidak dibuat dan antivirus tidak dibypass. Runtime bersama scanner
+  belum lolos pada RAM 1 GB; WAPALA service/app auto-start belum diaktifkan.
+- Apache provider dan Nginx tetap aktif. File next-env.d.ts generated yang
+  sebelumnya dirty tidak ikut commit. CodeGraph CLI menemukan createSourceZip;
+  indeks stale/worktree mismatch, detail diverifikasi langsung dari source.
+- Checklist React mempertahankan hook order, cancellation dan Notice yang
+  aksesibel; perubahan UI hanya petunjuk pemulihan sesuai mode email.
+
+### Permintaan lanjutan: build langsung di VPS
+
+- Pengguna mengalihkan fokus kembali ke build VPS dan meminta tidak menjalankan
+  pemeriksaan scanner lagi. Tidak menjalankan scan tambahan setelah instruksi.
+- Prisma generation langsung gagal `prisma: not found`: dependency hasil
+  instalasi sebelumnya tidak lengkap. Instalasi npm ci berikutnya dengan heap
+  192 MB, MALLOC_ARENA_MAX=2 dan satu socket tetap dihentikan (`Killed`).
+  UV_THREADPOOL_SIZE yang tercantum pada percobaan adalah nama variabel yang
+  tidak dikenali Node (yang benar UV_THREADPOOLSIZE); tidak mengklaim thread
+  pool benar-benar dibatasi. Log npm tidak menyediakan alasan kernel kill.
+- Build Next di VPS belum bisa dimulai karena install prerequisite gagal.
+  Tidak mengaktifkan aplikasi, tidak menambah swap, dan tidak mengklaim sukses.
+
+## Checkpoint deployment berhasil — 14 Oktober 2026
+
+- Instalasi serial dengan cache baru, heap 512 MB, UV_THREADPOOLSIZE=1 dan
+  MALLOC_ARENA_MAX=2 berhasil; Exim hanya dipause sementara dan dipulihkan.
+- VPS kemudian melaporkan RAM 2 GB dan limit cgroup 2.097.152.000 byte.
+  Build langsung di VPS dengan heap 768 MB berhasil, build ID
+  `3_9yMpZYETfwZFzkpghWx`, release main b67e08b.
+- Database produksi kosong dibuat dengan role migration terpisah dari runtime.
+  Runtime bukan superuser, tidak boleh DDL/truncate, AuditLog hanya select/insert.
+  Secret environment dibuat privat di VPS, bukan di repository.
+- Release `/srv/wapala/releases/b67e08b` diaktifkan melalui current symlink.
+  Systemd app berjalan nonroot, loopback 3000; Nginx NAT HTTPS proxy aktif.
+  Apache provider dipertahankan, email disabled, app auto-start tetap deferred.
+- Tes eksternal TLS valid: /, /profil, /galeri, /event, /donasi, /peminjaman,
+  /wapala, /api/health dan /api/auth/context semuanya 200. Cookie auth Secure
+  dan HttpOnly. Pengguna kemudian mengonfirmasi setup/login sudah berhasil.
+- `docs/vps-ssh-commands.md` mencatat perintah layanan, bootstrap/recovery,
+  layout release dan panduan import; tidak mengklaim gitupdate sudah terpasang.
+- Pengguna meminta migrasi hanya Album/Angkatan. Anggota/Inventaris tetap exclude.
+  GitHub DNS pada VPS gagal sementara, jadi snapshot paket origin/staging
+  8e584423fdbdc5b58b1d88a003604aa109437994 dikirim melalui SCP.
+
+## Import produksi Album/Angkatan selesai
+
+- Snapshot tar staging yang dikirim cocok SHA-256 lokal/VPS:
+  8c8eacff02fa2097beff7a5b2da945b77afb35346937c2f0159f3dace2c5ef28.
+- Dry-run produksi lulus: 21 angkatan, 22 album, 129 foto album, 150 media.
+  Izin eksekusi binary esbuild release diperbaiki menjadi 0755 untuk service
+  user wapala; tidak mengubah password atau ownership data pengguna.
+- Backup pg_dump dan media disimpan privat di root sebelum apply. Apply
+  dijalankan sebagai wapala dengan runtime DB role, signature/checksum checks,
+  dan transaksi importer; hasil 21/22 records dan 150 media ditambahkan.
+  Data manual, akun yang sudah dibuat dan pengaturan tidak ditimpa.
+- Website sempat 502 selama penghentian writer untuk backup/import; layanan
+  dipulihkan dan tes eksternal /, /galeri, /profil, /wapala, /api/health semua
+  200. Referensi foto publik tampil; sampel gambar WebP menghasilkan 200.
+- Tidak mengimpor Anggota/Inventaris. Tidak memperbarui main dengan paket data.
+- Panduan SSH dan catatan dipush ke branch bernama `Agents` (bukan `Agent`).
