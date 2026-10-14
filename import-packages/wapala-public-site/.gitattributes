@@ -1,0 +1,6 @@
+manifest.json -text
+manifest.sha256 -text
+assets/** binary
+source-pages/** binary
+*.mjs text eol=lf
+*.md text eol=lf

@@ -1,0 +1,1187 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Profil - WAPALA Telkom University</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <!-- JavaScript -->
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/alertify.min.js"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/alertify.min.css"/>
+    <!-- Default theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/themes/default.min.css"/>
+    <!-- Semantic UI theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/themes/semantic.min.css"/>
+    <!-- Bootstrap theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/themes/bootstrap.min.css"/>
+
+    <!-- Tambahkan jQuery di bagian <head> atau sebelum kode yang menggunakan $ -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <link rel="icon" href="https://www.wapalatelkomuniversity.org/favicon.ico">
+    <style>
+        .btn-primary {
+           background-color: #87ceeb;
+           border: none;
+        }
+        .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary:after, .btn-primary:active:after{
+            background-color: #87ceeb;
+            border: none;
+        }
+        body {
+            font-family: 'Poppins';
+        }
+
+        .nav-item .nav-link.active{
+            font-weight: bold;
+            color: #87ceeb;
+        }
+
+        /* Navbar transparan di atas hero, fixed supaya tidak ikut ke-scroll */
+        .navbar {
+            background-color: transparent !important;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1030;
+            transition: background-color 0.35s ease, box-shadow 0.35s ease, padding 0.35s ease;
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+
+        /* Efek saat halaman di-scroll: navbar jadi putih + shadow putih (glow) */
+        .navbar.scrolled {
+            background-color: #ffffff !important;
+            box-shadow: 0 4px 20px rgba(255, 255, 255, 0.6);
+            padding-top: 6px;
+            padding-bottom: 6px;
+        }
+
+        .nav-link {
+            color: #fff; /* Warna teks default di atas hero */
+            margin: 0 20px; /* Jarak antar item navbar */
+            display: inline-block;
+            transition: color 0.3s ease, transform 0.3s ease;
+            transform: scale(1);
+        }
+
+        /* Teks mengecil dikit + warna gelap pas navbar sudah putih */
+        .navbar.scrolled .nav-link {
+            color: #222;
+            transform: scale(0.9);
+        }
+
+        .navbar.scrolled .nav-link.active {
+            color: #87ceeb;
+        }
+
+        /* Logo ikut mengecil dikit pas scrolled */
+        .navbar-brand img {
+            transition: transform 0.3s ease;
+        }
+        .navbar.scrolled .navbar-brand img {
+            transform: scale(0.85);
+        }
+
+        @media (max-width: 768px) {
+            .wrap .jumbotron {
+                top: 60%; /* Adjust position on smaller screens */
+                transform: translate(-50%, -60%);
+                font-size: 1.2rem; /* Adjust font size for mobile */
+            }
+            .navbar .nav-link {
+                margin: 0 10px; /* Reduce spacing on smaller screens */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                background-color: rgba(0, 0, 0, 0.7) !important; /* Add slight background for better visibility saat belum scroll */
+            }
+        }
+    </style>
+        <style>
+    body{
+        font-family:'Poppins', sans-serif;
+    }
+
+    .wrap{
+        width:100%;
+        height:40vh;
+        position: relative;
+        background-position: center 60%;
+        background-size:cover;
+    }
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .wrap .jumbotron {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      text-align: center;
+    }
+
+    /* Judul hero "Profil": putih polos, tanpa gradasi/shadow */
+    .wrap .jumbotron h1{
+        font-family:'Poppins', sans-serif;
+        font-weight:800;
+        color:#fff;
+    }
+
+    .wrap .jumbotron p{
+        font-family:'Poppins', sans-serif;
+        color:#fff;
+    }
+
+    .angkatan-wrap{
+        padding-top: 34px;
+    }
+
+    .angkatan-card{
+        position:relative;
+        overflow:hidden;
+        border-radius: 10px;
+        aspect-ratio:4/5;
+        box-shadow: 0 1px 2px rgba(20,15,10,.06), 0 12px 28px rgba(20,15,10,.10);
+        transition: transform .5s cubic-bezier(.22,1,.36,1), box-shadow .5s ease;
+        border: 1px solid rgba(20,15,10,.06);
+    }
+
+    .angkatan-card:hover{
+        transform:scale(1.08);
+        box-shadow: 0 1px 2px rgba(20,15,10,.08), 0 24px 40px rgba(20,15,10,.16);
+    }
+
+    .angkatan-card img{
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        transition: transform .7s cubic-bezier(.22,1,.36,1), filter .5s ease;
+        filter: saturate(.92) contrast(1.03);
+    }
+
+    .angkatan-card:hover img{
+        transform:scale(1.045);
+    }
+
+    .angkatan-no{
+        position:absolute;
+        top:18px;
+        left:18px;
+        z-index:2;
+        font-size:13px;
+        letter-spacing:2.5px;
+        color: rgba(255,255,255,.92);
+        background: rgba(10,10,10,.32);
+        border: 1px solid rgba(255,255,255,.35);
+        padding: 4px 10px;
+        border-radius: 2px;
+        backdrop-filter: blur(2px);
+    }
+
+    .angkatan-overlay{
+        position:absolute;
+        left:0;
+        right:0;
+        bottom:0;
+        z-index:2;
+        padding:22px 22px 24px;
+        background:linear-gradient(
+            to top,
+            rgba(10,10,10,.88),
+            rgba(10,10,10,.55) 60%,
+            transparent
+        );
+    }
+
+    .angkatan-line{
+        width:34px;
+        height:1px;
+        margin-bottom:10px;
+        background: currentColor;
+        opacity:.85;
+    }
+
+    /* ===== Judul section: besar, tebal, gradasi hitam ke biru, senada main blade ===== */
+    .judul-logo,
+    .judul-angkatan,
+    .misi{
+        font-family:'Poppins', sans-serif;
+        font-weight:800;
+        font-size:clamp(1.8rem, 3.5vw, 2.4rem);
+        line-height:1.2;
+        background:linear-gradient(90deg,#111111 0%,#111111 20%,#2193b0 60%,#0f2027 100%);
+        -webkit-background-clip:text;
+        -webkit-text-fill-color:transparent;
+        background-clip:text;
+        display:inline-block;
+        letter-spacing:0px;
+        text-align:left;
+    }
+
+    .judul-logo{
+        margin-bottom: 15px;
+    }
+
+    /* ===== Teks penjelasan di bawah judul, senada .sejarah-desc di main blade ===== */
+    .section-desc{
+        color:#666;
+        font-size:16px;
+        line-height:1.7;
+        max-width:720px;
+        margin-bottom:20px;
+    }
+
+/* ===========================
+   ARTI LOGO
+=========================== */
+.logo-section{
+    padding-top: 100px;
+    padding-bottom: 0px;
+}
+
+.logo-section img{
+    display:block;
+    margin:auto;
+    max-width:100%;
+}
+
+/* ===========================
+   ANGKATAN
+=========================== */
+.angkatan-wrap{
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+.judul-angkatan{
+    margin-bottom: 40px;
+}
+    .angkatan-content h5{
+        color:#fff;
+        margin:0;
+        font-size:16px;
+        font-weight:600;
+        letter-spacing:.3px;
+    }
+
+    .angkatan-content p{
+        margin:5px 0 0;
+        font-size:11.5px;
+        letter-spacing:2px;
+        text-transform: uppercase;
+        opacity:.9;
+    }
+
+    .orange{ color:#C9A34E; }
+    .blue{ color:#B9C4D4; }
+
+    /* ==== Profil sections: stacked, tanpa card (memanjang ke bawah) ==== */
+    .profil-card{
+        margin-bottom: 40px;
+    }
+    .profil-card-title{
+        display:flex;
+        align-items:center;
+        gap:12px;
+        font-weight:700;
+        font-size: 32px;
+        margin-bottom: 20px;
+    }
+    .profil-card > p{
+        font-size:19px;
+        line-height:1.8;
+    }
+    .misi{
+    margin-top: 0px;
+    margin-bottom: 30px;
+}
+    .misi-item{
+        display:flex;
+        align-items:flex-start;
+        gap:16px;
+        background:#F0F7FA;
+        border-radius:10px;
+        padding:18px 20px;
+        margin-bottom:14px;
+    }
+    .misi-item:last-child{ margin-bottom:0; }
+    .misi-number{
+        flex:0 0 auto;
+        width:32px;
+        height:32px;
+        border-radius:50%;
+        background:linear-gradient(135deg,#2193b0 0%,#0f2027 100%);
+        color:#fff;
+        font-size:15px;
+        font-weight:700;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        margin-top:1px;
+    }
+    .misi-item p{
+        margin:0;
+        color:#374151;
+        text-align:justify;
+        font-size:18px;
+        line-height:1.8;
+    }
+
+    .anggota-card{
+        margin-bottom: 24px;
+    }
+    .anggota-title{
+        display:flex;
+        align-items:center;
+        gap:12px;
+        font-weight:800;
+        font-size:32px;
+        margin-bottom:2px;
+    }
+    .anggota-subtitle{
+        font-size:16px;
+        display:block;
+        margin-bottom:1rem;
+    }
+    .chart-wrapper{
+        position:relative;
+        width:100%;
+        max-width:320px;
+        margin:0 auto;
+    }
+    .chart-center-label{
+        position:absolute;
+        top:50%; left:50%;
+        transform:translate(-50%,-50%);
+        text-align:center;
+    }
+    .chart-total{
+        display:block;
+        font-size:42px;
+        font-weight:700;
+        color:#0f2027;
+    }
+    .chart-total-text{
+        font-size:15px;
+        color:#6B7280;
+        letter-spacing:1px;
+        text-transform:uppercase;
+    }
+    .anggota-item{
+        display:flex;
+        align-items:center;
+        gap:18px;
+        padding:16px 18px;
+        border-radius:10px;
+        background:#F0F7FA;
+        margin-bottom:12px;
+        cursor:pointer;
+        border:1px solid transparent;
+        transition: transform .25s ease, box-shadow .25s ease, background .25s ease, border-color .25s ease;
+    }
+    .anggota-item:hover,
+    .anggota-item.is-active{
+        transform: translateX(6px);
+        background:#E4F1F7;
+        border-color: rgba(33,147,176,.3);
+        box-shadow: 0 6px 16px rgba(15,32,39,.10);
+    }
+    .anggota-item.is-dimmed{
+        opacity:.45;
+    }
+    .badge-circle{
+        flex:0 0 auto;
+        width:58px;
+        height:58px;
+        border-radius:50%;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        color:#fff;
+        font-weight:700;
+        font-size:18px;
+        transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .anggota-item:hover .badge-circle,
+    .anggota-item.is-active .badge-circle{
+        transform: scale(1.12);
+        box-shadow: 0 4px 12px rgba(0,0,0,.18);
+    }
+    .anggota-item h6{
+        margin:0;
+        font-size:19px;
+        font-weight:600;
+        color:#1F2937;
+    }
+    .anggota-item small{
+        color:#6B7280;
+        font-size:15px;
+    }
+    .chart-wrapper canvas{
+        cursor:pointer;
+    }
+
+    </style>
+  </head>
+  <body>
+        <div class="wrap">
+            <div class="overlay">
+                <nav class="navbar navbar-expand-lg navbar-dark bg-transparent w-100 py-0 mt-0 px-5">
+                    <div class="container-fluid">
+                        <a class="navbar-brand fw-bold" href="#">
+                            <img src="https://www.wapalatelkomuniversity.org/WAPALA TELKOM UNIVERSITY.png" class="mx-2 mt-3" alt="wapala" width="40" height="70">
+                        </a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 mr-2">
+                                <li class="nav-item">
+                                    <a class="nav-link " href="/">Beranda</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="/profil">Profil</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link " href="/album">Album</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link " href="/kontak">Kontak</a>
+                                </li>
+                                                                    
+                                                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <div class="wrap parallax-window"
+    data-parallax="scroll"
+    data-image-src="https://www.wapalatelkomuniversity.org/jumbotron2.jpg">
+
+    <div class="overlay"></div>
+
+    <div class="jumbotron mt-5 pt-5">
+        <h1 class="display-3 fw-bold">Profil</h1>
+        <p><em>Beranda > Profil</em></p>
+    </div>
+
+</div>
+<div class="banner"></div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <!-- Script efek navbar saat scroll -->
+        <script>
+            $(document).ready(function () {
+                function handleNavbarScroll() {
+                    if ($(window).scrollTop() > 50) {
+                        $('.navbar').addClass('scrolled');
+                    } else {
+                        $('.navbar').removeClass('scrolled');
+                    }
+                }
+                handleNavbarScroll(); // cek posisi awal, misal kalau reload di tengah halaman
+                $(window).on('scroll', handleNavbarScroll);
+            });
+        </script>
+  </body>
+</html>        <section class="my-4">
+            <div class="container">
+
+                <div class="profil-card">
+                    <h3 class="misi">Visi</h3>
+                    <p style="text-align: justify; margin-bottom:0;">
+                        WAPALA Telkom University sebagai organisasi yang memiliki kepedulian tinggi terhadap alam dan lingkungan sekitar serta dapat meningkatkan intelektualitas, jasmani, rohani, dan jiwa ksatria anggotanya.
+                    </p>
+                </div>
+
+                <div class="profil-card">
+                    <h3 class="misi">Misi</h3>
+
+                    <div class="misi-item">
+                        <span class="misi-number">1</span>
+                        <p>Memperluas hubungan kerjasama dan mempererat rasa kekeluargaan yang harmonis serta saling menguntungkan dengan organisasi eksternal.</p>
+                    </div>
+                    <div class="misi-item">
+                        <span class="misi-number">2</span>
+                        <p>Menyelenggarakan kegiatan yang dapat membantu masyarakat dan turut serta dalam usaha pelestarian alam dan lingkungan hidup.</p>
+                    </div>
+                    <div class="misi-item">
+                        <span class="misi-number">3</span>
+                        <p>Membentuk anggota WAPALA Telkom University yang mampu berpikir dan bertindak kritis, bertanggung jawab, berwawasan luas yang berlandaskan nilai-nilai kekeluargaan.</p>
+                    </div>
+                    <div class="misi-item">
+                        <span class="misi-number">4</span>
+                        <p>Mengembangkan kegiatan dalam rangka peningkatan kualitas tata kelola organisasi.</p>
+                    </div>
+                </div>
+
+                
+                <div class="anggota-card">
+                    <h3 class="misi">Anggota</h3>
+                    <p class="section-desc">Komposisi keanggotaan WAPALA Telkom University berdasarkan jenjang keanggotaan, dari Anggota Kehormatan, Anggota Luar Biasa, hingga Anggota Biasa.</p>
+
+                    <div class="row align-items-center">
+                        <div class="col-md-5 mb-4 mb-md-0">
+                            <div class="chart-wrapper">
+                                <div id="komposisiChart" style="width:100%; height:320px;"></div>
+                                <div class="chart-center-label">
+                                    <span class="chart-total">218</span>
+                                    <span class="chart-total-text">Anggota</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-7">
+                            <div class="anggota-item">
+                                <span class="badge-circle" style="background:#0f2027">218</span>
+                                <div>
+                                    <h6>Total Keseluruhan Anggota</h6>
+                                    <small>Seluruh anggota WAPALA Telkom University</small>
+                                </div>
+                            </div>
+                            <div class="anggota-item" data-index="0">
+                                <span class="badge-circle" style="background:#6dd5ed">3</span>
+                                <div>
+                                    <h6>Anggota Kehormatan</h6>
+                                    <small>1.4% dari total anggota</small>
+                                </div>
+                            </div>
+                            <div class="anggota-item" data-index="1">
+                                <span class="badge-circle" style="background:#2193b0">181</span>
+                                <div>
+                                    <h6>Anggota Luar Biasa</h6>
+                                    <small>83% dari total anggota</small>
+                                </div>
+                            </div>
+                            <div class="anggota-item" data-index="2">
+                                <span class="badge-circle" style="background:#0f2027">34</span>
+                                <div>
+                                    <h6>Anggota Biasa</h6>
+                                    <small>15.6% dari total anggota</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <section class="logo-section">
+    <div class="container">
+
+        <div>
+            <h2 class="judul-logo">
+                Arti Logo WAPALA
+            </h2>
+            <p class="section-desc">Setiap elemen dalam logo WAPALA memiliki makna filosofis yang mencerminkan nilai, semangat, dan identitas organisasi.</p>
+        </div>
+
+        <div class="text-center">
+            <img src="https://www.wapalatelkomuniversity.org/arti-logo-wapala.png"
+                 alt="Arti Logo WAPALA"
+                 class="img-fluid">
+        </div>
+
+    </div>
+</section>
+       <section class="my-0 angkatan-wrap">
+            <div class="container my-0">
+                <h2 class="judul-angkatan">Angkatan WAPALA</h2>
+            </div>
+            <div class="container">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+                                        
+                                                                    <div class="col">
+                            <div class="angkatan-card">
+
+                                <span class="angkatan-no">
+                                    21
+                                </span>
+
+                               <img src="https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/dD5Rb59mK04a65psBvY8gqBurs8aq1g1gmZwFw0h.png"
+     alt="AMBARAWA">
+
+                                <div class="angkatan-overlay">
+                                    <div class="angkatan-line orange"></div>
+                                    <div class="angkatan-content">
+                                        <h5>AMBARAWA</h5>
+                                        <p class="orange">
+                                            WAPALA XXI
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                                                                    <div class="col">
+                            <div class="angkatan-card">
+
+                                <span class="angkatan-no">
+                                    20
+                                </span>
+
+                               <img src="https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/vbEWMCccGr4p7I0qR1JznoAZSSJZPBx8Um6psYSL.png"
+     alt="ARUNG">
+
+                                <div class="angkatan-overlay">
+                                    <div class="angkatan-line blue"></div>
+                                    <div class="angkatan-content">
+                                        <h5>ARUNG</h5>
+                                        <p class="blue">
+                                            WAPALA XX
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                                                                    <div class="col">
+                            <div class="angkatan-card">
+
+                                <span class="angkatan-no">
+                                    19
+                                </span>
+
+                               <img src="https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/uvUfWi1AOjcZtVy9LrLDpMsK0aNy0dPwwn9bouPE.png"
+     alt="TRISULA">
+
+                                <div class="angkatan-overlay">
+                                    <div class="angkatan-line orange"></div>
+                                    <div class="angkatan-content">
+                                        <h5>TRISULA</h5>
+                                        <p class="orange">
+                                            WAPALA XIX
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                                                                    <div class="col">
+                            <div class="angkatan-card">
+
+                                <span class="angkatan-no">
+                                    18
+                                </span>
+
+                               <img src="https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/hpkO8Q8ryEhCYHs10k36keCDq1bvBZ12SRb9ASwm.png"
+     alt="ANTASENA">
+
+                                <div class="angkatan-overlay">
+                                    <div class="angkatan-line blue"></div>
+                                    <div class="angkatan-content">
+                                        <h5>ANTASENA</h5>
+                                        <p class="blue">
+                                            WAPALA XVIII
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                                                                    <div class="col">
+                            <div class="angkatan-card">
+
+                                <span class="angkatan-no">
+                                    17
+                                </span>
+
+                               <img src="https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/DgBnf9ozUxkARz3XtHyynOkPVZKiJAPq8wAQZF5Z.png"
+     alt="KALIANDRA">
+
+                                <div class="angkatan-overlay">
+                                    <div class="angkatan-line orange"></div>
+                                    <div class="angkatan-content">
+                                        <h5>KALIANDRA</h5>
+                                        <p class="orange">
+                                            WAPALA XVII
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                                                                    <div class="col">
+                            <div class="angkatan-card">
+
+                                <span class="angkatan-no">
+                                    16
+                                </span>
+
+                               <img src="https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/9xZcMJtkdsFAoNTqBCg2KuZxJwnKuQoGigaIxMqB.png"
+     alt="KALINGGA">
+
+                                <div class="angkatan-overlay">
+                                    <div class="angkatan-line blue"></div>
+                                    <div class="angkatan-content">
+                                        <h5>KALINGGA</h5>
+                                        <p class="blue">
+                                            WAPALA XVI
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                                                                    <div class="col">
+                            <div class="angkatan-card">
+
+                                <span class="angkatan-no">
+                                    15
+                                </span>
+
+                               <img src="https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/tzCrbrky5T4OvdlWTO3tw5jfSB0CLEe9ZqT1aRwh.png"
+     alt="AKSARA">
+
+                                <div class="angkatan-overlay">
+                                    <div class="angkatan-line orange"></div>
+                                    <div class="angkatan-content">
+                                        <h5>AKSARA</h5>
+                                        <p class="orange">
+                                            WAPALA XV
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                                                                    <div class="col">
+                            <div class="angkatan-card">
+
+                                <span class="angkatan-no">
+                                    14
+                                </span>
+
+                               <img src="https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/ONDGftBvxCVgzrXzQWTe3Y1n61Ab50MJZH81I9N1.png"
+     alt="TARANTULA">
+
+                                <div class="angkatan-overlay">
+                                    <div class="angkatan-line blue"></div>
+                                    <div class="angkatan-content">
+                                        <h5>TARANTULA</h5>
+                                        <p class="blue">
+                                            WAPALA XIV
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                                                                    <div class="col">
+                            <div class="angkatan-card">
+
+                                <span class="angkatan-no">
+                                    13
+                                </span>
+
+                               <img src="https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/UTIoqvZ1EnC31ksLfP50Cy3OflfLtl1JaZ9EOdVZ.png"
+     alt="ANGKASA">
+
+                                <div class="angkatan-overlay">
+                                    <div class="angkatan-line orange"></div>
+                                    <div class="angkatan-content">
+                                        <h5>ANGKASA</h5>
+                                        <p class="orange">
+                                            WAPALA XIII
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                                                                    <div class="col">
+                            <div class="angkatan-card">
+
+                                <span class="angkatan-no">
+                                    12
+                                </span>
+
+                               <img src="https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/NQAuIiWD0G3SIJDCfHSYNGCO2QE0oDJC3qXO6M6Y.png"
+     alt="ANMAHU">
+
+                                <div class="angkatan-overlay">
+                                    <div class="angkatan-line blue"></div>
+                                    <div class="angkatan-content">
+                                        <h5>ANMAHU</h5>
+                                        <p class="blue">
+                                            WAPALA XII
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                                                                    <div class="col">
+                            <div class="angkatan-card">
+
+                                <span class="angkatan-no">
+                                    11
+                                </span>
+
+                               <img src="https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/oIABzvJecvUDbUtSn1St7Vup1QvI7xqhSyiYz1ON.png"
+     alt="MAMOT">
+
+                                <div class="angkatan-overlay">
+                                    <div class="angkatan-line orange"></div>
+                                    <div class="angkatan-content">
+                                        <h5>MAMOT</h5>
+                                        <p class="orange">
+                                            WAPALA XI
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                                                                    <div class="col">
+                            <div class="angkatan-card">
+
+                                <span class="angkatan-no">
+                                    10
+                                </span>
+
+                               <img src="https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/xW3GmVCrcjXhZnhoVK6BTzHM26XJx1Zy7gg1TQE3.png"
+     alt="BONTIL">
+
+                                <div class="angkatan-overlay">
+                                    <div class="angkatan-line blue"></div>
+                                    <div class="angkatan-content">
+                                        <h5>BONTIL</h5>
+                                        <p class="blue">
+                                            WAPALA X
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                                                                    <div class="col">
+                            <div class="angkatan-card">
+
+                                <span class="angkatan-no">
+                                    09
+                                </span>
+
+                               <img src="https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/RfLEjpg0UCjo6LvvJvMFBPra0WAEB0LBxx5Bw7Tk.png"
+     alt="PARLENTE">
+
+                                <div class="angkatan-overlay">
+                                    <div class="angkatan-line orange"></div>
+                                    <div class="angkatan-content">
+                                        <h5>PARLENTE</h5>
+                                        <p class="orange">
+                                            WAPALA IX
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                                                                    <div class="col">
+                            <div class="angkatan-card">
+
+                                <span class="angkatan-no">
+                                    08
+                                </span>
+
+                               <img src="https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/VkFmsOpIjYT1aFvBl7swILDWwHxqUGWXHoDIVbfD.png"
+     alt="KOMET">
+
+                                <div class="angkatan-overlay">
+                                    <div class="angkatan-line blue"></div>
+                                    <div class="angkatan-content">
+                                        <h5>KOMET</h5>
+                                        <p class="blue">
+                                            WAPALA VIII
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                                                                    <div class="col">
+                            <div class="angkatan-card">
+
+                                <span class="angkatan-no">
+                                    07
+                                </span>
+
+                               <img src="https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/S1vYPivkvZ1CMvsp2sHAbmzCvzKuo3nSLKqvoUD9.png"
+     alt="WAPALA ANGKATAN VII">
+
+                                <div class="angkatan-overlay">
+                                    <div class="angkatan-line orange"></div>
+                                    <div class="angkatan-content">
+                                        <h5>WAPALA ANGKATAN VII</h5>
+                                        <p class="orange">
+                                            WAPALA VII
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                                                                    <div class="col">
+                            <div class="angkatan-card">
+
+                                <span class="angkatan-no">
+                                    06
+                                </span>
+
+                               <img src="https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/bs1RFNft4cnIxr6bBbx0eJaoLlziPOZv8pWDE3Gm.png"
+     alt="KEMET">
+
+                                <div class="angkatan-overlay">
+                                    <div class="angkatan-line blue"></div>
+                                    <div class="angkatan-content">
+                                        <h5>KEMET</h5>
+                                        <p class="blue">
+                                            WAPALA VI
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                                                                    <div class="col">
+                            <div class="angkatan-card">
+
+                                <span class="angkatan-no">
+                                    05
+                                </span>
+
+                               <img src="https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/n6GzkL2T2Q8gXNURhTO9OPlEYSwiX0e2vqL5qCDV.png"
+     alt="WAPALA ANGKATAN V">
+
+                                <div class="angkatan-overlay">
+                                    <div class="angkatan-line orange"></div>
+                                    <div class="angkatan-content">
+                                        <h5>WAPALA ANGKATAN V</h5>
+                                        <p class="orange">
+                                            WAPALA V
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                                                                    <div class="col">
+                            <div class="angkatan-card">
+
+                                <span class="angkatan-no">
+                                    04
+                                </span>
+
+                               <img src="https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/GCBlELzNPc2BJMJN39XbCFfgDsxTq0cNKp0xRHVf.png"
+     alt="WAPALA ANGKATAN IV">
+
+                                <div class="angkatan-overlay">
+                                    <div class="angkatan-line blue"></div>
+                                    <div class="angkatan-content">
+                                        <h5>WAPALA ANGKATAN IV</h5>
+                                        <p class="blue">
+                                            WAPALA IV
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                                                                    <div class="col">
+                            <div class="angkatan-card">
+
+                                <span class="angkatan-no">
+                                    03
+                                </span>
+
+                               <img src="https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/nj86guUWA0KcoIVNdGZ8sHK3KZwKqWNcyrVaPrIz.png"
+     alt="WAPALA ANGKATAN III">
+
+                                <div class="angkatan-overlay">
+                                    <div class="angkatan-line orange"></div>
+                                    <div class="angkatan-content">
+                                        <h5>WAPALA ANGKATAN III</h5>
+                                        <p class="orange">
+                                            WAPALA III
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                                                                    <div class="col">
+                            <div class="angkatan-card">
+
+                                <span class="angkatan-no">
+                                    02
+                                </span>
+
+                               <img src="https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/bXApxujBo2BAkb24aOJ24eAEagxQnycuqvxFB6HP.png"
+     alt="WAPALA ANGKATAN II">
+
+                                <div class="angkatan-overlay">
+                                    <div class="angkatan-line blue"></div>
+                                    <div class="angkatan-content">
+                                        <h5>WAPALA ANGKATAN II</h5>
+                                        <p class="blue">
+                                            WAPALA II
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                                                                    <div class="col">
+                            <div class="angkatan-card">
+
+                                <span class="angkatan-no">
+                                    01
+                                </span>
+
+                               <img src="https://dskozecjuuogndcaqguc.supabase.co/storage/v1/object/public/galeri/foto-angkatan/HlI9TaLLUcRS6IyE8jsTk1mPWeQkmErCCSC0Wk6h.png"
+     alt="PENDIRI WAPALA">
+
+                                <div class="angkatan-overlay">
+                                    <div class="angkatan-line orange"></div>
+                                    <div class="angkatan-content">
+                                        <h5>PENDIRI WAPALA</h5>
+                                        <p class="orange">
+                                            WAPALA I
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                                    </div>
+            </div>
+        </section>
+        <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const komposisiChart = echarts.init(document.getElementById('komposisiChart'));
+
+                const chartColors = ['#6dd5ed', '#2193b0', '#0f2027'];
+                const chartData = [
+                    { value: 3, name: 'Anggota Kehormatan' },
+                    { value: 181, name: 'Anggota Luar Biasa' },
+                    { value: 34, name: 'Anggota Biasa' }
+                ];
+
+                komposisiChart.setOption({
+                    tooltip: {
+                        trigger: 'item',
+                        backgroundColor: '#111827',
+                        borderWidth: 0,
+                        textStyle: { color: '#fff', fontSize: 13 },
+                        formatter: '{b}: {c} ({d}%)'
+                    },
+                    color: chartColors,
+                    series: [{
+                        name: 'Komposisi Anggota',
+                        type: 'pie',
+                        radius: ['68%', '92%'],
+                        avoidLabelOverlap: false,
+                        label: { show: false },
+                        labelLine: { show: false },
+                        itemStyle: {
+                            borderColor: '#fff',
+                            borderWidth: 3
+                        },
+                        emphasis: {
+                            scale: true,
+                            scaleSize: 6,
+                            itemStyle: {
+                                shadowBlur: 12,
+                                shadowColor: 'rgba(33,147,176,.35)'
+                            }
+                        },
+                        animationType: 'scale',
+                        animationEasing: 'elasticOut',
+                        animationDuration: 900,
+                        data: chartData
+                    }]
+                });
+
+                window.addEventListener('resize', () => komposisiChart.resize());
+
+                const anggotaItems = document.querySelectorAll('.anggota-item[data-index]');
+
+                function syncListHover(activeIndex) {
+                    anggotaItems.forEach(item => {
+                        const idx = parseInt(item.dataset.index, 10);
+                        item.classList.toggle('is-active', activeIndex !== null && idx === activeIndex);
+                        item.classList.toggle('is-dimmed', activeIndex !== null && idx !== activeIndex);
+                    });
+                }
+
+                komposisiChart.on('mouseover', (params) => {
+                    if (params.componentType === 'series') {
+                        syncListHover(params.dataIndex);
+                    }
+                });
+                komposisiChart.on('mouseout', () => {
+                    syncListHover(null);
+                });
+
+                anggotaItems.forEach(item => {
+                    const idx = parseInt(item.dataset.index, 10);
+
+                    item.addEventListener('mouseenter', () => {
+                        komposisiChart.dispatchAction({ type: 'highlight', seriesIndex: 0, dataIndex: idx });
+                        komposisiChart.dispatchAction({ type: 'showTip', seriesIndex: 0, dataIndex: idx });
+                        syncListHover(idx);
+                    });
+
+                    item.addEventListener('mouseleave', () => {
+                        komposisiChart.dispatchAction({ type: 'downplay', seriesIndex: 0, dataIndex: idx });
+                        komposisiChart.dispatchAction({ type: 'hideTip' });
+                        syncListHover(null);
+                    });
+                });
+            });
+        </script>
+        <section class="mt-0">
+            <div class="p-1" style="background-color: #87ceeb; color: white;">
+                <div class="container text-center px-4 py-3">
+                    <div class="row">
+                        <div class="col">
+                            <a href="https://www.instagram.com/wapalaittelkom/" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-white"><i class="fab fa-instagram" style="font-size: 14px;"></i> wapalatelkomuniversity</a>
+                        </div>
+                        <div class="col">
+                            <a href="https://www.tiktok.com/@wapalaittelkom" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-white"><i class="fab fa-tiktok" style="font-size: 14px;"></i> wapalatelkomuniversity</a>
+                        </div>
+                        <div class="col">
+                            <a href="https://www.youtube.com/@wapalaittelkompurwokerto1299" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-white"><i class="fab fa-youtube" style="font-size: 14px;"></i> Wapala IT Telkom Purwokerto</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/parallax.js/1.4.2/parallax.min.js"></script>
+
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.js"></script>
+    script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+            </script>
+  </body>
+</html>
