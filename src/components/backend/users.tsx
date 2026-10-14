@@ -8,6 +8,7 @@ import { backendApi } from "./api";
 
 type User = Awaited<ReturnType<typeof listUsers>>[number];
 const roles: Record<Role, string> = {
+  ANGGOTA: "Anggota",
   SUPER_USER: "Super User",
   POH: "POH",
   INVENTARIS: "Logistik",
@@ -30,16 +31,19 @@ export function BackendUsers({
   initialUsers,
   currentUserId,
   csrfToken,
+  members,
 }: {
   initialUsers: User[];
   currentUserId: string;
   csrfToken: string;
+  members: Array<{ id: string; name: string; nia: string }>;
 }) {
   const [users, setUsers] = useState(initialUsers);
   const [draft, setDraft] = useState<{
     email: string;
     name: string;
     role: Role;
+    memberId?: string;
   } | null>(null);
   const [confirm, setConfirm] = useState<{
     user: User;
@@ -66,7 +70,10 @@ export function BackendUsers({
       const data = await backendApi<{ user: User; temporaryPassword: string }>(
         "/api/admin/users",
         csrfToken,
-        draft,
+        {
+          ...draft,
+          ...(draft.role !== "ANGGOTA" ? { memberId: undefined } : {}),
+        },
       );
       setDraft(null);
       setCredential({
@@ -266,6 +273,34 @@ export function BackendUsers({
                   ))}
                 </select>
               </label>
+              {draft.role === "ANGGOTA" && (
+                <div className="field">
+                  <label htmlFor="account-member">
+                    Profil anggota pemilik akun
+                  </label>
+                  <select
+                    id="account-member"
+                    required
+                    value={draft.memberId || ""}
+                    onChange={(e) =>
+                      setDraft({ ...draft, memberId: e.target.value })
+                    }
+                  >
+                    <option value="">Pilih anggota</option>
+                    {members
+                      .filter((m) => !users.some((u) => u.memberId === m.id))
+                      .map((m) => (
+                        <option key={m.id} value={m.id}>
+                          {m.name} · {m.nia}
+                        </option>
+                      ))}
+                  </select>
+                  <p className="field-hint">
+                    Satu akun untuk satu profil. Anggota hanya dapat meminta
+                    koreksi profil ini.
+                  </p>
+                </div>
+              )}
             </div>
             {error && <Notice tone="error">{error}</Notice>}
             <div className="button-row">

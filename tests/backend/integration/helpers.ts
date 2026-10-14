@@ -14,6 +14,6 @@ export async function clean() {
   )
     throw new Error("Unsafe test cleanup");
   await db.$executeRawUnsafe(
-    'TRUNCATE "EventRegistration", "EventFormRevision", "Event", "Media", "Loan", "Equipment", "Member", "ContentRecord", "RecruitmentPeriod", "Campaign", "Session", "PasswordResetToken", "AuditLog", "EmailOutbox", "SecurityThrottle", "User", "BootstrapState", "SiteSettings" CASCADE',
+    'TRUNCATE "MemberCorrection", "Generation", "EventRegistration", "EventFormRevision", "Event", "Media", "Loan", "Equipment", "Member", "ContentRecord", "RecruitmentPeriod", "Campaign", "Session", "PasswordResetToken", "AuditLog", "EmailOutbox", "SecurityThrottle", "User", "BootstrapState", "SiteSettings" CASCADE',
   );
 }

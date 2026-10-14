@@ -8,6 +8,8 @@ import { Notice } from "../ui";
 import { authPost } from "../auth/client-api";
 const modules = {
   anggota: "Anggota",
+  angkatan: "Angkatan",
+  koreksi: "Koreksi data anggota",
   konten: "Konten",
   galeri: "Galeri",
   buku: "Buku",
@@ -24,9 +26,19 @@ const modules = {
 };
 const permissions: Record<Role, Array<keyof typeof modules>> = {
   SUPER_USER: Object.keys(modules) as Array<keyof typeof modules>,
-  POH: ["anggota", "or"],
-  MULTIMEDIA: ["konten", "galeri", "buku", "or", "donasi", "event"],
+  POH: ["anggota", "angkatan", "koreksi", "or"],
+  MULTIMEDIA: [
+    "angkatan",
+    "koreksi",
+    "konten",
+    "galeri",
+    "buku",
+    "or",
+    "donasi",
+    "event",
+  ],
   INVENTARIS: ["inventaris", "peminjaman", "or"],
+  ANGGOTA: ["anggota"],
 };
 export { modules as backendModules, permissions as backendRoleModules };
 export function BackendAdminShell({
@@ -74,7 +86,9 @@ export function BackendAdminShell({
                 ? "Inventaris"
                 : role === "MULTIMEDIA"
                   ? "Multimedia"
-                  : "POH"}
+                  : role === "ANGGOTA"
+                    ? "Anggota"
+                    : "POH"}
           </p>
           <Link className="text-link" href="/">
             Lihat website

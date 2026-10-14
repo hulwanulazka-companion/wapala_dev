@@ -12,9 +12,12 @@ enum Role {
   POH
   MULTIMEDIA
   INVENTARIS
+  ANGGOTA
 }
 
 model User {
+  memberId String? @unique @db.Uuid
+  member Member? @relation(fields: [memberId], references: [id], onDelete: Restrict)
   id                 String               @id @default(uuid()) @db.Uuid
   email              String               @unique
   name               String
@@ -227,6 +230,8 @@ model PublicFormReceipt {
 }
 
 model Member {
+  user User?
+  corrections MemberCorrection[]
   id         String @id @default(uuid()) @db.Uuid
   version    Int @default(1)
   nia        String @unique
@@ -241,6 +246,36 @@ enum ContentKind {
   konten
   galeri
   buku
+}
+
+model Generation {
+  version Int @default(1)
+  number       Int @id
+  name         String
+  label        String
+  year         Int?
+  description  String @default("")
+  photo        String
+  sourceUrl    String
+  sourceKey    String @unique
+  archivedAt   DateTime?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model MemberCorrection {
+  id String @id @default(uuid()) @db.Uuid
+  memberId String @db.Uuid
+  member Member @relation(fields: [memberId], references: [id], onDelete: Restrict)
+  requesterId String @db.Uuid
+  baseVersion Int
+  proposed Json
+  status String @default("pending")
+  note String @default("")
+  reviewerId String? @db.Uuid
+  createdAt DateTime @default(now())
+  reviewedAt DateTime?
+  @@index([status, createdAt])
 }
 
 model ContentRecord {

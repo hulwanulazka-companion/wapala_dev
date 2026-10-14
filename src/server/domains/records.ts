@@ -193,6 +193,9 @@ export const contentFields = {
       highlight: z.enum(["Ya", "Tidak"]).optional().default("Tidak"),
       status,
       gambar: z.array(media).max(500).optional().default([]),
+      sumber: z.union([z.literal(""), z.url().refine(value => value.startsWith("https://www.wapalatelkomuniversity.org/"))]).optional().default(""),
+      tahun_sumber: z.union([z.literal(""), z.string().regex(/^\d{4}$/)]).optional().default(""),
+      keterangan_foto: z.array(z.string().max(10000)).max(500).optional().default([]),
     })
     .strict(),
   buku: z

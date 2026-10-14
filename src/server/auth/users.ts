@@ -8,18 +8,26 @@ import type { RequestContext } from "../security/request-context";
 import { writeAudit } from "../audit";
 import { assertFresh } from "./sessions";
 import { requirePermission, type Principal, type Role } from "./policy";
-const roleSchema = z.enum(["SUPER_USER", "POH", "MULTIMEDIA", "INVENTARIS"]);
+const roleSchema = z.enum([
+  "SUPER_USER",
+  "POH",
+  "MULTIMEDIA",
+  "INVENTARIS",
+  "ANGGOTA",
+]);
 const createSchema = z
   .object({
     email: z.email().max(254),
     name: z.string().trim().min(1).max(100),
     role: roleSchema,
+    memberId: z.uuid().optional(),
   })
   .strict();
 const updateSchema = z
   .object({
     name: z.string().trim().min(1).max(100).optional(),
     role: roleSchema.optional(),
+    memberId: z.uuid().nullable().optional(),
     active: z.boolean().optional(),
     archived: z.boolean().optional(),
     unlock: z.boolean().optional(),
@@ -34,10 +42,11 @@ export const userSelect = {
   archivedAt: true,
   mustChangePassword: true,
   requiresUnlock: true,
+  memberId: true,
 } as const;
 export async function createAdmin(
   principal: Principal,
-  input: { email: string; name: string; role: Role },
+  input: { email: string; name: string; role: Role; memberId?: string },
   ctx: RequestContext,
 ) {
   requirePermission(principal, "users:write");
@@ -47,6 +56,28 @@ export async function createAdmin(
   const user = await getDb().$transaction(async (tx) => {
     await tx.$queryRaw`SELECT pg_advisory_xact_lock(72615001)::text`;
     await assertFresh(tx, principal, "users:write");
+    if (fields.role === "ANGGOTA") {
+      const member = fields.memberId
+        ? await tx.member.findUnique({ where: { id: fields.memberId } })
+        : null;
+      if (!member || member.archivedAt)
+        throw new DomainError(
+          "INVALID_MEMBER",
+          400,
+          "Pilih profil anggota aktif untuk akun ini.",
+        );
+      if (await tx.user.findUnique({ where: { memberId: member.id } }))
+        throw new DomainError(
+          "MEMBER_LINKED",
+          409,
+          "Profil anggota sudah memiliki akun.",
+        );
+    } else if (fields.memberId)
+      throw new DomainError(
+        "INVALID_MEMBER",
+        400,
+        "Tautan profil hanya untuk peran Anggota.",
+      );
     if (
       await tx.user.findUnique({
         where: { email: fields.email.trim().toLowerCase() },
@@ -110,6 +141,37 @@ export async function updateAdmin(
           : null;
     const active = fields.active ?? target.active,
       role = fields.role ?? target.role;
+    const memberId =
+      role === "ANGGOTA"
+        ? fields.memberId === undefined
+          ? target.memberId
+          : fields.memberId
+        : null;
+    if (role === "ANGGOTA") {
+      const member = memberId
+        ? await tx.member.findUnique({ where: { id: memberId } })
+        : null;
+      if (
+        (!member || member.archivedAt) &&
+        ((active && !archivedAt) ||
+          role !== target.role ||
+          memberId !== target.memberId)
+      )
+        throw new DomainError(
+          "INVALID_MEMBER",
+          400,
+          "Pilih profil anggota aktif.",
+        );
+      if (
+        memberId &&
+        (await tx.user.findFirst({ where: { memberId, id: { not: id } } }))
+      )
+        throw new DomainError(
+          "MEMBER_LINKED",
+          409,
+          "Profil sudah memiliki akun.",
+        );
+    } else if (fields.memberId) throw new DomainError("INVALID_MEMBER", 400);
     if (
       target.active &&
       !target.archivedAt &&
@@ -127,7 +189,11 @@ export async function updateAdmin(
           "Super User aktif terakhir harus dipertahankan.",
         );
     }
-    const revoke = !active || !!archivedAt || role !== target.role;
+    const revoke =
+      !active ||
+      !!archivedAt ||
+      role !== target.role ||
+      memberId !== target.memberId;
     const row = await tx.user.update({
       where: { id },
       data: {
@@ -135,6 +201,7 @@ export async function updateAdmin(
         active,
         archivedAt,
         role,
+        memberId,
         ...(revoke ? { credentialVersion: { increment: 1 } } : {}),
         ...(fields.unlock
           ? { requiresUnlock: false, lockUntil: null, failedLoginCount: 0 }

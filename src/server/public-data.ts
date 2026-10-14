@@ -41,6 +41,7 @@ export async function publicState() {
     books,
     campaigns,
     equipment,
+    generations,
   ] = await Promise.all([
     db.siteSettings.findUnique({ where: { id: 1 } }),
     db.recruitmentPeriod.findFirst({
@@ -69,6 +70,7 @@ export async function publicState() {
       orderBy: { name: "asc" },
       take: 500,
     }),
+    db.generation.findMany({ where: { archivedAt: null }, orderBy: { number: "desc" }, take: 500 }),
   ]);
   const config = strings(settings?.config || {});
   for (const key of [
@@ -111,6 +113,7 @@ export async function publicState() {
     campaigns.map((c) => [c.id, c.total]),
   );
   state.publicEquipment = equipment;
+  state.generations = generations.map(g => ({ number: String(g.number).padStart(2,"0"), name:g.name, label:g.label, image:g.photo, year:g.year, description:g.description }));
   state.events = await publicEvents();
   return state;
 }

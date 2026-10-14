@@ -19,7 +19,14 @@ export function POST(request: Request) {
         .object({
           email: z.email().max(254),
           name: z.string().trim().min(1).max(100),
-          role: z.enum(["SUPER_USER", "POH", "MULTIMEDIA", "INVENTARIS"]),
+          role: z.enum([
+            "SUPER_USER",
+            "POH",
+            "MULTIMEDIA",
+            "INVENTARIS",
+            "ANGGOTA",
+          ]),
+          memberId: z.uuid().optional(),
         })
         .strict(),
     );

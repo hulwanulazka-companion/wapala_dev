@@ -18,6 +18,7 @@ import { mediaRoot, mediaPath } from "./paths";
 import { sanitizeImage, sanitizeBook } from "./validation";
 import { scanMedia } from "./scanner";
 export const purposeSchema = z.enum([
+  "generation-photo",
   "content",
   "campaign",
   "inventory",
@@ -33,6 +34,7 @@ export const purposeSchema = z.enum([
 ]);
 export type MediaPurpose = z.infer<typeof purposeSchema>;
 const writePermissions: Record<MediaPurpose, Permission> = {
+  "generation-photo": "generations:write",
   "event-cover": "events:write",
   "event-poster": "events:write",
   "event-upload": "events:write",
@@ -52,6 +54,7 @@ const readPermissions: Record<MediaPurpose, Permission> = {
   "member-photo": "members:read",
 };
 const publicPurposes = new Set<MediaPurpose>([
+  "generation-photo",
   "event-cover",
   "event-poster",
   "content",

@@ -5,7 +5,7 @@ import { isAbsolute, normalize } from "node:path";
 const unavailableMessage =
   "Pemeriksaan keamanan berkas belum tersedia. Coba kembali setelah pengelola menyiapkannya.";
 type Scanner = (path: string) => Promise<number>;
-const nativeScanner: Scanner = (path) =>
+const nativeScanner = (path: string, recursive = false): Promise<number> =>
   new Promise((resolve, reject) => {
     const database = process.env.MEDIA_SCANNER_DATABASE;
     if (database && !isAbsolute(database)) {
@@ -20,6 +20,7 @@ const nativeScanner: Scanner = (path) =>
       [
         "--no-summary",
         "--infected",
+        ...(recursive ? ["--recursive"] : []),
         ...(database ? ["--database", normalize(database)] : []),
         "--",
         path,
@@ -29,7 +30,7 @@ const nativeScanner: Scanner = (path) =>
     const timeout = setTimeout(() => {
       child.kill();
       reject(new DomainError("SCANNER_UNAVAILABLE", 503, unavailableMessage));
-    }, 45000);
+    }, recursive ? 180000 : 45000);
     child.once("error", () => {
       clearTimeout(timeout);
       reject(new DomainError("SCANNER_UNAVAILABLE", 503, unavailableMessage));
@@ -52,4 +53,7 @@ export async function scanMedia(
     );
   if (code !== 0)
     throw new DomainError("SCANNER_UNAVAILABLE", 503, unavailableMessage);
+}
+export async function scanMediaDirectory(path: string) {
+  await scanMedia(path, (target) => nativeScanner(target, true));
 }

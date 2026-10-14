@@ -164,6 +164,7 @@ export interface Settings {
   campaignEnd: string;
 }
 export interface DemoState {
+  generations?: Array<{ number: string; name: string; label: string; image: string; year: number | null; description: string }>;
   events?: import("./event-types").EventPublicDto[];
   backend?: boolean;
   publicEquipment?: PublicEquipment[];

@@ -1,6 +1,11 @@
 import { DomainError } from "../errors";
-export type Role = "SUPER_USER" | "POH" | "MULTIMEDIA" | "INVENTARIS";
+export type Role =
+  "SUPER_USER" | "POH" | "MULTIMEDIA" | "INVENTARIS" | "ANGGOTA";
 export type Permission =
+  | "generations:write"
+  | "members:directory"
+  | "members:correct"
+  | "corrections:review"
   | "users:read"
   | "users:write"
   | "audit:read"
@@ -23,6 +28,8 @@ export interface Principal {
 }
 const matrix: Record<Role, Permission[]> = {
   SUPER_USER: [
+    "generations:write",
+    "corrections:review",
     "users:read",
     "users:write",
     "audit:read",
@@ -38,8 +45,16 @@ const matrix: Record<Role, Permission[]> = {
     "campaigns:write",
     "events:write",
   ],
-  POH: ["members:read", "members:write", "recruitment:read"],
+  POH: [
+    "members:read",
+    "members:write",
+    "recruitment:read",
+    "generations:write",
+    "corrections:review",
+  ],
   MULTIMEDIA: [
+    "generations:write",
+    "corrections:review",
     "events:write",
     "content:write",
     "recruitment:read",
@@ -47,6 +62,7 @@ const matrix: Record<Role, Permission[]> = {
     "campaigns:write",
   ],
   INVENTARIS: ["inventory:write", "loans:write", "recruitment:read"],
+  ANGGOTA: ["members:directory", "members:correct"],
 };
 export function requirePermission(
   principal: Principal,

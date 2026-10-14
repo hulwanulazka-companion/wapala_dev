@@ -14,9 +14,10 @@ export function PATCH(request: Request, context: Context) {
         .object({
           name: z.string().max(100).optional(),
           role: z
-            .enum(["SUPER_USER", "POH", "MULTIMEDIA", "INVENTARIS"])
+            .enum(["SUPER_USER", "POH", "MULTIMEDIA", "INVENTARIS", "ANGGOTA"])
             .optional(),
           active: z.boolean().optional(),
+          memberId: z.uuid().nullable().optional(),
           archived: z.boolean().optional(),
           unlock: z.boolean().optional(),
         })

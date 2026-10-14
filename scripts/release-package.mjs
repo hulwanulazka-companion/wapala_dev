@@ -4,7 +4,7 @@ import { pathToFileURL } from "node:url";
 import { createHash } from "node:crypto";
 
 const rootFiles = new Set(["package.json", "package-lock.json", "next.config.ts", "next-env.d.ts", "prisma.config.ts", "tsconfig.json", "eslint.config.mjs", ".gitignore", ".env.example", ".env.production.example"]);
-const docs = new Set(["docs/deployment-ubuntu.md", "docs/branch-workflow.md"]);
+const docs = new Set(["docs/deployment-ubuntu.md", "docs/branch-workflow.md", "docs/member-access.md"]);
 const neutralAssets = new Set(["public/assets/placeholder.svg", "public/assets/empty-state.svg"]);
 const forbiddenSegments = /(^|\/)(?:generated|node_modules|output|imports?|private|credentials?|\.local|\.next[^/]*|\.git|\.codegraph)(\/|$)/i;
 export function allowedEntry(name) {
@@ -15,7 +15,7 @@ export function allowedEntry(name) {
   if (name === "src/lib/live-albums.ts") return false;
   return /^(?:src|tests)\/.+\.(?:ts|tsx|js|mjs|css)$/.test(name)
     || /^prisma\/(?:schema\.prisma|seed\.ts|migrations\/(?:migration_lock\.toml|[a-zA-Z0-9_-]+\/migration\.sql))$/.test(name)
-    || /^scripts\/(?:release-[a-zA-Z0-9-]+\.mjs|(?:backend-dev|backend-integration|bootstrap-token|recover-superuser|terminal-password|email-worker|loan-overdue|event-media-cleanup|local-postgres)\.ts)$/.test(name)
+    || /^scripts\/(?:release-[a-zA-Z0-9-]+\.mjs|(?:backend-dev|backend-integration|bootstrap-token|recover-superuser|terminal-password|email-worker|loan-overdue|event-media-cleanup|local-postgres|import-public-site)\.ts)$/.test(name)
     || /^deploy\/[a-zA-Z0-9_.-]+\.(?:service|timer|conf|sh)$/.test(name);
 }
 export function auditEntries(entries) {

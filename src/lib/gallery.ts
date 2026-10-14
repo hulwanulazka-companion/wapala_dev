@@ -1,6 +1,8 @@
 import { albums, date } from "./content";
 import type { RecordRow } from "./types";
 export interface PublicAlbum {
+  photoCaptions?: string[];
+  sourceYear?: string;
   id: string;
   title: string;
   description: string;
@@ -57,11 +59,13 @@ export function getPublicAlbums(
       ),
     ];
     const entry: PublicAlbum = {
+      photoCaptions: (() => { try { const value: unknown = JSON.parse(f.keterangan_foto || "[]"); return Array.isArray(value) ? value.filter((v): v is string => typeof v === "string") : []; } catch { return []; } })(),
+      sourceYear: f.tahun_sumber || "",
       id: record.id,
       title: f.judul || base?.title || "Album kegiatan",
       description: f.deskripsi || base?.description || "",
       category: f.kategori || base?.category || "Kegiatan",
-      location: f.lokasi || base?.location || "WAPALA",
+      location: f.lokasi || base?.location || "",
       image,
       images,
       photoOrders: base
@@ -101,11 +105,11 @@ export function getRecentGalleryPhotos(albums: PublicAlbum[]) {
     .slice(0, 10);
 }
 export function albumDate(
-  album: Pick<PublicAlbum, "activityDate" | "uploadedAt" | "dateIsDemo">,
+  album: Pick<PublicAlbum, "activityDate" | "uploadedAt" | "dateIsDemo" | "sourceYear">,
 ) {
   const value = album.activityDate || album.uploadedAt;
   if (!value || !Number.isFinite(Date.parse(value)))
-    return "Tanggal belum tersedia";
+    return album.sourceYear ? "Tahun " + album.sourceYear + " · Tanggal belum tersedia" : "Tanggal belum tersedia";
   if (album.dateIsDemo) return "Tanggal contoh · " + date(value);
   return (album.activityDate ? "Kegiatan " : "Diunggah ") + date(value);
 }

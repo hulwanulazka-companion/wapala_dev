@@ -583,7 +583,7 @@ function Gallery({ id }: { id?: string }) {
               >
                 <img
                   src={img}
-                  alt={i === 0 ? album.title : "Dokumentasi kegiatan WAPALA"}
+                  alt={album.photoCaptions?.[i] || (i === 0 ? album.title : "Dokumentasi kegiatan WAPALA")}
                   width={900}
                   height={650}
                   loading="lazy"
@@ -683,6 +683,7 @@ function Gallery({ id }: { id?: string }) {
           index={lightbox}
           setIndex={setLightbox}
           title={album?.title || "Dokumentasi"}
+          captions={album?.photoCaptions}
         />
       )}
     </>
@@ -693,11 +694,13 @@ function Lightbox({
   index,
   setIndex,
   title,
+  captions,
 }: {
   images: string[];
   index: number;
   setIndex: (v: number | null) => void;
   title: string;
+  captions?: string[];
 }) {
   return (
     <div
@@ -728,9 +731,10 @@ function Lightbox({
         <ChevronLeft />
       </button>
       <figure>
-        <img src={images[index]} alt={title} />
+        <img src={images[index]} alt={captions?.[index] || title} />
         <figcaption>
           {title} / {index + 1} dari {images.length}
+          {captions?.[index] && <p>{captions[index]}</p>}
         </figcaption>
       </figure>
       <button

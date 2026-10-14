@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { pageSession } from "@/server/auth/page-session";
 import { requirePermission, type Permission } from "@/server/auth/policy";
 import { getDb } from "@/server/db";
@@ -32,6 +32,13 @@ import { adminSummary } from "@/server/domains/admin-summary";
 import { getSettings, listAudit } from "@/server/settings";
 import { BackendEvents } from "@/components/backend/events";
 import { listEvents } from "@/server/domains/events";
+import { BackendGenerations } from "@/components/backend/generations";
+import { listGenerations } from "@/server/domains/generations";
+import {
+  BackendMemberPortal,
+  BackendMemberCorrections,
+} from "@/components/backend/member-portal";
+import { memberPortal, listCorrections } from "@/server/domains/member-portal";
 export const metadata: Metadata = {
   title: "Portal organisasi",
   robots: { index: false, follow: false },
@@ -44,6 +51,7 @@ export default async function AdminPage({
   const { module = [] } = await params;
   const { principal, token } = await pageSession();
   if (!module.length) {
+    if (principal.role === "ANGGOTA") redirect("/admin/anggota");
     const [user, counts] = await Promise.all([
       getDb().user.findUniqueOrThrow({
         where: { id: principal.userId },
@@ -63,7 +71,10 @@ export default async function AdminPage({
     );
   }
   const permissions: Record<string, Permission> = {
-    anggota: "members:read",
+    angkatan: "generations:write",
+    koreksi: "corrections:review",
+    anggota:
+      principal.role === "ANGGOTA" ? "members:directory" : "members:read",
     konten: "content:write",
     galeri: "content:write",
     buku: "content:write",
@@ -80,6 +91,44 @@ export default async function AdminPage({
   };
   const permission = permissions[module[0] || ""];
   if (permission) requirePermission(principal, permission);
+  if (
+    module[0] === "angkatan" ||
+    module[0] === "koreksi" ||
+    (module[0] === "anggota" && principal.role === "ANGGOTA")
+  ) {
+    const user = await getDb().user.findUniqueOrThrow({
+      where: { id: principal.userId },
+      select: { name: true },
+    });
+    const csrfToken = csrfForSession(token);
+    const view =
+      module[0] === "angkatan" ? (
+        <BackendGenerations
+          initialGenerations={await listGenerations(principal)}
+          csrfToken={csrfToken}
+        />
+      ) : module[0] === "koreksi" ? (
+        <BackendMemberCorrections
+          initialRequests={await listCorrections(principal)}
+          csrfToken={csrfToken}
+        />
+      ) : (
+        <BackendMemberPortal
+          initial={await memberPortal(principal)}
+          csrfToken={csrfToken}
+        />
+      );
+    return (
+      <BackendAdminShell
+        role={principal.role}
+        name={user.name}
+        module={module[0]}
+        csrfToken={csrfToken}
+      >
+        {view}
+      </BackendAdminShell>
+    );
+  }
   if (module[0] === "event") {
     const [user, events] = await Promise.all([
       getDb().user.findUniqueOrThrow({
@@ -211,6 +260,9 @@ export default async function AdminPage({
       >
         <BackendUsers
           initialUsers={users}
+          members={(await listMembers(principal))
+            .filter((m) => !m.archived)
+            .map((m) => ({ id: m.id, name: m.fields.nama, nia: m.fields.nia }))}
           currentUserId={principal.userId}
           csrfToken={csrfToken}
         />
