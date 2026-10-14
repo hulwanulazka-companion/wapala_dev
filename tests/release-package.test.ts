@@ -6,6 +6,12 @@ import { join } from "node:path";
 import { pathToFileURL } from "node:url";
 
 const load = () => import(pathToFileURL(join(process.cwd(), "scripts/release-package.mjs")).href);
+test("code release includes VPS service and staging import operations guide, not public data bundles", async () => {
+  const api = await load();
+  assert.equal(api.allowedEntry("docs/vps-operations.md"), true);
+  assert.equal(api.allowedEntry("import-packages/wapala-public-site/manifest.json"), false);
+  assert.equal(api.allowedEntry("import-packages/wapala-public-site/assets/photo.png"), false);
+});
 test("source release selects code and rejects secrets, generated files and organization assets", async () => {
   const api = await load();
   const allowed = ["package.json", "package-lock.json", ".env.example", ".env.production.example", "src/app/page.tsx", "src/server/auth/users.ts", "tests/backend/integration/auth-http.test.ts", "prisma/migrations/001/migration.sql", "scripts/bootstrap-token.ts", "scripts/loan-overdue.ts", "deploy/wapala.service", "deploy/wapala-loans-overdue.service", "deploy/wapala-loans-overdue.timer", "docs/deployment-ubuntu.md", "public/assets/placeholder.svg"];

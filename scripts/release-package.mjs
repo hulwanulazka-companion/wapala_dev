@@ -4,7 +4,7 @@ import { pathToFileURL } from "node:url";
 import { createHash } from "node:crypto";
 
 const rootFiles = new Set(["package.json", "package-lock.json", "next.config.ts", "next-env.d.ts", "prisma.config.ts", "tsconfig.json", "eslint.config.mjs", ".gitignore", ".env.example", ".env.production.example"]);
-const docs = new Set(["docs/deployment-ubuntu.md", "docs/branch-workflow.md", "docs/member-access.md"]);
+const docs = new Set(["docs/deployment-ubuntu.md", "docs/branch-workflow.md", "docs/member-access.md", "docs/vps-operations.md"]);
 const neutralAssets = new Set(["public/assets/placeholder.svg", "public/assets/empty-state.svg"]);
 const forbiddenSegments = /(^|\/)(?:generated|node_modules|output|imports?|private|credentials?|\.local|\.next[^/]*|\.git|\.codegraph)(\/|$)/i;
 export function allowedEntry(name) {

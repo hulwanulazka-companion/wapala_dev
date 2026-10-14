@@ -406,6 +406,7 @@ function Profile() {
   );
 }
 function Divisions({ slug }: { slug?: string }) {
+  const { settings } = useDemo();
   const current = divisions.find((d) => d.slug === slug);
   return (
     <>
@@ -418,22 +419,32 @@ function Divisions({ slug }: { slug?: string }) {
       />
       <div className="container section">
         <div className="division-grid">
-          {(current ? [current] : divisions).map((d) => (
-            <article className="division-card" key={d.slug}>
-              <div
-                className="division-photo"
-                style={{ backgroundPosition: d.position }}
-                role="img"
-                aria-label={d.name}
-              />
-              <h2>{d.name}</h2>
-              <p>{d.description}</p>
-              <Link className="text-link" href="/galeri">
-                Dokumentasi kegiatan
-                <ArrowUpRight size={18} />
-              </Link>
-            </article>
-          ))}
+          {(current ? [current] : divisions).map((d) => {
+            const image = divisionImage(settings, divisions.indexOf(d));
+            return (
+              <article className="division-card" key={d.slug}>
+                <div
+                  className={"division-photo" + (image ? " has-image" : "")}
+                  style={
+                    image
+                      ? {
+                          backgroundImage: `url("${image}")`,
+                          backgroundPosition: d.position,
+                        }
+                      : { backgroundPosition: d.position }
+                  }
+                  role="img"
+                  aria-label={d.name}
+                />
+                <h2>{d.name}</h2>
+                <p>{d.description}</p>
+                <Link className="text-link" href="/galeri">
+                  Dokumentasi kegiatan
+                  <ArrowUpRight size={18} />
+                </Link>
+              </article>
+            );
+          })}
         </div>
       </div>
     </>
