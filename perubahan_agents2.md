@@ -42,6 +42,16 @@ Format: tanggal, status (diagnosis/perbaikan), file yang disentuh, dan alasannya
 - `README.md` baru ditulis sebagai dokumentasi proyek: fitur situs publik & portal admin (divisi alam: Gunung & Hutan, Rock Climbing, Caving, Rafting), tabel teknologi, quickstart development, bootstrap Super User, perintah verifikasi, deployment (pointer ke `docs/` + `deploy/`), ringkasan keamanan formulir publik (tanpa verifikasi pihak ketiga), dan struktur folder.
 - Fakta diambil dari kode (navigasi `shell.tsx`, divisi `lib/content.ts`, skrip `package.json`); teks profil/vision tidak di-hard-code karena tersimpan di database.
 
+### Perubahan 10 — Foto divisi di `/divisi` zoom (tindak lanjut Perubahan 9)
+**Penyebab zoom:** aturan dasar `.division-photo` memakai `background-size: 400% auto` (didesain untuk sprite 4 panel `placeholder.svg`). Strip beranda menimpanya dengan `.division-strip .division-photo.has-image { background-size: cover }`, tetapi kartu `/divisi` dan grid profil tidak — foto admin tampil 4x lebar kontainer.
+**Perbaikan:** `globals.css` — `.division-photo.has-image` kini global `background-size: cover`; `400%` hanya berlaku untuk fallback sprite (tanpa foto). Efek: `/divisi`, `/divisi/[slug]`, dan grid `/profil#divisi` tampil sama seperti beranda.
+**Verifikasi:** CSS tersaji dari dev server memuat aturan baru (diverifikasi via HTTP); typecheck 0. UAT visual oleh user.
+
+### Perubahan 9 — Foto divisi di `/divisi` dan `/divisi/[slug]` (permintaan user)
+**Penyebab:** komponen `Divisions` (`/divisi` + `/divisi/[slug]`) merender `.division-photo` TANPA background image — hanya `backgroundPosition` — sehingga tidak memakai foto yang diunggah admin (`divisionImageUrl1-4`), beda dengan strip beranda & halaman profil yang sudah benar.
+**Perbaikan:** `src/components/public-pages.tsx` — `Divisions` kini membaca `settings` dari `useDemo()` dan memakai `divisionImage(settings, divisions.indexOf(d))` + kelas `has-image` + inline `backgroundImage`, persis pola strip beranda. Pemetaan indeks terverifikasi sama dengan label admin (1=Gunung Hutan, 2=Rock Climbing, 3=Caving, 4=Rafting).
+**Verifikasi:** typecheck 0; lint 0; test lulus; HTTP `/divisi` dan `/divisi/rafting` 200 dengan `division-photo has-image` + URL foto dari DB (`10b43a32…` dkk.) hadir di HTML.
+
 ### Perubahan 8 — DB mati membuat /wapala 500 → fail-soft logo + DB dinyalakan ulang
 **Insiden:** user melaporkan `PrismaClientKnownRequestError: Can't reach database server at 127.0.0.1:54329` di `/wapala` (`brandLogoUrl` → `PortalLayout`). Penyebab: PostgreSQL portable (.local/postgres, port 54329) MATI — bukan bug kode; DB harus dinyalakan manual via `npm run db:local` setelah mesin/prosesnya berhenti.
 **Tindakan:**
