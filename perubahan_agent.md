@@ -305,3 +305,7 @@ profil sendiri; kemudian memberi instruksi untuk mencatat dan push.
 - Push diarahkan ke staging (kode) dan Agents (paket/catatan), bukan main.
   Tidak melakukan deployment VPS atau uji batas RAM 2 GB di server; tidak
   mengklaim seluruh website bebas bug atau sudah melewati UAT visual baru.
+
+- Push terverifikasi: staging `a55f86d`, paket Agents `cf49750`. Snapshot HTML
+  asli ditandai binary di Git agar byte sumber/CRLF tidak diubah dan bukan
+  dianggap diff kode aplikasi. Main tetap `244b723`.
