@@ -4,6 +4,7 @@ import { Empty, Field, Modal, Notice, Textarea, Upload } from "../ui";
 import { backendApi, uploadMedia } from "./api";
 import { BackendImport } from "./import";
 import { contentSlug } from "@/lib/content-slug";
+import { DataReset } from "./data-reset";
 export type BackendRecord = {
   id: string;
   version: number;
@@ -55,10 +56,12 @@ export function BackendRecords({
   kind,
   initialRecords,
   csrfToken,
+  canReset = false,
 }: {
   kind: Kind;
   initialRecords: BackendRecord[];
   csrfToken: string;
+  canReset?: boolean;
 }) {
   const [records, setRecords] = useState(initialRecords),
     [draft, setDraft] = useState<
@@ -114,6 +117,9 @@ export function BackendRecords({
   return (
     <>
       <div className="admin-toolbar">
+        {kind === "anggota" && canReset && (
+          <DataReset target="members" csrfToken={csrfToken} onReset={refresh} />
+        )}
         {kind === "anggota" && (
           <>
             <a

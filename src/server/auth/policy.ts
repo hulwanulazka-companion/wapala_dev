@@ -2,6 +2,7 @@ import { DomainError } from "../errors";
 export type Role =
   "SUPER_USER" | "POH" | "MULTIMEDIA" | "INVENTARIS" | "ANGGOTA";
 export type Permission =
+  | "data:reset"
   | "generations:write"
   | "members:directory"
   | "members:correct"
@@ -28,6 +29,7 @@ export interface Principal {
 }
 const matrix: Record<Role, Permission[]> = {
   SUPER_USER: [
+    "data:reset",
     "generations:write",
     "corrections:review",
     "users:read",

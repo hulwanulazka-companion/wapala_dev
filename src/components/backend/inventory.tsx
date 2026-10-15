@@ -5,6 +5,7 @@ import { Badge, Empty, Field, Modal, Notice, Upload } from "../ui";
 import { BackendImport } from "./import";
 import { backendApi, uploadMedia } from "./api";
 import { MediaPreview } from "./media-preview";
+import { DataReset } from "./data-reset";
 type Equipment = Awaited<ReturnType<typeof listEquipment>>[number];
 type Draft = Omit<Equipment, "id" | "version" | "archived"> & {
   id?: string;
@@ -47,9 +48,11 @@ const fields = [
 export function BackendInventory({
   initialEquipment,
   csrfToken,
+  canReset = false,
 }: {
   initialEquipment: Equipment[];
   csrfToken: string;
+  canReset?: boolean;
 }) {
   const [equipment, setEquipment] = useState(initialEquipment),
     [draft, setDraft] = useState<Draft | null>(null),
@@ -121,6 +124,13 @@ export function BackendInventory({
   return (
     <>
       <div className="admin-toolbar">
+        {canReset && (
+          <DataReset
+            target="inventory"
+            csrfToken={csrfToken}
+            onReset={refresh}
+          />
+        )}
         <a
           download
           className="btn secondary"

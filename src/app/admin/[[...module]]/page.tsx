@@ -285,7 +285,11 @@ export default async function AdminPage({
         module="inventaris"
         csrfToken={csrfToken}
       >
-        <BackendInventory initialEquipment={equipment} csrfToken={csrfToken} />
+        <BackendInventory
+          initialEquipment={equipment}
+          csrfToken={csrfToken}
+          canReset={principal.role === "SUPER_USER"}
+        />
       </BackendAdminShell>
     );
   }
@@ -356,6 +360,7 @@ export default async function AdminPage({
       >
         <BackendRecords
           kind={kind}
+          canReset={principal.role === "SUPER_USER"}
           initialRecords={records}
           csrfToken={csrfToken}
         />

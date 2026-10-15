@@ -23,6 +23,7 @@ Script `dev`, `devDependencies` dan tes boleh tetap ada: TypeScript, Prisma CLI 
 - Open Recruitment: periode tahunan, pendaftaran, foto, revisi dan ekspor.
 - Donasi: beberapa kampanye, rekening penerima, poster, QRIS dan verifikasi bukti transfer.
 - Event: pembuat formulir dinamis, pendaftaran, unggahan dan ekspor Excel.
+- Reset Anggota/Inventaris khusus Super User: arsipkan data aktif atau hapus permanen termasuk arsip. Tersedia pada toolbar modul masing-masing; wajib pemeriksaan jumlah, teks konfirmasi, dan password Super User. Arsip bisa dipulihkan melalui menu Arsip; identitas/kode arsip tetap terpakai. Hapus permanen ditolak seluruhnya jika anggota terkait akun/koreksi atau inventaris terkait riwayat peminjaman. Arsip inventaris ditolak jika ada peminjaman belum selesai/ditolak. Akun, foto tersimpan, Album/Angkatan dan riwayat peminjaman tidak ikut dihapus. Buat backup sebelum reset.
 - Admin: anggota, angkatan, inventaris, konten, pengguna/peran, pengaturan, arsip, audit dan reset kepengurusan sesuai izin.
 
 Stack: Next.js 16.4, React 19, TypeScript, PostgreSQL + Prisma 7, Zod, Argon2, cookie sesi HttpOnly, CSRF, throttling, media privat dan ClamAV. Login melalui `/wapala`; tidak ada password bawaan.
