@@ -542,3 +542,46 @@ profil sendiri; kemudian memberi instruksi untuk mencatat dan push.
 - Verifikasi eksternal akhir `/`, `/wapala`, `/api/health` HTTP 200.
   Aplikasi/ClamAV/Apache active; app auto-start tetap disabled sesuai keputusan
   sebelumnya. Node/PG hanya localhost, server QA port 3108 sudah dihentikan.
+
+## 2026-10-16 — Hapus inventaris setelah peminjaman selesai
+
+- Permintaan: alat yang sudah dikembalikan boleh dihapus permanen melalui reset
+  inventaris Super User. Perubahan hanya pada alur reset dan pembaca riwayat;
+  tidak melakukan reset inventaris asli secara otomatis.
+- Penyebab: pemeriksaan hapus permanen memblokir semua relasi LoanItem, termasuk
+  peminjaman returned/rejected. Kini hanya peminjaman belum selesai yang memblokir
+  seluruh batch. Password, konfirmasi, snapshot preview, sesi, CSRF, dan role tetap
+  diwajibkan. Perilaku reset anggota tidak diubah.
+- Migrasi additive `202610160001_loan_item_snapshots` menambah Loan.archivedItems.
+  Saat reset, detail alat selesai disalin ke snapshot lalu relasi/master dihapus
+  dalam satu transaksi dengan lock yang sama. Riwayat, nama/kode, jumlah, kondisi,
+  dan invoice tetap tersedia; kode inventaris boleh dipakai lagi tanpa menimpa
+  snapshot alat lama. Pembaca admin, lookup publik, dan PDF memakai reader bersama.
+- Review menemukan race parent/child SELECT saat invoice bersamaan dengan reset;
+  tes PostgreSQL sungguhan mereproduksi item kosong. Pembaca invoice, daftar admin,
+  dan lookup publik kini memakai RepeatableRead agar mendapat satu snapshot utuh.
+- QA compiled HTTP menemukan guard invoice admin/publik masih memeriksa relasi
+  lama (409 setelah reset). Keduanya diperbaiki; regression test memanggil kedua
+  endpoint dan memeriksa PDF tetap memuat kode alat setelah master dihapus.
+- CodeGraph CLI diperiksa dahulu; indeks tidak sesuai checkout terbaru sehingga
+  penelusuran memakai fallback rg/source terarah, tanpa instalasi/reindeks baru.
+- Bukti red: reset returned ditolak aturan lama; race reader menghasilkan 0 item;
+  endpoint invoice mengembalikan 409. Green akhir di VPS: 98 unit/UI + 42 backend
+  + 16 reset integration + 17 related integration = 173 tes lulus, tanpa skip.
+  Typecheck lulus; lint 0 error/7 warning lama; build Next.js production lulus.
+  Review independen lanjutan tidak menemukan actionable finding.
+- QA compiled memakai role DB runtime pada schema acak sementara: empat reset HTTP
+  sungguhan (anggota/inventaris arsip/hapus), loan returned tetap ada, invoice HTTP
+  200 tetap memuat nama alat. Schema tes dibuang; data asli tidak dipakai untuk reset.
+- Push staging `58ebd21cf49b187eaba9b344177c8216a99103e0`, lalu cherry-pick main
+  `4e739761f2866ceca3115e8bc96a17236285979b`; sumber src/prisma/package identik.
+  Paket album/angkatan staging tidak ikut main. next-env.d.ts pengguna dipertahankan.
+- Source VPS di-fast-forward melalui Git bundle terbatas; Prisma Client dibuat
+  ulang. Backup privat tersedia. Migrasi additive diterapkan di produksi, rilis
+  root-owned `/srv/wapala/releases/4e739761f286` dipromosikan atomik dengan fallback
+  otomatis ke rilis sebelumnya jika smoke gagal. Backup/rilis lama tetap disimpan.
+- Smoke rilis aktif: halaman admin authenticated 200, tombol Super User, empat
+  preview, CSRF 403, anonymous 401, jumlah data asli tidak berubah; sesi operator
+  sementara dicabut. Eksternal `/`, `/wapala`, `/api/health` semuanya HTTP 200.
+  App/ClamAV/Apache active; autostart app tetap disabled; Node/PG hanya localhost,
+  proses QA port 3108 sudah berhenti. Tidak mengubah Apache, SSH, atau jaringan.
