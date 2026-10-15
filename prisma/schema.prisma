@@ -348,6 +348,7 @@ model Loan {
   penalty          Decimal @default(0) @db.Decimal(16, 0)
   penaltyStatus    String @default("none")
   attachments      Json @default("[]")
+  archivedItems    Json @default("[]")
   archivedAt       DateTime?
   createdAt        DateTime @default(now())
   updatedAt        DateTime @updatedAt

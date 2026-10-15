@@ -12,6 +12,7 @@ import { hmacToken } from "../security/tokens";
 import type { RequestContext } from "../security/request-context";
 import { conditionSchema } from "./inventory";
 import { reservedPeak, lockEquipment } from "./stock";
+import { loanItemsForHistory } from "./loan-history-items";
 const text = z.string().trim().min(1).max(300),
   note = z.string().trim().max(2000);
 export const loanRequestSchema = z
@@ -115,16 +116,7 @@ function dto(l: Prisma.LoanGetPayload<{ include: typeof include }>) {
     attachments: l.attachments,
     archived: !!l.archivedAt,
     createdAt: l.createdAt.toISOString(),
-    items: l.items.map((i) => ({
-      equipmentId: i.equipmentId,
-      name: i.equipment.name,
-      code: i.equipment.code,
-      requested: i.requested,
-      approved: i.approved,
-      reason: i.reason,
-      outCondition: i.outCondition,
-      returnCondition: i.returnCondition,
-    })),
+    items: loanItemsForHistory(l),
     history: l.history.map((h) => ({
       status: h.status,
       at: h.createdAt.toISOString(),
@@ -223,7 +215,7 @@ export async function listLoans(principal: Principal) {
         take: 1000,
       })
     ).map(dto);
-  });
+  }, { isolationLevel: "RepeatableRead" });
 }
 export async function transitionLoan(
   principal: Principal,

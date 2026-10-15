@@ -10,6 +10,7 @@ import { takeThrottle } from "../security/throttle";
 import { DomainError } from "../errors";
 import { writeAudit } from "../audit";
 import type { RequestContext } from "../security/request-context";
+import { archivedLoanItems, snapshotLoanItems } from "./loan-history-items";
 
 export const resetSelection = z
   .object({
@@ -55,10 +56,7 @@ async function inspect(tx: Prisma.TransactionClient, v: Selection) {
       where: {
         id: { in: ids },
         loanItems: {
-          some:
-            v.mode === "delete"
-              ? {}
-              : { loan: { status: { notIn: ["returned", "rejected"] } } },
+          some: { loan: { status: { notIn: ["returned", "rejected"] } } },
         },
       },
     });
@@ -137,7 +135,7 @@ export async function resetData(
           "RESET_BLOCKED",
           409,
           v.target === "inventory"
-            ? "Reset dibatalkan seluruhnya. Ada alat terkait peminjaman. Hapus permanen tidak boleh menghapus riwayat; arsip hanya setelah peminjaman selesai/ditolak."
+            ? "Reset dibatalkan seluruhnya. Ada alat pada peminjaman yang belum selesai/ditolak. Selesaikan peminjaman dahulu; riwayat yang selesai tetap disimpan."
             : "Reset dibatalkan seluruhnya. Ada anggota terkait akun atau riwayat koreksi. Gunakan arsip agar riwayat tetap aman.",
         );
       const where = v.mode === "archive" ? { archivedAt: null } : {};
@@ -153,6 +151,30 @@ export async function resetData(
                 })
               ).count;
       } else {
+        if (v.mode === "delete") {
+          // Tables are exclusively locked above, and inspect established every
+          // linked loan is terminal. Copy before detaching, in this transaction.
+          const loans = await tx.loan.findMany({
+            where: { items: { some: {} } },
+            include: {
+              items: {
+                include: { equipment: { select: { code: true, name: true } } },
+              },
+            },
+          });
+          for (const loan of loans) {
+            await tx.loan.update({
+              where: { id: loan.id },
+              data: {
+                archivedItems: [
+                  ...archivedLoanItems.parse(loan.archivedItems),
+                  ...snapshotLoanItems(loan.items),
+                ],
+              },
+            });
+          }
+          await tx.loanItem.deleteMany({});
+        }
         affected =
           v.mode === "delete"
             ? (await tx.equipment.deleteMany({ where })).count

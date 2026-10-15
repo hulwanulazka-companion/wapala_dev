@@ -139,7 +139,9 @@ export function DataReset({
           <p>
             {mode === "archive"
               ? "Data aktif disembunyikan dan tetap ada di menu Arsip. Identitas/kode tetap digunakan oleh data arsip."
-              : "Tidak bisa dibatalkan dari aplikasi. Seluruh proses ditolak jika ada data yang masih terkait akun, koreksi anggota, atau riwayat peminjaman."}
+              : target === "inventory"
+                ? "Tidak bisa dibatalkan dari aplikasi. Alat dari peminjaman yang sudah dikembalikan/ditolak boleh dihapus; detail alat tetap disimpan di riwayat dan invoice. Peminjaman yang belum selesai memblokir seluruh penghapusan."
+                : "Tidak bisa dibatalkan dari aplikasi. Seluruh proses ditolak jika ada anggota yang masih terkait akun atau riwayat koreksi."}
           </p>
           {preview && (
             <>

@@ -1,4 +1,5 @@
 import "server-only";
+import { loanItemsForHistory } from "./loan-history-items";
 import { randomUUID } from "node:crypto";
 import { z } from "zod";
 import type { Prisma } from "../../generated/prisma/client";
@@ -126,14 +127,14 @@ export async function lookupPublicForm(
 ) {
   const v = publicLookupSchema.parse(input);
   await takeThrottle(`public-lookup-code:${v.kind}:${v.code}`, 10, 3600000);
-  const row = v.kind === "loan" ? await getDb().loan.findUnique({ where: { code: v.code.toUpperCase() }, include: { items: { include: { equipment: { select: { name: true } } } }, history: { orderBy: { createdAt: "asc" } } } }) : await getDb().applicant.findUnique({ where: { code: v.code.toUpperCase() } });
+  const row = v.kind === "loan" ? await getDb().$transaction(tx => tx.loan.findUnique({ where: { code: v.code.toUpperCase() }, include: { items: { include: { equipment: { select: { name: true, code: true } } } }, history: { orderBy: { createdAt: "asc" } } } }), { isolationLevel: "RepeatableRead" }) : await getDb().applicant.findUnique({ where: { code: v.code.toUpperCase() } });
   const phoneDigest = hmacToken((v.kind === "loan" ? "loan-phone:" : "applicant-phone:") + v.phone.replace(/[^0-9]/g, ""), getConfig().securityKey);
   if (!row || row.archivedAt || !constantEqual(row.phoneDigest, phoneDigest)) throw new DomainError("NOT_FOUND", 404, "Kode atau nomor telepon tidak sesuai.");
   const record = "items" in row ? {
     code: row.code, status: row.status, institution: row.institution, pic: row.pic,
     start: row.start.toISOString().slice(0,10), end: row.end.toISOString().slice(0,10),
     penalty: Number(row.penalty), penaltyStatus: row.penaltyStatus, notes: row.notes,
-    items: row.items.map(i => ({ name: i.equipment.name, requested: i.requested, approved: i.approved, reason: i.reason })),
+    items: loanItemsForHistory(row).map(i => ({ name: i.name, requested: i.requested, approved: i.approved, reason: i.reason })),
     history: row.history.map(h => ({ status: h.status, at: h.createdAt.toISOString(), note: h.note })),
   } : { code: row.code, year: row.year, fields: applicantFields.parse(row.fields), revisions: row.revisions };
   await writeAudit(getDb(), { actorType: "ANONYMOUS", action: "PUBLIC_RECORD_LOOKED_UP", entityId: row.id, context: ctx });

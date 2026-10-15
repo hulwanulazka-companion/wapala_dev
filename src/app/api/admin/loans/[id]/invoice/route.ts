@@ -1,6 +1,7 @@
 import { z } from "zod";
 import { route, authenticated } from "@/server/http/auth-handler";
 import { DomainError } from "@/server/errors";
+import { loanItemsForHistory } from "@/server/domains/loan-history-items";
 import {
   findInvoiceLoan,
   renderLoanInvoice,
@@ -17,7 +18,7 @@ export function GET(
     await authenticated(request, "loans:write");
     const id = z.uuid().parse((await params).id);
     const row = await findInvoiceLoan(id);
-    if (!row || row.archivedAt || !row.items.some((item) => item.approved > 0))
+    if (!row || row.archivedAt || !loanItemsForHistory(row).some((item) => item.approved > 0))
       throw new DomainError("INVOICE_UNAVAILABLE", 409, "Invoice belum tersedia.");
     return new Response(
       await renderLoanInvoice(row, new URL(request.url).origin),

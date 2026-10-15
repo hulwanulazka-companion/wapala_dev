@@ -1,11 +1,15 @@
 import "server-only";
 import QRCode from "qrcode";
 import type { Prisma } from "../../generated/prisma/client";
-import { buildInvoiceDocument, type InvoiceAssets } from "@/lib/invoice-document";
+import {
+  buildInvoiceDocument,
+  type InvoiceAssets,
+} from "@/lib/invoice-document";
 import { emptyState } from "@/lib/empty-state";
 import type { Condition, Loan, LoanStatus } from "@/lib/types";
 import { getDb } from "@/server/db";
 import { readMedia } from "@/server/media/storage";
+import { loanItemsForHistory } from "@/server/domains/loan-history-items";
 
 const include = {
   items: { include: { equipment: { select: { name: true, code: true } } } },
@@ -20,7 +24,8 @@ const strings = (value: Prisma.JsonValue): Record<string, string> =>
       ) as Record<string, string>)
     : {};
 
-const mediaId = (url: string) => /^\/api\/media\/([a-f0-9-]{36})$/.exec(url)?.[1];
+const mediaId = (url: string) =>
+  /^\/api\/media\/([a-f0-9-]{36})$/.exec(url)?.[1];
 
 async function mediaAsset(
   url: string,
@@ -77,11 +82,13 @@ function toLoan(row: InvoiceLoanRow): Loan {
           ? "Belum Lunas"
           : "Tidak Ada",
     attachments: Array.isArray(row.attachments)
-      ? row.attachments.filter((item): item is string => typeof item === "string")
+      ? row.attachments.filter(
+          (item): item is string => typeof item === "string",
+        )
       : [],
     createdAt: row.createdAt.toISOString(),
     history: [],
-    items: row.items.map((item) => ({
+    items: loanItemsForHistory(row).map((item) => ({
       equipmentId: item.equipmentId,
       requested: item.requested,
       approved: item.approved,
@@ -93,7 +100,10 @@ function toLoan(row: InvoiceLoanRow): Loan {
 }
 
 export async function findInvoiceLoan(id: string) {
-  return getDb().loan.findUnique({ where: { id }, include });
+  return getDb().$transaction(
+    (tx) => tx.loan.findUnique({ where: { id }, include }),
+    { isolationLevel: "RepeatableRead" },
+  );
 }
 
 export async function renderLoanInvoice(row: InvoiceLoanRow, origin: string) {
@@ -102,15 +112,17 @@ export async function renderLoanInvoice(row: InvoiceLoanRow, origin: string) {
   const [logo, telLogo, qr] = await Promise.all([
     mediaAsset(config.logoUrl || ""),
     mediaAsset(config.telULogoUrl || ""),
-    QRCode.toDataURL(`${origin}/peminjaman/status/${encodeURIComponent(row.code)}`),
+    QRCode.toDataURL(
+      `${origin}/peminjaman/status/${encodeURIComponent(row.code)}`,
+    ),
   ]);
   const state = emptyState();
   state.settings.address = config.address || "";
   state.settings.email = config.email || "";
-  state.equipment = row.items.map((item) => ({
+  state.equipment = loanItemsForHistory(row).map((item) => ({
     id: item.equipmentId,
-    code: item.equipment.code,
-    name: item.equipment.name,
+    code: item.code,
+    name: item.name,
     category: "",
     brand: "",
     total: 0,
