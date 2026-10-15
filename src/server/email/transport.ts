@@ -6,6 +6,12 @@ import { DomainError } from "../errors";
 import type { MailTransport } from "./outbox";
 export function createMailTransport(): MailTransport {
   const config = getConfig();
+  if (config.emailMode === "disabled")
+    throw new DomainError(
+      "EMAIL_DISABLED",
+      409,
+      "Email dinonaktifkan. Pemulihan akun melalui pengelola server (SSH).",
+    );
   if (config.emailMode === "sink") return { send: async () => {} };
   const options = z
     .object({

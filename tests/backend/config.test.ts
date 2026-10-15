@@ -6,6 +6,26 @@ const fixture = {
   DATABASE_URL: "postgresql://test:test@127.0.0.1:5432/wapala_test",
   SECURITY_KEY: Buffer.alloc(32, 7).toString("base64"),
 };
+test("production permits explicit disabled email without relaxing HTTPS or allowing sink", async () => {
+  const m = await config();
+  assert.ok(m);
+  assert.equal(
+    m.parseConfig({
+      ...fixture,
+      NODE_ENV: "production",
+      APP_URL: "https://wapala.my.id",
+      EMAIL_MODE: "disabled",
+    }).emailMode,
+    "disabled",
+  );
+  assert.throws(() =>
+    m.parseConfig({
+      ...fixture,
+      NODE_ENV: "production",
+      EMAIL_MODE: "disabled",
+    }),
+  );
+});
 test("configuration rejects missing environment without echoing secrets", async () => {
   const m = await config();
   assert.ok(m, "configuration service must exist");

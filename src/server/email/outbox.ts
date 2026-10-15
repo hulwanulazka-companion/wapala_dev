@@ -22,6 +22,7 @@ export async function enqueueEmail(
   envelope: MailEnvelope,
   expiresAt: Date,
 ) {
+  if (getConfig().emailMode === "disabled") return null;
   const validated = envelopeSchema.parse(envelope);
   return tx.emailOutbox.create({
     data: {

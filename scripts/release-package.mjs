@@ -4,13 +4,14 @@ import { pathToFileURL } from "node:url";
 import { createHash } from "node:crypto";
 
 const rootFiles = new Set(["package.json", "package-lock.json", "next.config.ts", "next-env.d.ts", "prisma.config.ts", "tsconfig.json", "eslint.config.mjs", ".gitignore", ".env.example", ".env.production.example"]);
-const docs = new Set(["docs/deployment-ubuntu.md", "docs/branch-workflow.md", "docs/member-access.md", "docs/vps-operations.md"]);
+const docs = new Set(["docs/deployment-ubuntu.md", "docs/branch-workflow.md", "docs/member-access.md", "docs/vps-operations.md", "docs/linux-runtime-build.md"]);
 const neutralAssets = new Set(["public/assets/placeholder.svg", "public/assets/empty-state.svg"]);
 const forbiddenSegments = /(^|\/)(?:generated|node_modules|output|imports?|private|credentials?|\.local|\.next[^/]*|\.git|\.codegraph)(\/|$)/i;
 export function allowedEntry(name) {
   if (!name || name.includes("\\") || name.startsWith("/") || name.includes(":") || name.split("/").some((x) => x === ".." || x === "." || !x)) return false;
   if (forbiddenSegments.test(name)) return false;
   if (rootFiles.has(name) || docs.has(name) || neutralAssets.has(name)) return true;
+  if (name === ".github/workflows/linux-runtime.yml") return true;
   if (name === "public/pdf.worker.min.mjs") return true;
   if (name === "src/lib/live-albums.ts") return false;
   return /^(?:src|tests)\/.+\.(?:ts|tsx|js|mjs|css)$/.test(name)
@@ -45,7 +46,7 @@ export async function collectSource(root) {
       if (item.isSymbolicLink()) throw new Error(`Symlink forbidden: ${name}`);
       if (item.isDirectory()) {
         // Only descend into known code/config roots; never read private trees.
-        if ((!prefix && ["src", "tests", "prisma", "scripts", "deploy", "docs", "public"].includes(item.name)) || (prefix && !forbiddenSegments.test(name))) await walk(join(folder, item.name), name + "/");
+        if ((!prefix && ["src", "tests", "prisma", "scripts", "deploy", "docs", "public", ".github"].includes(item.name)) || (prefix && !forbiddenSegments.test(name))) await walk(join(folder, item.name), name + "/");
       } else if (allowedEntry(name)) {
         const path = join(folder, item.name);
         if (!(await lstat(path)).isFile()) throw new Error(`Not a regular file: ${name}`);

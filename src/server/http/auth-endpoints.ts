@@ -1,6 +1,7 @@
 import "server-only";
 import { z } from "zod";
 import { getDb } from "../db";
+import { getConfig } from "../config";
 import { DomainError } from "../errors";
 import { setupRequired, bootstrap } from "../auth/bootstrap";
 import { login } from "../auth/login";
@@ -38,6 +39,7 @@ export function authGet(request: Request, action: string) {
       }
       const response = jsonResponse({
         setupRequired: await setupRequired(),
+        emailRecoveryEnabled: getConfig().emailMode !== "disabled",
         csrfToken,
       });
       response.headers.append(

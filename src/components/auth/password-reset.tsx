@@ -56,7 +56,12 @@ export function PasswordReset() {
   return (
     <main className="container section auth-panel">
       <h1>Reset password.</h1>
-      {done ? (
+      {context?.emailRecoveryEnabled === false ? (
+        <Notice>
+          Email dinonaktifkan. Hubungi pengelola untuk pemulihan akun melalui
+          SSH atau reset oleh Super User.
+        </Notice>
+      ) : done ? (
         <>
           <Notice>Password diperbarui. Semua sesi lama sudah dicabut.</Notice>
           <Link className="btn primary" href="/wapala">

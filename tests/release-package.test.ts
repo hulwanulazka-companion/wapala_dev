@@ -6,6 +6,16 @@ import { join } from "node:path";
 import { pathToFileURL } from "node:url";
 
 const load = () => import(pathToFileURL(join(process.cwd(), "scripts/release-package.mjs")).href);
+test("source ZIP carries the Linux build workflow and operator instructions", async () => {
+  const api=await load();
+  const root=await mkdtemp(join(tmpdir(),"wapala-workflow-test-"));
+  try {
+    for(const name of [".github/workflows/linux-runtime.yml","docs/linux-runtime-build.md"]){
+      await mkdir(join(root,name,".."),{recursive:true});await writeFile(join(root,name),"build instructions");
+    }
+    assert.deepEqual((await api.collectSource(root)).map((x:{name:string})=>x.name),[".github/workflows/linux-runtime.yml","docs/linux-runtime-build.md"]);
+  } finally {await rm(root,{recursive:true,force:true});}
+});
 test("code release includes VPS service and staging import operations guide, not public data bundles", async () => {
   const api = await load();
   assert.equal(api.allowedEntry("docs/vps-operations.md"), true);

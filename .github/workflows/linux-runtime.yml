@@ -1,0 +1,65 @@
+name: Linux runtime release
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: linux-runtime-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-22.04
+    timeout-minutes: 35
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_USER: wapala_ci
+          POSTGRES_PASSWORD: ci_test_only
+          POSTGRES_DB: wapala_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    env:
+      NEXT_TELEMETRY_DISABLED: "1"
+      NODE_OPTIONS: --max-old-space-size=4096
+      TEST_DATABASE_URL: postgresql://wapala_ci:ci_test_only@127.0.0.1:5432/wapala_test
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: "24.21.0"
+      - run: npm ci
+      - run: npm run db:generate
+      - run: npm test
+      - run: npm run test:backend
+      - run: npm run test:backend:integration
+      - run: npm run typecheck
+      - run: npm run lint
+      - run: npm run build
+      - name: Package verified Linux runtime
+        run: |
+          node scripts/release-linux.mjs "$RUNNER_TEMP/wapala-runtime"
+          mkdir -p output/linux-runtime
+          tar -czf output/linux-runtime/wapala-linux-x64.tar.gz -C "$RUNNER_TEMP/wapala-runtime" .
+          cd output/linux-runtime
+          sha256sum wapala-linux-x64.tar.gz > wapala-linux-x64.tar.gz.sha256
+          cp "$RUNNER_TEMP/wapala-runtime/release.json" .
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: wapala-linux-x64-${{ github.sha }}
+          path: output/linux-runtime/
+          retention-days: 7
+          if-no-files-found: error
+          compression-level: 0

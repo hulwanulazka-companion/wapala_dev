@@ -9,6 +9,12 @@ import type { RequestContext } from "../security/request-context";
 import { enqueueEmail } from "../email/outbox";
 import { writeAudit } from "../audit";
 export async function requestRecovery(email: string, ctx: RequestContext) {
+  if (getConfig().emailMode === "disabled")
+    throw new DomainError(
+      "EMAIL_DISABLED",
+      409,
+      "Email dinonaktifkan. Hubungi pengelola untuk pemulihan akun melalui SSH.",
+    );
   await takeThrottle("recovery-ip:" + ctx.ipDigest, 10, 900000);
   await takeThrottle("recovery-email:" + email.trim().toLowerCase(), 3, 900000);
   const user = await getDb().user.findUnique({
@@ -53,6 +59,12 @@ export async function completeRecovery(
   input: { token: string; newPassword: string },
   ctx: RequestContext,
 ) {
+  if (getConfig().emailMode === "disabled")
+    throw new DomainError(
+      "EMAIL_DISABLED",
+      409,
+      "Email dinonaktifkan. Hubungi pengelola untuk pemulihan akun melalui SSH.",
+    );
   if (!/^[A-Za-z0-9_-]{43}$/.test(input.token))
     throw new DomainError("RESET_INVALID", 400);
   const record = await getDb().passwordResetToken.findUnique({

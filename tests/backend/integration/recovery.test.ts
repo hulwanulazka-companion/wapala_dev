@@ -17,6 +17,68 @@ beforeEach(async () => {
   );
 });
 after(() => getDb().$disconnect());
+test("disabled email refuses web recovery without minting tokens, while SSH recovery still revokes sessions", async () => {
+  const { requestRecovery, recoverSuperuser } =
+    await import("../../../src/server/auth/recovery");
+  const old = process.env.EMAIL_MODE;
+  const session = await login(
+    { email: "superuser@wapala.org", password: "test-recovery-passphrase" },
+    ctx,
+  );
+  try {
+    process.env.EMAIL_MODE = "disabled";
+    await assert.rejects(
+      requestRecovery("superuser@wapala.org", ctx),
+      (e: unknown) =>
+        e instanceof Error && "code" in e && e.code === "EMAIL_DISABLED",
+    );
+    assert.equal(await getDb().passwordResetToken.count(), 0);
+    assert.equal(await getDb().emailOutbox.count(), 0);
+    await recoverSuperuser("test-ssh-recovery-passphrase", ctx);
+    assert.equal(await resolveSession(session.token), null);
+  } finally {
+    process.env.EMAIL_MODE = old;
+  }
+});
+test("disabled email neither queues notifications nor reports existing queued messages as delivered", async () => {
+  const { enqueueEmail } = await import("../../../src/server/email/outbox");
+  const { deliverOutbox } = await import("../../../src/server/email/worker");
+  const { createMailTransport } =
+    await import("../../../src/server/email/transport");
+  const old = process.env.EMAIL_MODE;
+  try {
+    const envelope = { to: "test@example.org", subject: "Test", text: "Test" };
+    await getDb().$transaction((tx) =>
+      enqueueEmail(tx, envelope, new Date(Date.now() + 60000)),
+    );
+    process.env.EMAIL_MODE = "disabled";
+    await getDb().$transaction((tx) =>
+      enqueueEmail(tx, envelope, new Date(Date.now() + 60000)),
+    );
+    assert.equal(await getDb().emailOutbox.count(), 1);
+    let sends = 0;
+    const result = await deliverOutbox({
+      send: async () => {
+        sends++;
+      },
+    });
+    assert.equal(result.delivered, 0);
+    assert.equal(sends, 0);
+    assert.equal(
+      await getDb().emailOutbox.count({
+        where: { deliveredAt: { not: null } },
+      }),
+      0,
+    );
+    assert.throws(
+      () => createMailTransport(),
+      (e: unknown) =>
+        e instanceof Error && "code" in e && e.code === "EMAIL_DISABLED",
+    );
+  } finally {
+    process.env.EMAIL_MODE = old;
+  }
+});
 test("email reset links keep the raw token in a fragment instead of server request URLs", async () => {
   const { requestRecovery } = await import("../../../src/server/auth/recovery"),
     { deliverOutbox } = await import("../../../src/server/email/worker");

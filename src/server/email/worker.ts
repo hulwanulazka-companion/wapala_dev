@@ -5,6 +5,8 @@ import { getConfig } from "../config";
 import { decryptPayload } from "./encryption";
 import { envelopeSchema, type MailTransport } from "./outbox";
 export async function deliverOutbox(transport: MailTransport, batchSize = 5) {
+  if (getConfig().emailMode === "disabled")
+    return { delivered: 0, failed: 0, disabled: true };
   const db = getDb(),
     now = new Date();
   await db.emailOutbox.updateMany({

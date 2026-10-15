@@ -5,7 +5,7 @@ export interface ServerConfig {
   securityKey: Buffer;
   production: boolean;
   trustProxy: boolean;
-  emailMode: "sink" | "smtp";
+  emailMode: "sink" | "smtp" | "disabled";
   mode: "backend" | "preview";
 }
 function validateDatabaseParameters(url: URL, allowSchema: boolean) {
@@ -58,7 +58,7 @@ export function parseConfig(
       throw new Error();
     if (
       !["backend", "preview"].includes(mode) ||
-      !["sink", "smtp"].includes(emailMode) ||
+      !["sink", "smtp", "disabled"].includes(emailMode) ||
       (production && (mode === "preview" || emailMode === "sink"))
     )
       throw new Error();

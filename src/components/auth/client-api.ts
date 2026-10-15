@@ -1,6 +1,7 @@
 "use client";
 export interface AuthContext {
   setupRequired: boolean;
+  emailRecoveryEnabled?: boolean;
   csrfToken: string;
 }
 export async function authContext(signal?: AbortSignal): Promise<AuthContext> {

@@ -152,25 +152,33 @@ export function PortalLogin() {
             </button>
           </form>
           <div className="button-row">
-            {context && !context.setupRequired && (
-              <button
-                type="button"
-                className="text-link auth-text-button"
-                disabled={busy}
-                onClick={() => {
-                  setRecovery(!recovery);
-                  setError("");
-                  setMessage("");
-                  setPassword("");
-                }}
-              >
-                {recovery ? "Kembali ke login" : "Lupa password?"}
-              </button>
-            )}
+            {context &&
+              !context.setupRequired &&
+              context.emailRecoveryEnabled !== false && (
+                <button
+                  type="button"
+                  className="text-link auth-text-button"
+                  disabled={busy}
+                  onClick={() => {
+                    setRecovery(!recovery);
+                    setError("");
+                    setMessage("");
+                    setPassword("");
+                  }}
+                >
+                  {recovery ? "Kembali ke login" : "Lupa password?"}
+                </button>
+              )}
             <Link className="text-link" href="/">
               Kembali ke website
             </Link>
           </div>
+          {context?.emailRecoveryEnabled === false && (
+            <Notice>
+              Email dinonaktifkan. Jika lupa password, hubungi pengelola. Super
+              User dipulihkan melalui SSH; akun lainnya direset oleh Super User.
+            </Notice>
+          )}
         </div>
       </section>
     </main>
