@@ -585,3 +585,55 @@ profil sendiri; kemudian memberi instruksi untuk mencatat dan push.
   sementara dicabut. Eksternal `/`, `/wapala`, `/api/health` semuanya HTTP 200.
   App/ClamAV/Apache active; autostart app tetap disabled; Node/PG hanya localhost,
   proses QA port 3108 sudah berhenti. Tidak mengubah Apache, SSH, atau jaringan.
+
+## 2026-10-16 — Deployment Vercel tambahan, upload CLI tanpa import Git
+
+- Pengguna memilih deployment testing tambahan, VPS tetap berjalan. Kode lama
+  digunakan kembali, bukan ditulis ulang. Branch `vercel` dibuat dari main
+  `4e73976`, checkout terpisah di `Dev_Website/Vercel`; folder ini di-ignore lokal
+  melalui `.git/info/exclude` agar tidak ikut main. next-env.d.ts lama tetap utuh.
+- Akun awal/browser berbeda (`rikku`), connector integrasi mendapat 403. Login
+  CLI diselesaikan pengguna; whoami/teams mengonfirmasi `hulwanulazkap`, lalu
+  pengguna secara eksplisit memilih akun ini. Tidak mengubah proyek SLA/rikku.
+- Proyek `hulwanulazkap/wapala-testing` dibuat dan di-link ke folder tersebut.
+  Upload kode langsung melalui Vercel CLI 64.0.2; tidak menghubungkan Git repo.
+- Log build pengguna membuktikan Prisma Client belum dibuat. `vercel.json`
+  memakai `npm ci` lalu `npm run db:generate && npm run build`. Tidak mengubah
+  build script VPS, UI, dependency, schema aplikasi, atau main.
+- Neon `neon-byzantium-ribbon` yang belum terhubung dipasang pada preview/dev
+  dengan prefix testing. Operator membuat schema kosong `wapala_vercel_testing`,
+  menerapkan 13 migrasi hanya ke schema tersebut, dan membuat role runtime
+  `wapala_vercel_app` tanpa superuser/createDB/createRole/inherit. Izin hanya
+  usage schema/CRUD tabel/sequence; audit runtime tidak boleh UPDATE/DELETE.
+  Koneksi TLS verify-full memakai endpoint direct, bukan PgBouncer. Schema public
+  dan data lama tidak dihapus; database/data VPS tidak disalin.
+- DATABASE_URL runtime, SECURITY_KEY baru, APP_URL testing, EMAIL_MODE disabled,
+  backend mode dan proxy false dikonfigurasi melalui stdin CLI, tanpa nilai secret
+  pada argumen/log/Git. Berlaku preview/production proyek testing saja; Vercel
+  menjadikan deployment pertama proyek baru sebagai production walau target
+  preview diminta. Deployment kedua telah dikonfirmasi target preview.
+- Deployment pertama `dpl_BRZjhTfpQ9j7HsHUitD6LLLAvCa7` build Ready. Deployment
+  preview lengkap `dpl_C5NNJunK2UJKdDQK83PEeTENBdjH` Ready, build 1m21s; URL
+  `https://wapala-testing-8d29swu62-hulwanulazkap.vercel.app`.
+- Alias `https://wapala-testing-hulwanulazkap.vercel.app` diarahkan ke preview
+  tersebut agar sesuai APP_URL/Origin/CSRF. Tidak mengubah wapala.my.id atau DNS.
+- Smoke cloud memakai vercel curl dengan akses resmi pemilik: health/database,
+  beranda, /wapala, /peminjaman, context formulir 200; inventory API anonymous 401.
+  Bukan QA lengkap semua fitur. Tidak menjalankan aplikasi/tests di komputer
+  lokal atau mematikan layanan VPS.
+- Audit runtime `npm audit --omit=dev`: 0 kerentanan. Audit lengkap melaporkan
+  5 high pada rantai eslint-config-next (@next/eslint-plugin-next, fast-glob,
+  micromatch, braces). Dicatat, tidak menjalankan npm audit fix --force.
+- Token inisialisasi testing dibuat lewat script aplikasi asli, disimpan hanya
+  pada `.local/VERCEL-SETUP-TOKEN.txt`, berlaku 30 menit/sekali pakai. Password
+  Super User belum ditentukan; pengguna memilih sendiri melalui UI testing.
+- .vercelignore mengecualikan secret/env/.local/.git/generated/output/imports;
+  dry-run akhir 448 file, 0 private paths. .vercel dan .env di-ignore Git.
+- Konfigurasi dan panduan README-VERCEL.md dipush hanya branch vercel,
+  commit `962f2215aad18d1bdd5439a18d3e0b369551a256`. Deployment tidak bergantung
+  koneksi Git. Main tetap `4e73976`; source produk tidak berubah.
+- Batas terbuka: upload masih filesystem + ClamAV lokal, belum kompatibel penuh
+  dengan Vercel; tidak memasang object storage/scanner remote atau bypass scanner.
+  Email disabled. Deployment protection tetap aktif. Browser dalam aplikasi masih
+  akun rikku dan menampilkan You Need Access; pengguna perlu Switch Account ke
+  hulwanulazkap atau membuka URL di browser yang sudah login akun pemilik.
