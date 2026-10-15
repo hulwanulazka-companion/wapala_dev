@@ -478,3 +478,17 @@ profil sendiri; kemudian memberi instruksi untuk mencatat dan push.
   add 0; import ulang tidak membuat duplikat. Tes semua 159 referensi gambar
   publik (termasuk gambar yang sudah ada sebelumnya) menghasilkan HTTP 200
   dan content-type image, tanpa kegagalan. Halaman galeri tetap HTTP 200.
+
+## 2026-10-15 — README main berorientasi production
+
+- Mempertahankan penyebutan organisasi yang diperbarui pengguna pada 380cf29.
+- Main 48aea2e hanya mengubah README: production/build/standalone/systemd
+  menjadi acuan utama, development terpisah, mode email disabled/SSH recovery,
+  NAT 33335/33336 tanpa mematikan Apache, batas kapasitas, migration/backup,
+  pemisahan paket staging dan auto-start yang masih ditunda.
+- Menjelaskan batas readiness script lama (profil SMTP), template Nginx yang
+  belum NAT-specific dan gitupdate yang belum terpasang; tidak mengklaim
+  installer otomatis atau siap pada semua VPS tanpa konfigurasi.
+- Tautan lokal dan nama npm scripts tervalidasi tanpa referensi hilang;
+  Prettier dan diff check lulus. Tidak mengubah kode runtime, secret atau
+  layanan VPS; next-env.d.ts generated yang sudah dirty tidak ikut commit.
