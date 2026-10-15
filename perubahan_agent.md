@@ -492,3 +492,53 @@ profil sendiri; kemudian memberi instruksi untuk mencatat dan push.
 - Tautan lokal dan nama npm scripts tervalidasi tanpa referensi hilang;
   Prettier dan diff check lulus. Tidak mengubah kode runtime, secret atau
   layanan VPS; next-env.d.ts generated yang sudah dirty tidak ikut commit.
+
+## 2026-10-16 — Reset Anggota/Inventaris khusus Super User
+
+- Pengguna menyetujui dua mode: arsip semua data aktif atau hapus permanen
+  termasuk arsip. Kode lokal tetap diperbarui, staging terlebih dahulu,
+  main hanya setelah verifikasi. Build/test dilakukan melalui SSH VPS,
+  bukan menjalankan aplikasi atau database di komputer lokal.
+- Tombol pada toolbar Anggota/Inventaris hanya untuk Super User; permission
+  server baru `data:reset`, session freshness, origin/CSRF, konfirmasi teks,
+  verifikasi password dan throttle 5 percobaan/15 menit.
+- Pemeriksaan awal mengembalikan jumlah/blocker dan fingerprint versi data.
+  Perubahan sesudah pemeriksaan membatalkan reset; seluruh mutasi dan audit
+  atomik. Arsip bisa dipulihkan; kode/NIA arsip tetap terpakai.
+- Hapus inventaris dengan riwayat pinjaman ditolak; arsip inventaris dengan
+  pinjaman belum selesai/ditolak ditolak. Hapus anggota terkait akun/koreksi
+  ditolak. Akun, file media, Album/Angkatan dan riwayat tidak ikut dihapus.
+- Backup database privat dibuat di VPS sebelum tes. Fixture memakai schema
+  sementara `wapala_test_*` dalam database VPS, tidak mengosongkan data lama.
+  Guard integration database standar aplikasi tidak dilonggarkan.
+- CodeGraph status menunjukkan indeks stale/checkout berbeda; discovery memakai
+  pembacaan sumber terarah. Review independen menemukan race dengan requestLoan;
+  direproduksi pada VPS (P2034), diperbaiki dengan advisory lock management
+  sebelum lock user, kemudian exclusive table locks sesuai urutan relasi.
+- Unit/UI 98 dan backend 42 lulus. Percobaan awal backend mewarisi NODE_ENV
+  production dan gagal 3 tes guard; diperbaiki pada environment operator,
+  bukan melonggarkan kode produksi. Satu rerun terganggu penyalinan dependency
+  candidate bersamaan; dihentikan dan diulang setelah penyalinan selesai.
+- Typecheck bersama website/ClamAV membuat RAM 2 GB hampir penuh; dihentikan,
+  health kembali 200. Pemeriksaan berat/build memakai maintenance dengan
+  pemulihan service dalam finally; Apache, SSH, firewall, autostart tidak diubah.
+- Verifikasi akhir VPS: 98 unit/UI + 42 backend + 13 reset integration +
+  17 related integration = 170 tes lulus, tanpa skip pada set tersebut.
+  Typecheck lulus; lint 0 error/7 warning lama. Build Next.js production lulus.
+- Tambahan QA compiled runtime: empat reset HTTP sungguhan (anggota/inventaris,
+  arsip/hapus) memakai runtime DB role dengan audit SELECT/INSERT saja pada
+  schema sementara; semua lulus dan schema dibuang. Tidak mereset data lama.
+- Staging dipush 3462adf; setelah build dan smoke candidate lulus, perubahan
+  kode yang sama di-cherry-pick/push ke main 616c2bd. Tidak merge paket data
+  staging ke main. Source checkout VPS di-fast-forward ke main melalui Git
+  bundle terbatas dari b67e08b; generated next-env.d.ts lama dipertahankan.
+- Release `/srv/wapala/releases/616c2bda48e0` disiapkan root-owned dan
+  dipromosikan atomik; rollback otomatis disiapkan jika health/smoke gagal.
+  Release lama dan backup tetap disimpan. Secret/env/database tidak diganti.
+- Smoke pada release aktif memverifikasi halaman admin berautentikasi,
+  tombol reset Super User, empat pemeriksaan jumlah, CSRF 403 dan anonymous
+  401; jumlah anggota/inventaris/pinjaman/angkatan/konten lama tidak berubah.
+  Sesi operator sementara dicabut setelah smoke, sesi pengguna tidak direset.
+- Verifikasi eksternal akhir `/`, `/wapala`, `/api/health` HTTP 200.
+  Aplikasi/ClamAV/Apache active; app auto-start tetap disabled sesuai keputusan
+  sebelumnya. Node/PG hanya localhost, server QA port 3108 sudah dihentikan.
