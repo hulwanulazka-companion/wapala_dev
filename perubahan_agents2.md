@@ -323,4 +323,21 @@ di dua remote, `main` di WapalaTUP menjadi production, dan situs live di
   owner-role sukses setelah fix; commit berurutan: 569f2e2, a49bc0a,
   d06d578, 222fd66, 672cf72, d2eafda, 13cf8c1, dd4866b (staging).
 
+### Perubahan 14 — Dokumentasi disiplin database & migration saat deploy
+- `README.md` (branch `staging` WapalaTUP): section baru **"Database &
+  migration saat deploy"** setelah Runbook — tabel efek tiap tahap deploy
+  ke database + dua disiplin wajib:
+  1. **Rollback ≠ rollback DB** — deploy membawa migration baru lalu health
+     check gagal → kode kembali, skema tetap versi baru; wajib disiplin
+     expand/contract (migration additive dulu, DROP/RENAME menyusul setelah
+     kode lama pasti tidak dipakai).
+  2. **Staging dan main memakai database yang sama** — deploy uji staging
+     yang membawa migration langsung menerapkannya ke DB produksi; wajib
+     additive-safe atau merge segera setelah uji lulus.
+- Saran: migration besar/berisiko → menu 5 (Backup) dulu sebelum deploy.
+- Sumber: penjelasan lisan ke user saat sesi (pertanyaan "kalau deploy ulang
+  databasenya gimana?") — dianggap dokumen operator yang wajib tertulis.
+- Commit di `staging` (WapalaTUP); `main` menyusul setelah ACC sesuai alur
+  baru Perubahan 13.
+
 
