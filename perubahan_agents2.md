@@ -340,4 +340,24 @@ di dua remote, `main` di WapalaTUP menjadi production, dan situs live di
 - Commit di `staging` (WapalaTUP); `main` menyusul setelah ACC sesuai alur
   baru Perubahan 13.
 
+### Perubahan 15 — AllowScripts allowlist untuk install script npm 12.x
+- User melaporkan warning `npm warn install-scripts` saat `npm ci` di npm
+  12.x: 7 paket punya install script yang TIDAK dieksekusi karena belum
+  di-approve (gate keamanan baru npm, ala pnpm).
+- **Assessment:** npm di server deploy (11.19.1) TIDAK menegakkan gate ini —
+  deploy berjalan normal (argon2/esbuild/prisma bekerja, terbukti dari sesi
+  live). Warning berasal dari npm 12.x di mesin lain. Tetap perlu dibereskan
+  agar upgrade npm ke depan/CI/mesin lain tidak menghasilkan build rusak
+  (Cannot find module argon2.node / Prisma engine missing).
+- **Fix (b69f621, branch `staging`):** `package.json` + `"allowScripts"` —
+  approve tepat 5 paket yang script-nya wajib: `@prisma/engines` + `prisma`
+  (engine), `argon2` (binding native node-gyp-build), `esbuild` (binary),
+  `unrs-resolver` (postinstall resolver). `core-js`/`es5-ext` sengaja TIDAK
+  di-approve (postinstall kosmetik).
+- Catatan: schema `allowScripts` diambil dari instruksi output npm 12.x
+  ("package.json/.npmrc"); belum bisa divalidasi runtime lokal (npm lokal
+  11.12.1 belum mendukung subcommand `install-scripts`) — verifikasi ulang
+  bila npm di mana pun menegakkan gate-nya.
+- Commit di `staging` (WapalaTUP); `main` menyusul setelah ACC.
+
 
