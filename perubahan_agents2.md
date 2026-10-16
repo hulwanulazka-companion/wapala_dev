@@ -230,4 +230,61 @@ di dua remote, `main` di WapalaTUP menjadi production, dan situs live di
   — disarankan uji alur kritis lain (lock/unlock, export, recovery) sebelum dipakai
   produksi penuh. CI GitHub (typecheck+lint+format+build) berjalan per push.
 
+### Perubahan 11 — Fix beruntun deployment live (feedback dari VPS nyata)
+- `import-album.sh`: definisi helper `ask`/`confirm`/`run` yang dipakai tapi
+  tidak didefinisikan (3 crash beruntun saat menu import); variabel warna
+  `C_MAGENTA` hilang di bawah `set -u`; `chmod a+rX` dari FOLDER INDUK mktemp
+  (0700 root) agar user wapala bisa traverse (EACCES realpath).
+- Backup otomatis: menu 5 + step backup import kini stop app →
+  `release-backup.mjs` dengan `WAPALA_WRITERS_STOPPED=yes` → start → health
+  check; backup memakai ROLE OWNER (`MIGRATE_DATABASE_URL`) karena pg_dump
+  membaca semua tabel termasuk `_prisma_migrations` yang di-REVOKE dari role
+  runtime (penyebab "pg_dump failed (details suppressed)"); folder tujuan
+  TIDAK di-pre-create (script menolak folder existing, `mkdir` non-rekursif
+  butuh parent siap); default backup ke `<checkout>/backups` (gitignored).
+- `wapala.sh`: menu `u) Update kode repo (git pull)` sebagai pemilik checkout
+  (menghindari dubious ownership root), `git fetch` saja tidak memperbarui
+  working tree — pelajaran dari run pertama import.
+- SMTP di installer (672cf72): pertanyaan SMTP lengkap (host/port/user/
+  password tersembunyi/from) + `WAPALA_EMAIL_MODE`/`WAPALA_SMTP_*` di
+  provision; env template menulis nilai operator via `printf %s` (password
+  berisi karakter khusus tidak diekspansikan shell); unit `wapala-email`
+  service+timer 5 menit dipasang otomatis bila smtp (tanpa worker, outbox
+  tidak pernah terkirim); ClamAV ditanyakan tepat setelah preflight.
+- `host-provision.sh`: `WAPALA_FORCE_APP_URL` (fix re-provision), 
+  `StreamMaxLength 60M` otomatis saat ClamAV, email worker timer.
+- Push tiap fix: `host` ke DUA remote, `main` hanya WapalaTUP (urutan yang
+  diminta user).
+
+### Perubahan 12 — Dukungan Cloudflare CDN (temuan user, domain testing)
+- User memasang Cloudflare di depan `wapala-test.my.id` (InterServer LA):
+  TCP connect 232 ms → 68 ms ke edge; CSS immutable MISS→HIT terverifikasi.
+  Dokumen diagnosis lengkap ada di luar repo (WAPALA_CLOUDFLARE_DNS_LATENCY_DIAGNOSIS.md).
+- **Regresi yang diperbaiki:** di belakang proxy, `$remote_addr` origin = IP
+  edge CF → XFF berisi IP edge → semua pengunjung berbagi satu bucket
+  throttle. Fix: template Nginx memulihkan IP klien asli via
+  `real_ip_header CF-Connecting-IP` + `set_real_ip_from` rentang resmi CF
+  (IPv4+IPv6; aman bila CF tak dipakai).
+- `wapala.sh`: `is_cf_ip()` — DNS yang mengarah ke edge CF tidak dianggap
+  "DNS salah" oleh installer (sertifikat origin tetap diterbitkan; ACME
+  HTTP-01 diteruskan CF).
+- Dokumen: README bagian Cloudflare (setup dashboard, Full strict, larangan
+  Cache Everything utk HTML/auth/API, hardening opsional lock origin ke IP
+  CF), walkthrough callout, troubleshooting.
+- Cakupan push (permintaan user): `host` (kedua akun), `main` WapalaTUP,
+  `main` akun companion (kini sinkron dengan production tree 13cf8c1),
+  `staging` (blok realip ditambahkan ke `deploy/nginx-wapala.conf` lama via
+  worktree temp, dd4866b).
+- Batasan dari dokumen diagnosis yang DIPEGANG: jangan ubah
+  `wapala.my.id` production, jangan cache HTML/auth/API, jangan melemahkan
+  CSP nonce, jangan klaim hijack ISP tanpa bukti paket, verifikasi DoH
+  end-to-end masih pending user.
+
+### Verifikasi selama Perubahan 11-12
+- `bash -n` semua script + template; typecheck; format:check (index LF);
+  deteksi non-TTY teruji; deploy ulang live di VPS sukses (HEAD 0b9f2da);
+  import album sukses (21 angkatan/22 album/150 media/129 foto) + backup
+  owner-role sukses setelah fix; commit berurutan: 569f2e2, a49bc0a,
+  d06d578, 222fd66, 672cf72, d2eafda, 13cf8c1, dd4866b (staging).
+
 
