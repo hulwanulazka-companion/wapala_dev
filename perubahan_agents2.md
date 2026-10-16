@@ -280,7 +280,43 @@ di dua remote, `main` di WapalaTUP menjadi production, dan situs live di
   CSP nonce, jangan klaim hijack ISP tanpa bukti paket, verifikasi DoH
   end-to-end masih pending user.
 
-### Verifikasi selama Perubahan 11-12
+### Perubahan 13 — Restrukturisasi model branch (keputusan user, akhir sesi)
+- **Repo utama mulai sekarang: WapalaTUP/website_wapala.** Alur baru:
+  perubahan masuk `staging` (WapalaTUP) → deploy uji ke VPS InterServer →
+  diuji → **di-ACC user** → merge `staging` → `main` → deploy production →
+  mirror `main` ke akun companion.
+- **`host` DI-WAPALATUP DIRENAME menjadi `staging`** — branch `host` dihapus
+  dari WapalaTUP; sekarang hanya 2 branch: `main` + `staging`. "Host" di akun
+  WapalaTUP = staging. Di akun companion, `host` TETAP ADA sebagai arsip
+  (mirror terakhir 13cf8c1).
+- **`staging` HANYA di WapalaTUP** (koreksi user) — `staging` lama di companion
+  DIHAPUS (isinya identik dengan arsip `import-packages` yang dibuat lebih
+  dulu, dd4866b); companion kini memegang: `main` (mirror produksi) + `host`
+  (arsip) + `import-packages` (arsip paket publik) + `Agents` + `vercel`.
+- Branch `import-packages` (companion, dd4866b) dibuat SEBELUM menimpa
+  staging lama — arsip paket situs publik (21 angkatan/22 album/129 foto)
+  agar tidak hilang; `import-album.sh` default branch diubah
+  `staging` → `import-packages` (+ header comment selaras).
+- **Script deploy dibenahi tuntas (bukan setengah-setengah):**
+  - `host-deploy.sh`: tiap release dicap `.deploy-branch` (branch asal).
+  - `wapala.sh`: menu Deploy ulang menanyakan branch (`main — production` /
+    `staging — build uji`); Status & Rollback menampilkan marker branch asal
+    per release — build uji dari staging mudah dibedakan dari production.
+- README: bagian Model branch ditulis ulang (tabel peran branch + alur ACC).
+- Commit: `573e839` + `d9f739b` di `staging` (WapalaTUP saja); branch `host`
+  WapalaTUP dihapus; `staging` companion dihapus (arsip aman di
+  `import-packages`).
+- **Lampiran Perubahan 12 (koreksi cakupan):** revisi Cloudflare (dd4866b)
+  adalah push TERAKHIR ke staging lama sebelum ia diarsipkan sebagai
+  `import-packages`; staging baru tidak membawa pohon lama itu.
+- **Bekal sesi berikutnya:**
+  1. Server testing: `cd ~/wapala-setup && git fetch origin && git checkout -B staging origin/staging`
+     (origin = WapalaTUP)
+  2. Uji: `sudo bash host/wapala.sh` → Deploy ulang → *staging — build uji* →
+     verifikasi marker branch (`2) Status`) + realip Cloudflare
+     (`nginx -T | grep real_ip_header`)
+  3. Setelah ACC: merge `staging` → `main` (WapalaTUP), deploy production
+     (menu → main), mirror `main` ke companion.
 - `bash -n` semua script + template; typecheck; format:check (index LF);
   deteksi non-TTY teruji; deploy ulang live di VPS sukses (HEAD 0b9f2da);
   import album sukses (21 angkatan/22 album/150 media/129 foto) + backup
