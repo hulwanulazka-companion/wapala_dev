@@ -106,3 +106,128 @@ Format: tanggal, status (diagnosis/perbaikan), file yang disentuh, dan alasannya
 
 ---
 
+## 2026-10-16
+
+### Konteks sesi: branch deployment `host` + deployment produksi baru di InterServer
+User meminta branch khusus deployment, pembersihan repo, README tutorial, deploy
+otomatis, dan akhirnya deployment nyata. Hasil: branch `host` (kini development)
+di dua remote, `main` di WapalaTUP menjadi production, dan situs live di
+`https://wapala-test.my.id` (VPS InterServer KVM Slice 1, Ubuntu 24.04, 2 GB).
+
+### Perubahan 1 — Branch `host`: pembersihan fokus deployment
+- Dibuat dari `main` (4e73976). Dihapus: `tests/`, `docs/`, `.env.example`,
+  `prisma/seed.ts`, script dev (`backend-dev`, `local-postgres`, `backend-integration`,
+  `generate-invoice-preview`, `import-public-site`, `sync-*`, `release-linux/package`),
+  unit infra lama (`deploy/wapala.service`, email/loans timer, codex-sudo, service.sh,
+  release-readiness/memory-check).
+- `package.json`: script dev/test/di:local/db:seed dihapus; tambah `backup`,
+  `backup:restore-stage`. `prisma.config.ts`: seed + fallback `.local` dihapus.
+- `.gitattributes` baru (LF utk .sh/.yml/.conf). Folder `host/` dibuat.
+- Alasan: arahan user — branch hanya berisi kode deployment, tanpa hal gajelas.
+
+### Perubahan 2 — Deployment kit baru di `host/`
+- `host-provision.sh`: provisioning sekali idempoten — paket + Node 24 (NodeSource),
+  PostgreSQL dua role (`wapala` owner migrate, `wapala_app` runtime tanpa DDL),
+  user layanan `wapala` + user build non-root `builder`, env template 0600,
+  unit systemd, Nginx HTTP → certbot → HTTPS, timer maintenance; mode
+  `WAPALA_NAT_MODE=1` (port khusus provider, redirect publik 443 bersih) vs dedicated 80/443.
+- `host-deploy.sh`: clone release baru → npm ci + build (heap 512/768, serial) →
+  migrate (role owner) → grant ulang role runtime → symlink atomik → restart →
+  health check → rollback otomatis; prune release gagal sebelum build.
+- `wapala-host.service`: sandbox systemd penuh (ProtectSystem strict, kernel/devices/
+  syscalls dibatasi), release root-owned, writable hanya `.next/cache` + media.
+- `nginx-wapala.conf` / `nginx-wapala-nat.conf`: limit_req `/api/auth` + `/api/public`,
+  `client_max_body_size 60m`, `server_tokens off`, http2.
+- `clamdscan-wapala.sh` dipindah dari `deploy/`.
+
+### Perubahan 3 — GitHub Actions + Vercel
+- `.github/workflows/deploy-host.yml`: deploy SSH manual (workflow_dispatch), pinned
+  SHA checkout, `permissions: contents: read`, arg %q, fallback ssh-keyscan (TOFU) dihapus.
+- `.github/workflows/ci.yml`: gate typecheck + lint + `format:check` + build, trigger
+  push/PR ke `main` dan `host`.
+- `vercel.json`: `"git": {"deploymentEnabled": false}` — deploy git Vercel dimatikan
+  (repo terhubung Vercel tanpa env, selalu gagal; branch ini target VPS).
+- `linux-runtime.yml` dihapus (merujuk script yang tak ada di branch ini).
+
+### Perubahan 4 — Keamanan auth (commit 2c4ccff di `host`)
+- `security/throttle.ts`: helper lock login berkunci `login-lock:{email}:{ipDigest}`
+  (raw key agar bisa dihapus terpilih saat unlock).
+- `auth/login.ts`: 6× password salah → lock per (email, IP) 24 jam (423), TANPA
+  `requiresUnlock` permanen (kolom legacy tetap dibaca); sukses menghapus bucket.
+  Alasan: siapa pun yang tahu email admin tak bisa lagi mengunci akun permanen.
+- `auth/users.ts` (unlock/reset), `auth/recovery.ts` (completeRecovery/recoverSuperuser),
+  `sessions.ts` (changePassword): membersihkan lock via prefix.
+- `auth/sessions.ts`: `resolveSessionRecord` — select tanpa `passwordHash` + satu
+  query utk CSRF di `auth-handler.ts` (query ganda dihapus); `assertFreshRead`
+  tanpa `FOR UPDATE` untuk jalur baca (pool `max:5` tidak lagi antre di row lock).
+- `security/request-context.ts`: warn sekali per proses saat IP fallback `unknown`.
+
+### Perubahan 5 — Media & memori (commit e1ebf4f di `host`)
+- `api/media/[id]/route.ts` + `media/storage.ts`: serving via `createReadStream`
+  + ETag/304 (tanpa memuat file penuh / sha256 per request); `readMedia` bytes
+  + checksum tetap utk export; meta+auth via `readMediaMeta` (assertFreshRead).
+- `registerMedia`: scan file MENTAH di karantina SEBELUM decode sharp/pdfjs.
+- `mediaSlot` → semaphore per kelas (admin 2, public 1, antrean ala password.ts):
+  upload publik tak bisa lagi menahan upload admin.
+- `http/multipart.ts`: satu buffer tumbuh terbatas (puncak ~1x file, sebelumnya
+  chunk array + Buffer.concat ~3-4x).
+
+### Perubahan 6 — Maintenance & hardening (commit b6e258a di `host`)
+- `scripts/maintenance-prune.ts` + `npm run maintenance:prune`: bersihkan
+  SecurityThrottle, Session expired/revoked, PasswordResetToken — berdiri sendiri
+  (cleanup lama numpang `deliverOutbox` dan TIDAK PERNAH jalan saat `EMAIL_MODE=disabled`,
+  default provisioning).
+- `host/wapala-maintenance.service` + `.timer` (03:17 harian).
+- `host-deploy.sh` rewrite: build/migrate sebagai `builder` non-root (install script
+  deps tak pernah jalan sebagai root), parser env baris tanpa shell-eval (nilai `& $ '`
+  aman), `psql` via `PGPASSWORD` (password tidak di argv), prune awal, warning
+  expand/contract saat rollback, `npm_config_update_notifier=false`.
+
+### Perubahan 7 — Kebersihan (commit b0f7c8b di `host`)
+- `lib/media-url.ts`: `MEDIA_URL_PATTERN` UUID ketat + `parseMediaUrl` +
+  `mediaUrlSchema` — menggantikan 13 regex duplikat longgar `[a-f0-9-]{36}`.
+- Kode mati dihapus: `auth/preview-mode.ts` (0 importer), parameter
+  `_obsoleteVerifier` (public-form-handlers, event-public-handlers, public-forms).
+- Prettier: `.prettierrc`, `.prettierignore`, script `format`/`format:check`,
+  repo diformat sekali, `format:check` masuk CI. `tsconfig`/eslint: exclude
+  folder lokal `Vercel`, `tmp`, `output`, `.local`.
+
+### Perubahan 8 — Dokumentasi
+- `README.md` ditulis ulang: tutorial deploy (arsitektur, NAT vs dedicated,
+  penerjemahan panel provider → parameter, DNS, secrets, operasional, kapasitas,
+  keamanan, troubleshooting). Kini menyatakan `main` = production, `host` = development.
+- `host/deploy-walkthrough.md` (4e478da): walkthrough end-to-end deployment nyata
+  InterServer + hostdata/DirectAdmin — fix sudo non-root, keputusan nameserver,
+  A record DirectAdmin (nama lengkap, bukan `@`), provisioning idempoten + fix
+  APP_URL, ClamAV (mkdir libexec, StreamMaxLength 60M, uji EICAR), verifikasi SSL,
+  tabel jebakan nyata.
+- `npm_config_update_notifier=false` di deploy + CI (eadd6c9) — notice npm bersih.
+
+### Perubahan 9 — Remote & merge
+- Remote baru `wapala` = `https://github.com/WapalaTUP/website_wapala.git`; branch
+  `host` di-push ke dua remote (`wapala` + `origin`), README diarahkan ke WapalaTUP.
+- Merge `host` → `main` di WapalaTUP (d20a746): merge commit dua orang tua (main lama
+  era Vercel 502f889 + host), pohon akhir = pohon `host` (`read-tree --reset`) agar
+  warisan Vercel (README-VERCEL, .vercelignore, src/tests lama) tidak lolos; lanjutan
+  df7f738: badge/clone → `main`, `WAPALA_BRANCH` default `main`, CI dua branch.
+- `origin/main` (hulwanulazka-companion) tidak disentuh sesuai arahan user.
+
+### Perubahan 10 — Deployment produksi nyata (terverifikasi live)
+- VPS InterServer KVM Slice 1 (1 vCPU, 1.9 GB + 1 GB swap, Ubuntu 24.04), user non-root
+  `codex` (diberi sudo via usermod).
+- Domain `wapala-test.my.id` (hostdata/DirectAdmin): A record + CNAME www; delegasi
+  NS tetap hostdata (ns21-24); certbot Let's Encrypt sukses.
+- Deploy pertama sukses: `{"status":"ok"}` di `/api/health`; bootstrap Super User.
+- ClamAV dipasang: StreamMaxLength 60M, wrapper `/usr/local/libexec/clamdscan-wapala`,
+  `SupplementaryGroups=clamav`, uji EICAR exit=1, upload buku 50 MB via panel SUKSES.
+- RAM: available ~518 Mi dengan clamd jalan — ketat tapi sehat, tanpa OOM.
+
+### Verifikasi selama sesi
+- `npm run typecheck`, `npm run lint -- --max-warnings=0`, `npm run format:check`,
+  `bash -n` semua script — lulus di tiap commit.
+- CATATAN JUJUR: branch ini TIDAK punya test suite (dihapus dari `host`); verifikasi
+  runtime berupa smoke test manual di `wapala-test.my.id` (login, upload buku, health)
+  — disarankan uji alur kritis lain (lock/unlock, export, recovery) sebelum dipakai
+  produksi penuh. CI GitHub (typecheck+lint+format+build) berjalan per push.
+
+
