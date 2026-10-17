@@ -340,6 +340,61 @@ di dua remote, `main` di WapalaTUP menjadi production, dan situs live di
 - Commit di `staging` (WapalaTUP); `main` menyusul setelah ACC sesuai alur
   baru Perubahan 13.
 
+### Perubahan 16 — Manajemen tag + tag dinamis (permintaan user)
+- Sebelumnya tag hardcoded 6 nilai (enum di `lib/content-tags.ts`, zod
+  `z.enum(CONTENT_TAGS)`, chip filter iterasi konstanta).
+- **Registry tag di database**: model `Tag` (name/slug unique) + migration
+  additive `202610170001_content_tags` yang backfill tag dari
+  `ContentRecord.fields.tags` existing + kosakata bawaan. Isi tag konten
+  tetap di `fields.tags` (Json) — kompatibel penuh dengan data import.
+- Domain `server/domains/tags.ts`: list + usage count (jsonb), create,
+  rename (propagasi ke fields.tags + draftFields SEMUA konten, audited),
+  delete (lepas dari semua konten, audited) — gated `content:write`,
+  advisory lock konsisten dengan saveContent.
+- API: `/api/admin/tags` (GET/POST), `/api/admin/tags/[id]` (PATCH/DELETE).
+- UI: `backend/tag-picker.tsx` — `TagPicker` (checkbox dinamis + buat tag
+  inline) dan `TagManager` (tabel usage, rename, delete); dipakai editor
+  artikel + editor album; mode member = read-only tanpa create.
+- Public: chip filter Kabar/Announcement/Galeri kini dari daftar tag
+  terkelola (via `DemoState.contentTags` diisi `publicState` dari tabel
+  Tag; fallback `DEFAULT_CONTENT_TAGS` untuk mode demo).
+- `parseContentTags` dinamis (string apa pun ≤60 char, maks 12); zod konten
+  menerima tag terkelola apa pun.
+- Cakupan push: `staging` (WapalaTUP) saja — `main` menunggu ACC (alur
+  Perubahan 13).
+
+### Perubahan 17 — Perbaikan UI publik (laporan user + screenshot)
+- **Halaman divisi**: baris "Bahan pengenalan: <diktat>" dihapus (permintaan
+  eksplisit user); struktur topics tetap.
+- **Hero beranda**: rail preview tampil seperti potongan foto rusak —
+  kolom 44px full-height + sisa aturan flexbox lama. Redesign: kolom
+  thumbnail 88px (64px ≤1100px) dengan tinggi sama (grid rows), foto aktif
+  span penuh, penempatan grid ≥761px agar layout mobile ≤760px tak rusak.
+- **Pembaca buku**: reader.css hardcode warna terang — kini theme-aware
+  (variabel desain untuk navigation/thumbnail + stage gelap di dark mode);
+  canvas halaman tetap putih (kertas).
+- Verifikasi: typecheck, `lint --max-warnings=0`, prettier (commit-an
+  terverifikasi clean; alarm awal = artefak CRLF/encoding pengujian).
+- Commit: `db1f592` (tag management) + `0b111e3` (UI polish) di `staging`
+  (WapalaTUP); `main` menunggu ACC.
+- Deploy uji: menu Deploy ulang → *staging — build uji*; migration additive
+  `202610170001_content_tags` akan ter-apply otomatis (expand-safe).
+
+### Perubahan 16 — Review commit eksternal di `staging` (push langsung oleh user)
+- Dua commit baru di `staging` WapalaTUP oleh user (hulwanul.azkap@hashmicro.id),
+  di-review agent:
+  - `3f6f42e` — dirty baseline editor artikel: `useRef(JSON.stringify(...))`
+    → `useState(() => JSON.stringify(...))` (lazy init; versi lama
+    mengevaluasi stringify tiap render). Semantik dirty-check identik,
+    lebih efisien — **disetujui**.
+  - `d12112c` — `backups` masuk `.prettierignore` + eslint ignores: di
+    server, checkout memuat folder `backups/` berisi pg_dump/tar binary;
+    mencegah format/lint menyapunya — **disetujui** (selaras .gitignore).
+- Verifikasi: typecheck + lint lulus pada HEAD `d12112c`.
+- Catatan: commit ini dibuat/di-push user langsung (sesi lain); agent hanya
+  me-review dan mencatat, tanpa mengubah kode.
+- HEAD `staging` WapalaTUP = `d12112c` = HEAD lokal (sinkron).
+
 ### Perubahan 15 — AllowScripts allowlist untuk install script npm 12.x
 - User melaporkan warning `npm warn install-scripts` saat `npm ci` di npm
   12.x: 7 paket punya install script yang TIDAK dieksekusi karena belum
