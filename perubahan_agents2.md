@@ -419,6 +419,19 @@ di dua remote, `main` di WapalaTUP menjadi production, dan situs live di
   (`free -h`); scan EICAR via clamscan; unggahan tetap ditolak bila
   scanner tidak tersedia (fail-closed).
 
+### Perubahan 21 — ACC: rilis video + ClamAV on-demand masuk production
+- User memberi ACC → merge `staging` → `main` (fast-forward) + mirror
+  seluruh branch yang disepakati ke `ecd1936`:
+  - WapalaTUP: `main` ✓, `staging` ✓
+  - companion: `main` ✓, `host` (arsip, ff 13cf8c1 → ecd1936) ✓
+- Isi rilis: perluasan video (MP4/MOV/WebM/MKV; h264/hevc/vp9/av1; pesan
+  validasi spesifik) + ClamAV on-demand (tanpa daemon 24/7) + timeout
+  scanner naik.
+- Catatan deploy production: env `MEDIA_SCANNER` production masih
+  menunjuk wrapper clamd (tetap bekerja selama clamd hidup). Migrasi ke
+  clamscan on-demand di production = langkah manual (matikan clamd,
+  ubah env, restart) — kapan pun user mau, lihat `clamav_flow`.
+
 ### Perubahan 18 — Resource management deploy (kerja agents, di-commit agent utama)
 - Agents menambah upgrade besar di `host-deploy.sh` untuk VPS 2 GB
   (uncommitted di working tree; di-review lalu di-commit `d1c43fb`):
