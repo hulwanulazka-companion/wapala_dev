@@ -380,6 +380,45 @@ di dua remote, `main` di WapalaTUP menjadi production, dan situs live di
 - Deploy uji: menu Deploy ulang → *staging — build uji*; migration additive
   `202610170001_content_tags` akan ter-apply otomatis (expand-safe).
 
+### Perubahan 20 — Perluasan video + ClamAV on-demand (keputusan user)
+- **User request:** perluas ekstensi/codec video (50 MB/1080p tetap ok,
+  4K tak akan tersentuh); ClamAV hemat RAM — pilihan user: **Opsi A
+  clamscan on-demand** (tanpa daemon 24/7) + pesan error spesifik TANPA
+  hint UI.
+- **Video validation** (`server/media/validation.ts`):
+  - Container: `video/mp4`, `video/quicktime` (.mov iPhone), `video/webm`,
+    `video/x-matroska` (.mkv). Framing kondisional — ISO BMFF box walk
+    (mp4/mov) vs magic EBML `1A45DFA3` (webm/mkv); ffprobe tetap hakim.
+  - Codec: h264, hevc, **vp9, av1**. Catatan playback: H.264 paling aman.
+  - `mediaPath`/storage/extension union + `mov/webm/mkv`; media tersimpan
+    dengan container ASLI (bukan dipaksakan mp4).
+  - **Pesan error spesifik per kriteria** (container/struktur/durasi/
+    stream/codec/resolusi) — catch lama menelan DomainError spesifik,
+    kini di-rethrow.
+  - Batas tetap: 50 MB, ≤20 menit, ≤4K, 1 video stream.
+  - `album-editor.tsx`: accept attr + daftar MIME + 50 MB semua video.
+- **ClamAV on-demand** (provision + wapala.sh clamav_flow + scanner.ts):
+  - Pasang `clamav` + `clamav-freshclam` TANPA daemon; env
+    `MEDIA_SCANNER=clamscan` (default aplikasi); tanpa wrapper clamd +
+    tanpa SupplementaryGroups (tidak ada socket clamd).
+  - scanner.ts timeout: 45s → **120s** per file, 180s → **300s**
+    recursive (clamscan memuat DB per panggilan).
+  - RAM: idle lega (0 daemon); spike ~1-1.5 GB hanya saat scan unggahan
+    (jarang, swap menampung). Tetap fail-closed. freshclam timer tetap.
+  - Migrasi server existing (InterServer, masih clamd): matikan
+    `clamav-daemon`, ubah `MEDIA_SCANNER=clamscan`, restart — tertulis
+    juga di `clamav_flow` (deteksi clamdscan → tampilkan langkah).
+- **Insiden proses (dibenahi):** commit salah landas di branch lokal
+  `main-merge` (checkout staging ternyata dieksekusi di worktree Agents,
+  mengunci branch staging di sana) — dipindah ke `staging` (ff), worktree
+  Agents dikembalikan ke branch `Agents`, `main-merge` di-reset ke
+  remote. TIDAK ada push ke main (per alur ACC).
+- Verifikasi: typecheck, lint --max-warnings=0, bash -n, prettier-clean.
+- Commit `ecd1936` di `staging` (WapalaTUP); `main` menunggu ACC.
+- Uji di VPS: upload .mov/.webm → validasi baru; RAM idle tanpa clamd
+  (`free -h`); scan EICAR via clamscan; unggahan tetap ditolak bila
+  scanner tidak tersedia (fail-closed).
+
 ### Perubahan 18 — Resource management deploy (kerja agents, di-commit agent utama)
 - Agents menambah upgrade besar di `host-deploy.sh` untuk VPS 2 GB
   (uncommitted di working tree; di-review lalu di-commit `d1c43fb`):
