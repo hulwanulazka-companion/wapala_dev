@@ -408,6 +408,20 @@ di dua remote, `main` di WapalaTUP menjadi production, dan situs live di
   1 fail lokal) divalidasi di server testing.
 - Commit `d1c43fb` di `staging` (WapalaTUP); `main` menunggu ACC.
 
+### Perubahan 19 — ACC: staging di-merge ke main + mirror (keputusan user)
+- User memberi ACC → merge `staging` → `main` (fast-forward) di WapalaTUP,
+  lalu mirror `main` ke akun companion. Kedua `main` kini di `d1c43fb`.
+- Isi rilis produksi baru: manajemen tag + tag dinamis, polish UI publik
+  (divisi/hero/reader), cohort member (migration additive), resource
+  management deploy (pause layanan saat build + gate RAM + flock),
+  perbaikan data-reset/throttle, dukungan video album.
+- Migration produksi yang akan ter-apply saat deploy berikutnya (semua
+  additive, terverifikasi): `202610170001_content_tags`,
+  `202610170001_editorial_workflow`, `202610180001_loan_equipment_identity`,
+  `202610180002_member_wapala_cohort`.
+- Deploy production berikutnya: server → `sudo bash host/wapala.sh` →
+  Deploy ulang → *main — production* (deploy script clone main + migrate).
+
 ### Perubahan 16 — Review commit eksternal di `staging` (push langsung oleh user)
 - Dua commit baru di `staging` WapalaTUP oleh user (hulwanul.azkap@hashmicro.id),
   di-review agent:
