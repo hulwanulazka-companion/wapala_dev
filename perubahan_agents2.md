@@ -380,6 +380,34 @@ di dua remote, `main` di WapalaTUP menjadi production, dan situs live di
 - Deploy uji: menu Deploy ulang → *staging — build uji*; migration additive
   `202610170001_content_tags` akan ter-apply otomatis (expand-safe).
 
+### Perubahan 18 — Resource management deploy (kerja agents, di-commit agent utama)
+- Agents menambah upgrade besar di `host-deploy.sh` untuk VPS 2 GB
+  (uncommitted di working tree; di-review lalu di-commit `d1c43fb`):
+  - **Pause layanan latar saat build** (clamav-daemon/freshclam, timer
+    email+maintenance) — membebaskan ~1.5 GB RAM saat build; snapshot
+    unit DITULIS dulu ke state file sebelum stop agar pulih setelah
+    OOM/SIGKILL/reboot.
+  - **Restore di semua jalur keluar** (sukses, skip-restart, trap
+    EXIT/INT/TERM/HUP) urutan terbalik; guard state tertinggal menolak
+    deploy baru; `flock` mencegah deploy paralel.
+  - **Gate MemAvailable** (`WAPALA_MIN_BUILD_AVAILABLE_MB`, default 1024)
+    sebelum npm ci dan next build.
+  - Env baru: `WAPALA_PAUSE_BACKGROUND` (default 1),
+    `WAPALA_MIN_BUILD_AVAILABLE_MB`.
+  - `docs/deploy-memory.md` + harness terisolasi
+    `host/test-deploy-resources.sh` (bash murni, tidak dijalankan lokal —
+    sesuai arahan user bahwa pengujian lokal tidak 1:1).
+- Review: wiring benar (pause → gate → build → restore di semua jalur),
+  snapshot-sebelum-stop + daftar gagal persisten = pola pemulihan solid.
+- Sertakan: `eslint.config.mjs` ignore `^_` (untuk destructure cohort
+  agents + placeholder masa depan), `album-video.test.ts` ffprobe 4.4
+  side-data, walkthrough +2.
+- Verifikasi: `bash -n` (deploy + harness), lint --max-warnings=0.
+  Pengujian unit lokal TIDAK dijalankan lebih lanjut (arahan user: env
+  lokal tidak 1:1 dengan server). Test suite agents (6 file, 38 pass/
+  1 fail lokal) divalidasi di server testing.
+- Commit `d1c43fb` di `staging` (WapalaTUP); `main` menunggu ACC.
+
 ### Perubahan 16 — Review commit eksternal di `staging` (push langsung oleh user)
 - Dua commit baru di `staging` WapalaTUP oleh user (hulwanul.azkap@hashmicro.id),
   di-review agent:
